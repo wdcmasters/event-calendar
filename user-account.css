@@ -1,0 +1,70 @@
+/* override blue background from homepage file */
+body {
+    background-color: white;
+}
+
+/* dropdown menu on top right for settings */
+.settings {
+    display: none;
+    background-color: white;
+    width: 200px;
+
+    /* bring dropdown links forward */
+    position: absolute;
+    z-index: 1;
+}
+
+/* settings links */
+.settings a {
+    display: block; /* make links take up whole width */
+    text-align: left;
+    padding: 30px 20px 30px 20px;
+    font-family: "Tahoma", sans-serif;
+}
+
+/* bold the options when hovering over the dropdown links */
+.settings a:hover {
+    font-weight: 700;
+}
+
+/* display dropdown settings on hover over profile button */
+.settings-dropdown:hover .settings {
+    display: block;
+}
+
+/* -------------------- SIDEBAR + CONTENT -------------------------- */
+.sidebar {
+    width: 300px;
+}
+
+/* style of sidebar links */
+.sidebar a {
+    display: block;
+    padding: 100px 20px 30px 20px;
+    font-family: "Tahoma", sans-serif;
+    font-size: 20px;
+    text-align: right;
+}
+
+/* bold options when hovered */
+.sidebar a:hover {
+    font-weight: 700;
+}
+
+/* colour text blue for current page - use higher specificity to override the hover style */
+.sidebar a.current-page {
+    color: blue;
+}
+
+.icon-menu {
+    display: flex;
+    justify-content: right;
+}
+
+.icon-menu-padding {
+    padding-top: 90px;
+}
+
+.content-with-menu {
+    margin-left: 310px;
+}
