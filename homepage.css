@@ -1,96 +1,10 @@
-html {
-    height: 100%;
-    margin: 0;
-}
-
 body {
-    /*background-image: url("home bg 2.png");
-    height: 100%;
-    background-size: cover;
-    background-repeat: no-repeat;*/
-
     /* remove default margin and paddings so they don't affect style of header */
     margin: 0;
     padding: 0;
     font-family: "Tahoma", sans-serif;
     background-color: blue;
 }
-
-
-/* ------------------ HEADER ELEMENTS -------------------------*/
-header {
-    background-color: white;
-    display: flex;
-    justify-content: space-between;
-    padding-left: 80px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    padding-right: 100px;
-
-}
-
-/* text of home logo on top left */
-#home-btn {
-    font-family: "Helvetica", sans-serif;
-    font-size: 40px;
-    color: blue;
-}
-
-/* styles for links - removes underlines and makes them black */
-.link-black {
-    text-decoration: none;
-    color: black;
-}
-
-.link-black:visited {
-    text-decoration: none;
-    color: black;
-}
-
-.top-right-menu {
-    float: right;
-
-    /* align two buttons side by side */
-    display: flex;
-    justify-content: space-between;
-
-    width: 25%; /* to provide space between buttons */
-    padding-top: 0px; /* adds additional padding on top to align buttons properly */
-}
-
-.menu-btn {
-    font-family: "Tahoma";
-    font-size: 20px;
-}
-
-/* push sign up link towards bottom a little bit to align with logo and log in button */
-.menu-div {
-    padding-top: 10px;
-}
-
-.menu-btn:hover {
-    color: blue;
-}
-
-.blue-btn {
-    font-size: 18px;
-    font-family: "Tahoma", sans-serif;
-    color: white;
-    background-color: blue;
-
-    width: 150px;
-    height: 50px;
-
-    border: none;
-    border-radius: 25px;
-    cursor: pointer;
-}
-
-.blue-btn:hover {
-    background-color: black;
-    color: white;
-}
-
 
 /*---------- HEADING AND DESCRIPTION ----------*/
 section {
@@ -139,4 +53,3 @@ section {
     background-color: black;
     color: white;
 }
-

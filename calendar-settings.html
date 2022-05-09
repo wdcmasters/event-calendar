@@ -3,7 +3,7 @@
     <head>
         <title>User Account Settings</title>
         <meta charset="UTF-8">
-        <link rel="stylesheet" href="user-account.css"> <!--link to get header format-->
+        <link rel="stylesheet" href="user-account.css"> <!--link to get settings format-->
         <link rel="stylesheet" href="template.css"> <!--link to get header format-->
         <script src="https://kit.fontawesome.com/2dc2f1fbdb.js" crossorigin="anonymous"></script>
     </head>
@@ -41,28 +41,20 @@
             <div class="main-container">
 
                 <aside class="sidebar">
-                    <a href="user-account.html" class="current-page"><i class="fa-solid fa-user fa-2x"></i> Account Settings</a>
-                    <a href="#calendar-settings"><i class="fa-solid fa-calendar-days fa-2x icon-menu-padding"></i> Calendar Settings</a>
+                    <a href="user-account.html"><i class="fa-solid fa-user fa-2x"></i> Account Settings</a>
+                    <a href="#calendar-settings" class="current-page"><i class="fa-solid fa-calendar-days fa-2x icon-menu-padding"></i> Calendar Settings</a>
                 </aside>
 
                 <div class="main-body">
-                    <h1 class="light-h1">Account Settings</h1>
-                    <h3>User Details</h3>
-                    <form>
-                        <label for="firstname">First Name</label><br />
-                        <input type="text" id="firstname" name="firstname"><br><br>
-                        <label for="lastname">Surname</label><br />
-                        <input type="text" id="lastname" name="lastname"><br><br>
-                        <input type="submit" value="Save" class="small-blue-btn"><br><br>
-                    </form>
+                    <h1 class="light-h1">Calendar Settings</h1>
 
-                    <h3>Email</h3>
+                    <h3>Calendar Account</h3>
                     <p>janedoe@gmail.com</p>
-                    <button type="button" class="small-blue-btn">Change email address</button><br><br>
+                    <button type="button" class="small-blue-btn">Change Calendar Account</button><br><br>
 
-                    <h3>Password</h3>
-                    <p>*************</p>
-                    <button type="button" class="small-blue-btn">Change password</button><br><br>
+                    <h3>Availability Calendar</h3>
+                    <p>Events</p>
+                    <button type="button" class="small-blue-btn">Change Calendar</button><br><br>
 
                 </div>
 
