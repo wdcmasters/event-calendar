@@ -33,38 +33,42 @@ body {
 }
 
 /* -------------------- SIDEBAR + CONTENT -------------------------- */
+
 .sidebar {
+    height: 100%;
     width: 300px;
+    padding-top: 100px;
 }
 
-/* style of sidebar links */
 .sidebar a {
     display: block;
-    padding: 100px 20px 30px 20px;
-    font-family: "Tahoma", sans-serif;
-    font-size: 20px;
-    text-align: right;
+    padding: 10px 6px 30px 6px;
+    text-decoration: none;
+    font-size: 16px;
+    color: black;
 }
 
-/* bold options when hovered */
 .sidebar a:hover {
     font-weight: 700;
 }
 
-/* colour text blue for current page - use higher specificity to override the hover style */
 .sidebar a.current-page {
     color: blue;
 }
 
-.icon-menu {
+.content-section {
     display: flex;
-    justify-content: right;
+    justify-content: center;
 }
 
-.icon-menu-padding {
-    padding-top: 90px;
+.main-container {
+    display: flex;
+    justify-content: center;
+    width: 1000px;
 }
 
-.content-with-menu {
-    margin-left: 310px;
+.main-body {
+    text-align: left;
+    width: 500px;
 }
+
