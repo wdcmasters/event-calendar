@@ -1,0 +1,42 @@
+body {
+    /* margin: 30px auto;  */
+    margin: 15px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+input[type=text] {
+    width: 75%;
+    padding: 10px; /* adds space inside text field */
+    border: 1px solid #ccc; /* Grey border */
+    border-radius: 3px; /*rounded borders  */
+    margin-top: 5px;
+    /* box-sizing: border-box; Make sure that padding and width are included in total width/height and stays in place */
+}
+/* create event button */
+input[type=submit] {
+    width:15%;
+    background-color: #007fff;
+    font-size: medium;
+    color:white;
+    padding: 15px; /* adds space inside text field */
+    border: none;
+    border-radius: 5px; /*rounded borders  */
+    cursor: pointer;
+}
+
+#label-eventname {
+    margin-bottom: 10px;
+}
+
+
+#label-address {
+    margin-top: 5px;
+    margin-bottom: 15px;
+}
+
+#label-date {
+    margin-bottom: 25px;
+}
+
+
+
