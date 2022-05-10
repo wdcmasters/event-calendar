@@ -1,0 +1,175 @@
+/*Header elements*/
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin:0;
+    font-family: Tahoma, sans-serif;
+}
+
+.header {
+    background-color: #283593; /*Search for material design colors */
+    color: white;
+    display: flex;
+    justify-content: space-between; /*Spaces elements evenly*/
+    align-items: center; /*Controls the vertical alignment*/
+    padding: 2% 4%;
+    flex-wrap: wrap;
+    border-bottom: 2cm;
+    border-color: aqua;
+    border-width: 20px;
+}
+
+.nav {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.nav li {
+    margin-left: 20px;
+}
+
+.nav a {
+    color: white;
+    text-decoration: none;
+}
+
+.nav a:hover {
+    display: block;
+    color: rgb(145, 145, 206);
+    transform: scale(1.05);
+    transition: all 0.15s ease-out; /*These tags seem very useful */
+}
+
+/* Content element */
+.content {
+    margin-left: 25%;
+    margin-right: 25%;
+}
+
+.content h1 {
+    text-align: center;
+    text-decoration: underline;
+    padding: 2em 1em 0.5em 1em;
+    font-size: xx-large;
+    border-color: #283593;
+    border-width: 0.2em;
+}
+
+.buttons {
+    display: flex;
+    gap: 1.5em;
+    justify-content: center;
+}
+
+.buttons button {
+    padding: 1em 3em;
+    color: #283593;
+    font-size:1.5vw;
+    background-color: #ffffff;
+    border-color: #283593;
+    border-width: 0.2em;
+    border-radius: 10px;
+    width: 100%;
+    font-family: Tahoma;
+}
+
+.buttons button:hover {
+    background-color:#384397;
+    color:#ffffff;
+    font-weight: bold;
+
+
+}
+
+/* The dashboard */
+.dashboard {
+    padding-bottom: 60px;
+
+}
+.ongoing {
+    text-align: center;
+    padding-top: 0.2em;
+    background-color: #283593;
+    border: 200px;
+    /* margin-left: 30%;
+    margin-right: 30%; */
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    margin-top: 20px;
+    margin-bottom: 0px;
+}
+
+.ongoing h2 {
+    color: white;
+    padding-bottom: 30px;
+    font-size: xx-large;
+    margin-bottom: 0px;
+}
+
+/* Events */
+
+#events {
+    background-color: #b6b8ca;
+    margin-top: 0px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.event {
+    display: flex;
+    flex-direction: row;
+/*Always on the main axis */
+    margin-left: 5%;
+    margin-right: 5%;
+    background-color: grey;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    padding-left: 40px;
+    padding-right: 10px;
+    align-content: center;
+}
+
+.date {
+    margin: 0;
+    padding: 0;
+    font-size: 2em;
+}
+
+.time {
+    margin: 0;
+    padding: 0;
+    font-size: 1.5em;
+}
+
+.eventName {
+    font-size: 3em;
+    margin: 0;
+    padding: 0;
+}
+
+.eventLocation {
+    margin: 0;
+    padding: 0;
+}
+
+.dateTime {
+    margin: 0;
+    padding: 0;
+    align-self: left;
+}
+
+.nameLocale {
+    align-self: center;
+    padding-top: 0px;
+    margin-top: 0px;
+    margin-left: 50px;
+}
