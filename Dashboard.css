@@ -194,6 +194,8 @@ body {
 #viewMore {
     margin-top: 30px;
     text-align: center;
+    font-weight: bold;
+    font-decoration: none;
 }
 
 #viewMore a:active {
