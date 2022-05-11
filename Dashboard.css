@@ -96,7 +96,7 @@ body {
 .ongoing {
     text-align: center;
     padding-top: 0.2em;
-    background-color: #283593;
+    background-color: blue;
     border: 200px;
     /* margin-left: 30%;
     margin-right: 30%; */
@@ -111,6 +111,7 @@ body {
     padding-bottom: 30px;
     font-size: xx-large;
     margin-bottom: 0px;
+    font-weight: normal;
 }
 
 /* Events */
