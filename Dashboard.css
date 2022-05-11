@@ -194,7 +194,6 @@ body {
     margin-top: 30px;
     text-align: center;
     font-weight: bold;
-    font-decoration: none;
 }
 
 #viewMore a:active {
@@ -202,7 +201,7 @@ body {
 }
 
 #viewmore a:visited {
-    color:black;s
+    color:black;
 }
 
 /* Events search field  */
