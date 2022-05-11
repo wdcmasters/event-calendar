@@ -117,7 +117,7 @@ body {
 /* Events */
 
 #events {
-    background-color: #b6b8ca;
+    background-color: grey;
     margin-top: 0px;
     padding-top: 20px;
     padding-bottom: 20px;
@@ -131,8 +131,8 @@ body {
 /*Always on the main axis */
     margin-left: 5%;
     margin-right: 5%;
-    background-color: grey;
-    color: white;
+    background-color: white;
+    color: black;
     padding: 10px;
     border-radius: 10px;
     margin-bottom: 15px;
