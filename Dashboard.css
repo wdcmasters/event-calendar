@@ -9,42 +9,6 @@ body {
     font-family: Tahoma, sans-serif;
 }
 
-.header {
-    background-color: #283593; /*Search for material design colors */
-    color: white;
-    display: flex;
-    justify-content: space-between; /*Spaces elements evenly*/
-    align-items: center; /*Controls the vertical alignment*/
-    padding: 2% 4%;
-    flex-wrap: wrap;
-    border-bottom: 2cm;
-    border-color: aqua;
-    border-width: 20px;
-}
-
-.nav {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-}
-
-.nav li {
-    margin-left: 20px;
-}
-
-.nav a {
-    color: white;
-    text-decoration: none;
-}
-
-.nav a:hover {
-    display: block;
-    color: rgb(145, 145, 206);
-    transform: scale(1.05);
-    transition: all 0.15s ease-out; /*These tags seem very useful */
-}
-
 /* Content element */
 .content {
     margin-left: 27%;
