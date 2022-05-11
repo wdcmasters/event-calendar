@@ -3,9 +3,12 @@
     <head>
         <title>User Account Settings</title>
         <meta charset="UTF-8">
-        <link rel="stylesheet" href="user-account.css"> <!--link to get header format-->
-        <link rel="stylesheet" href="template.css"> <!--link to get header format-->
+        <link rel="stylesheet" href="settings.css"> <!--link to get specific elements for settings pages-->
+        <link rel="stylesheet" href="header.css"> <!--link to get header format-->
+        <link rel="stylesheet" href="buttons.css"> <!--link to get buttons format-->
         <script src="https://kit.fontawesome.com/2dc2f1fbdb.js" crossorigin="anonymous"></script>
+        <script src="settings.js"></script>
+
     </head>
     <body>
         <!--Header contains logo on top left, link to user dashboard and profile picture on top right-->
@@ -22,14 +25,16 @@
                     <a href="#user-dashboard" class="link-black menu-btn">Home</a>
                 </div>
                 <div class="settings-dropdown">
-                    <button type="button" class="blue-btn">Flindy
+                    <button type="button" class="blue-btn">Jane Doe
                         <i class="fa fa-caret-down"></i> <!-- shows dropdown icon -->
                     </button>
+
                     <!-- settings to be shown from dropdown menu -->
                     <div class="settings">
                         <a href="user-account.html" class="link-black">Account Settings</a>
-                        <a href="calendar-settings.html" class="link-black">Calendar Settings</a>
+                        <a href="email-settings.html" class="link-black">Email Settings</a>
                     </div>
+
                 </div>
             </div>
 
@@ -37,16 +42,19 @@
         <hr />
 
         <div class="content-section">
-
             <div class="main-container">
 
+                <!--Sidebar-->
                 <aside class="sidebar">
                     <a href="user-account.html" class="current-page"><i class="fa-solid fa-user fa-2x"></i> Account Settings</a>
-                    <a href="#calendar-settings"><i class="fa-solid fa-calendar-days fa-2x icon-menu-padding"></i> Calendar Settings</a>
+                    <a href="email-settings.html"><i class="fa-solid fa-envelope fa-2x"></i> Email Settings</a>
                 </aside>
 
+                <!--Content besides sidebar-->
                 <div class="main-body">
                     <h1 class="light-h1">Account Settings</h1>
+
+                    <!-- USER DETAILS -->
                     <h3>User Details</h3>
                     <form>
                         <label for="firstname">First Name</label><br />
@@ -56,13 +64,64 @@
                         <input type="submit" value="Save" class="small-blue-btn"><br><br>
                     </form>
 
+                    <!--EMAIL-->
                     <h3>Email</h3>
                     <p>janedoe@gmail.com</p>
-                    <button type="button" class="small-blue-btn">Change email address</button><br><br>
+                    <button type="button" class="small-blue-btn" id="change-email-btn" onclick="showEmailChange()">Change email address</button><br><br>
 
+                    <!--The popup email container-->
+                    <div class="popup" id="email-container">
+                        <!--popup content-->
+                        <form class="popup-content">
+
+                            <!--ask user to enter new email address-->
+                            <h3>Change Email</h3>
+                            <label for="new-email">New Email Address</label><br />
+                            <input type="text" id="new-email" name="new-email"><br><br>
+
+                            <!--ask user to enter current password-->
+                            <label for="current-pwd">Current Password</label><br />
+                            <input type="password" id="current-pwd" name="current-pwd"><br><br>
+
+                            <!--container for cancel and save buttons-->
+                            <div class="cancel-save">
+                                <button type="button" class="white-btn" onclick="hidePopup()">Cancel</button><br><br>
+                                <input type="submit" value="Save" class="small-blue-btn"><br><br>
+                            </div>
+                        </form>
+
+                    </div>
+
+                    <!--PASSWORD-->
                     <h3>Password</h3>
                     <p>*************</p>
-                    <button type="button" class="small-blue-btn">Change password</button><br><br>
+                    <button type="button" class="small-blue-btn" id="change-password-btn" onclick="showPasswordChange()">Change password</button><br><br>
+
+                    <!--The popup password container-->
+                    <div class="popup" id="password-container">
+                        <!--popup content-->
+                        <form class="popup-content">
+
+                            <!--ask user to enter current password-->
+                            <h3>Change Password</h3>
+                            <label for="current-pwd2">Current Password</label><br />
+                            <input type="password" id="current-pwd2" name="current-pwd2"><br><br>
+
+                            <!--ask user to enter new password-->
+                            <label for="new-pwd">New Password</label><br />
+                            <input type="password" id="new-pwd" name="new-pwd"><br><br>
+
+                            <!--ask user to enter new password again-->
+                            <label for="new-pwd-again">Enter New Password Again</label><br />
+                            <input type="password" id="new-pwd-again" name="new-pwd-again"><br><br>
+
+                            <div class="cancel-save">
+                                <button type="button" class="white-btn" onclick="hidePopup()">Cancel</button><br><br>
+                                <input type="submit" value="Save" class="small-blue-btn"><br><br>
+                            </div>
+                        </form>
+
+                    </div>
 
                 </div>
 

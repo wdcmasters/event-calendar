@@ -36,7 +36,7 @@ section {
     padding-top: 30px;
 }
 
-.white-btn {
+.big-white-btn {
     font-size: 24px;
     font-family: "Tahoma", sans-serif;
     color: blue;
@@ -49,7 +49,7 @@ section {
     cursor: pointer;
 }
 
-.white-btn:hover {
+.big-white-btn:hover {
     background-color: black;
     color: white;
 }
