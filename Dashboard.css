@@ -115,7 +115,6 @@ body {
 }
 
 /* Events */
-
 #events {
     background-color: grey;
     margin-top: 0px;
@@ -188,7 +187,14 @@ body {
     font-family: "Tahoma", sans-serif;
 }
 
+/* Events search field  */
+#searchField {
+    display: flex;
+    justify-content: centre;
+}
+
 /* Icons  */
-#fa-solid, #fa-magnifying-glass {
+.fa-solid.fa-magnifying-glass {
     color: white;
+    font-size: 1.6em;
 }
