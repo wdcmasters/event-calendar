@@ -7,69 +7,63 @@
     <script src="https://kit.fontawesome.com/2dc2f1fbdb.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="Dashboard.css" />
     <link rel="stylesheet" type="text/css" href="template.css" />
+    <link rel="stylesheet" type="text/css" href="user-account.css" />
     <title>Dashboard</title>
 </head>
 <body>
-    <div class="main"> <!-- MAIN DIV-->
-        <!--Header contains logo on top left, link to user dashboard and profile picture on top right-->
-        <header>
-
-            <!--Logo/website name-->
-            <div>
-                <a href="index.html" id="home-btn" class="link-black" title="Home">EventCal</a>
+<!--Header contains logo on top left, link to user dashboard and profile picture on top right-->
+<header>
+    <!--Logo/website name-->
+    <div>
+        <a href="index.html" id="home-btn" class="link-black" title="Home">EventCal</a>
+    </div>
+    <!--container for links to Home and Profile settings-->
+    <div class="top-right-menu">
+        <div class="menu-div">
+            <a href="#user-dashboard" class="link-black menu-btn">Home</a>
+        </div>
+        <div class="settings-dropdown">
+            <button type="button" class="blue-btn">Flindy
+                <i class="fa fa-caret-down"></i> <!-- shows dropdown icon -->
+            </button>
+            <!-- settings to be shown from dropdown menu -->
+            <div class="settings">
+                <a href="user-account.html" class="link-black">Account Settings</a>
+                <a href="calendar-settings.html" class="link-black">Calendar Settings</a>
             </div>
+        </div>
+    </div>
+</header>
+<hr />
 
-            <!--container for links to Home and Profile settings-->
-            <div class="top-right-menu">
-                <div class="menu-div">
-                    <a href="#user-dashboard" class="link-black menu-btn">Home</a>
-                </div>
-                <div class="settings-dropdown">
-                    <button type="button" class="blue-btn">Flindy
-                        <i class="fa fa-caret-down"></i> <!-- shows dropdown icon -->
-                    </button>
-                    <!-- settings to be shown from dropdown menu -->
-                    <div class="settings">
-                        <a href="user-account.html" class="link-black">Account Settings</a>
-                        <a href="calendar-settings.html" class="link-black">Calendar Settings</a>
-                    </div>
-                </div>
-            </div>
-        </header>
-        <hr />
-                <!-- Page content -->
-                <div class="content">
-                    <h1> Dashboard </h1>
-                    <div class="buttons">
-                        <button> Create Event </button>
-                        <button> Join Event </button>
-                    </div>
-
-                    <!-- The dashboard itself-->
-                    <div class="dashboard">
-                        <div class="ongoing">
-                            <h2>Ongoing Events</h2>
-                        </div>
-
-                        <!-- Events container -->
-                        <div id="events">
-                            <div class="event">
-                                <div class="dateTime">
-                                    <p class="date"> 09/24 </p>
-                                    <p class="time"> 5:13pm </p>
-                                </div>
-                                <div class="nameLocale">
-                                    <h3 class="eventName"> Tennis Squad </h3>
-                                    <p class="eventLocation"> Adelaide, Australia </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-
+        <!-- Page content -->
+<div class="content">
+    <h1> Dashboard </h1>
+    <div class="buttons">
+        <button> Create Event </button>
+        <button> Join Event </button>
     </div>
 
+    <!-- The dashboard itself-->
+    <div class="dashboard">
+        <div class="ongoing">
+            <h2>Ongoing Events</h2>
+        </div>
+
+        <!-- Events container -->
+        <div id="events">
+            <div class="event">
+                <div class="dateTime">
+                    <p class="date"> 09/24 </p>
+                    <p class="time"> 5:13pm </p>
+                </div>
+                <div class="nameLocale">
+                    <h3 class="eventName"> Tennis Squad </h3>
+                    <p class="eventLocation"> Adelaide, Australia </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>
