@@ -41,7 +41,7 @@
     <h1> Dashboard </h1>
     <div class="buttons">
         <button type="button"><i class="fa-solid fa-plus"></i> Create Event </button>
-        <button><i class="fa-solid fa-link"></i> Join Event </button>
+        <button type="button"><i class="fa-solid fa-link"></i> Join Event </button>
     </div>
 
     <!-- The dashboard itself-->
@@ -55,6 +55,7 @@
             <div id="searchField">
                 <i class="fa-solid fa-magnifying-glass"></i>
                 <input type="text" id="dashboardSearch" name="search" placeholder="Find an event">
+                <i class="fa-solid fa-filter"></i>
             </div>
             <br><br>
             <div class="event">
@@ -63,7 +64,7 @@
                     <p class="time"><i class="fa-solid fa-clock"></i> 5:13pm </p>
                 </div>
                 <div class="nameLocale">
-                    <h3 class="eventName"> Tennis Squad </h3>
+                    <h3 class="eventName"><a href="Dashboard.html"> Tennis Squad </a></h3>
                     <p class="eventLocation"> <i class="fa-solid fa-location-pin"></i> Adelaide, Australia </p>
                 </div>
             </div>
@@ -73,10 +74,11 @@
                     <p class="time"><i class="fa-solid fa-clock"></i> 5:13pm </p>
                 </div>
                 <div class="nameLocale">
-                    <h3 class="eventName"> Birthday Catchup </h3>
+                    <h3 class="eventName"><a href="Dashboard.html"> Birthday Catchup </a></h3>
                     <p class="eventLocation"> <i class="fa-solid fa-location-pin"></i> 366 Main Road, Adelaide </p>
                 </div>
             </div>
+            <p id="viewMore"><a href="Dashboard.html"> View More <i class="fa-solid fa-caret-down"></i></a></p>
         </div>
     </div>
 </div>

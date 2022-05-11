@@ -53,13 +53,17 @@ body {
 
 .content h1 {
     text-align: left;
-    text-decoration: underline;
-    padding: 2em 0.5em 0.2em 0.1em;
+    /* text-decoration: underline; */
+    padding: 2em 0.5em 0.5em 0.1em;
     font-size: xxx-large;
     border-color: #283593;
     border-width: 0.2em;
     font-family: Tahoma;
     font-weight: normal;
+}
+
+.content a:visited {
+    color: black;
 }
 
 .buttons {
@@ -84,8 +88,7 @@ body {
     background-color: blue;
     color:#ffffff;
     font-weight: bold;
-
-
+    cursor: pointer;
 }
 
 /* The dashboard */
@@ -116,7 +119,7 @@ body {
 
 /* Events */
 #events {
-    background-color: grey;
+    background-color: #cfcfcf;
     margin-top: 0px;
     padding-top: 20px;
     padding-bottom: 20px;
@@ -181,22 +184,47 @@ body {
 #dashboardSearch, input[type=text] {
     width: 65%;
     padding: 10px;
-    margin-top: 5px;
+    margin-top: 10px;
     border-radius: 12px;
-    border: 1px solid;
+    border: 3px solid;
     font-family: "Tahoma", sans-serif;
+}
+
+#viewMore {
+    margin-top: 30px;
+    text-align: center;
+    font-weight: bold;
+    font-decoration: none;
+}
+
+#viewMore a:active {
+    color: black;
+}
+
+#viewmore a:visited {
+    color:black;s
 }
 
 /* Events search field  */
 #searchField {
     display: flex;
-    justify-content: centre;
+    justify-content: center;
+    margin-right: 10px;
+    /* justify-content: center; */
     gap: 1.5em;
-    align-items: centre;
 }
 
 /* Icons  */
 .fa-solid.fa-magnifying-glass {
-    color: white;
-    font-size: 1.6em;
+    color: black;
+    font-size: 2.5em;
+    padding-top: 10px;
+    cursor: pointer;
+}
+
+.fa-solid.fa-filter {
+    color: black;
+    font-size: 2.5em;
+    padding-top: 10px;
+    cursor: pointer;
 }
