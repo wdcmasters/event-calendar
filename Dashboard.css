@@ -187,3 +187,8 @@ body {
     border: 1px solid;
     font-family: "Tahoma", sans-serif;
 }
+
+/* Icons  */
+#fa-solid, #fa-magnifying-glass {
+    color: white;
+}
