@@ -1,0 +1,83 @@
+
+/* dropdown menu on top right for settings */
+.settings {
+    display: none;
+    background-color: white;
+    width: 200px;
+
+    /* bring dropdown links forward */
+    position: absolute;
+    z-index: 1;
+}
+
+/* settings links */
+.settings a {
+    display: block; /* make links take up whole width */
+    text-align: left;
+    padding: 30px 20px 30px 20px;
+    font-family: "Tahoma", sans-serif;
+}
+
+/* bold the options when hovering over the dropdown links */
+.settings a:hover {
+    font-weight: 700;
+}
+
+/* display dropdown settings on hover over profile button */
+.settings-dropdown:hover .settings {
+    display: block;
+}
+
+/* -------------------- SIDEBAR + CONTENT -------------------------- */
+
+.sidebar {
+    height: 100%;
+    width: 300px;
+    padding-top: 100px;
+}
+
+.sidebar a {
+    display: block;
+    padding: 10px 6px 30px 6px;
+    text-decoration: none;
+    font-size: 16px;
+    color: black;
+}
+
+.sidebar a:hover {
+    font-weight: 700;
+}
+
+.sidebar a.current-page {
+    color: blue;
+}
+
+.content-section {
+    display: flex;
+    justify-content: center;
+}
+
+.main-container {
+    display: flex;
+    justify-content: center;
+    width: 1000px;
+}
+
+.main-body {
+    text-align: left;
+    width: 500px;
+}
+
+.light-h1 {
+    font-weight: 500;
+}
+
+input[type=text] {
+    width: 50%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 12px;
+    border: 1px solid;
+    font-family: "Tahoma", sans-serif;
+}
+

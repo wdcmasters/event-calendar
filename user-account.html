@@ -3,8 +3,9 @@
     <head>
         <title>User Account Settings</title>
         <meta charset="UTF-8">
-        <link rel="stylesheet" href="user-account.css"> <!--link to get header format-->
-        <link rel="stylesheet" href="template.css"> <!--link to get header format-->
+        <link rel="stylesheet" href="settings.css"> <!--link to get specific elements for settings pages-->
+        <link rel="stylesheet" href="header.css"> <!--link to get header format-->
+        <link rel="stylesheet" href="buttons.css"> <!--link to get buttons format-->
         <script src="https://kit.fontawesome.com/2dc2f1fbdb.js" crossorigin="anonymous"></script>
     </head>
     <body>
@@ -22,14 +23,16 @@
                     <a href="#user-dashboard" class="link-black menu-btn">Home</a>
                 </div>
                 <div class="settings-dropdown">
-                    <button type="button" class="blue-btn">Flindy
+                    <button type="button" class="blue-btn">Jane Doe
                         <i class="fa fa-caret-down"></i> <!-- shows dropdown icon -->
                     </button>
+
                     <!-- settings to be shown from dropdown menu -->
                     <div class="settings">
                         <a href="user-account.html" class="link-black">Account Settings</a>
-                        <a href="calendar-settings.html" class="link-black">Calendar Settings</a>
+                        <a href="email-settings.html" class="link-black">Email Settings</a>
                     </div>
+
                 </div>
             </div>
 
@@ -37,14 +40,15 @@
         <hr />
 
         <div class="content-section">
-
             <div class="main-container">
 
+                <!--Sidebar-->
                 <aside class="sidebar">
                     <a href="user-account.html" class="current-page"><i class="fa-solid fa-user fa-2x"></i> Account Settings</a>
-                    <a href="#calendar-settings"><i class="fa-solid fa-calendar-days fa-2x icon-menu-padding"></i> Calendar Settings</a>
+                    <a href="email-settings.html"><i class="fa-solid fa-calendar-days fa-2x icon-menu-padding"></i> Email Settings</a>
                 </aside>
 
+                <!--Content besides sidebar-->
                 <div class="main-body">
                     <h1 class="light-h1">Account Settings</h1>
                     <h3>User Details</h3>
