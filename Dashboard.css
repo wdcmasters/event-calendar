@@ -70,10 +70,10 @@ body {
 
 .buttons button {
     padding: 1em 3em;
-    color: #283593;
+    color: black;
     font-size:1.5vw;
     background-color: #ffffff;
-    border-color: #283593;
+    border-color: blue;
     border-width: 0.2em;
     border-radius: 10px;
     width: 100%;
