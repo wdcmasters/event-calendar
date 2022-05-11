@@ -181,9 +181,9 @@ body {
 #dashboardSearch, input[type=text] {
     width: 65%;
     padding: 10px;
-    margin-top: 5px;
+    margin-top: 10px;
     border-radius: 12px;
-    border: 5px solid;
+    border: 3px solid;
     font-family: "Tahoma", sans-serif;
 }
 
@@ -200,9 +200,11 @@ body {
 .fa-solid.fa-magnifying-glass {
     color: black;
     font-size: 2.5em;
+    padding-top: 10px;
 }
 
 .fa-solid.fa-sort {
     color: black;
     font-size: 2.5em;
+    padding-top: 10px;
 }
