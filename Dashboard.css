@@ -62,7 +62,9 @@ body {
     font-weight: normal;
 }
 
-.content a:
+.content a:visited {
+    color: black;
+}
 
 .buttons {
     display: flex;
