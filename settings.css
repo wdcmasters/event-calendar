@@ -72,8 +72,8 @@
     font-weight: 500;
 }
 
-input[type=text] {
-    width: 50%;
+input[type=text], input[type=password] {
+    width: 70%;
     padding: 10px;
     margin-top: 5px;
     border-radius: 12px;
@@ -81,3 +81,36 @@ input[type=text] {
     font-family: "Tahoma", sans-serif;
 }
 
+/* ------------ POP UP BOX -------------- */
+.popup {
+    display: none;
+
+    /* set popup div to be 0px from the left and top edge of nearest ancestor element */
+    left: 0px;
+    top: 0px;
+
+    position: fixed;
+    z-index: 1; /* bring on top */
+    padding-top: 150px;
+
+    /* take up full width and height of window - mainly the transparent background */
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    background-color: rgba(0,0,0,0.5);
+
+}
+
+.popup-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 10px 10px 30px 30px;
+    border: 1px solid #888;
+    width: 300px;
+}
+
+.cancel-save {
+    display: flex;
+    justify-content: space-between;
+    width: 300px;
+    margin-left: 0;
+}
