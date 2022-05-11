@@ -182,9 +182,7 @@ body {
 #dashboardSearch, input[type=text] {
     width: 65%;
     padding: 10px;
-    padding-bottom: 15px;
     margin-top: 5px;
-    margin-left: 45px;
     border-radius: 12px;
     border: 1px solid;
     font-family: "Tahoma", sans-serif;
