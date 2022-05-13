@@ -1,6 +1,5 @@
 .LoginToCont {
     text-align: center;
-    color: blue;
 }
 
 *{
@@ -19,9 +18,6 @@
     text-align: center;
 }
 
-html{
-    background: lightblue;
-}
 
 h1 {
     border-bottom: 2px solid black;
