@@ -7,24 +7,95 @@
     <title>Create event</title>
 
     <link rel="stylesheet" href="add_event.css">
+    <link rel="stylesheet" href="template.css">
+    <link rel="stylesheet" href="user-account.css">
+    <link rel="stylesheet" href="buttons.css">
+
+    <script src="add_event.js"></script>
+
 </head>
 <body>
-    <h1>Create your event</h1>
-    <form id="form">
-        <label>Event name</label><br/>
-        <input type="text" id="label-eventname" placeholder="My event name"><br/>
-        <label>Address</label><br/>
-        <div id="label-address">
-            <input type="text" placeholder="Street"><br/>
-            <input type="text" placeholder="Suburb"><br/>
-            <input type="text" placeholder="State"><br/>
-            <input type="text" placeholder="Country"><br/>
+
+   <!-- nav bar -->
+
+   <!--Header contains logo on top left, link to user dashboard and profile picture on top right-->
+   <header>
+
+    <!--Logo/website name-->
+    <div>
+        <a href="index.html" id="home-btn" class="link-black" title="Home">EventCal</a>
+    </div>
+
+    <!--Container for links to Home and Profile settings-->
+    <div class="top-right-menu">
+        <div class="menu-div">
+            <a href="#user-dashboard" class="link-black menu-btn">Home</a>
         </div>
-        <label id="label-date">Date</label><br/>
-        <input type="date" ><br/>
+        <div class="settings-dropdown">
+            <button type="button" class="blue-btn">Flindy
+                <i class="fa fa-caret-down"></i> <!-- shows dropdown icon -->
+            </button>
+            <!-- Settings to be shown from dropdown menu -->
+            <div class="settings">
+                <a href="user-account.html" class="link-black">Account Settings</a>
+                <a href="calendar-settings.html" class="link-black">Calendar Settings</a>
+            </div>
+        </div>
+    </div>
+
+</header>
+<hr />
+    <div id="content-div">
+
+    <h1>Create your event</h1>
+
+    <!-- Form -->
+    <form id="form">
+
+        <!-- Event name input  -->
+        <label id="label-eventname" for="event-name">Event name:</label><br/>
+        <input type="text" id="event-name" placeholder="My event name"><br/>
+
+        <!-- Location input -->
+        <label id="label-address">Address:</label><br/>
+        <div id="div-address">
+            <input id="street" type="text" placeholder="Street"><br/>
+            <input id="suburb" type="text" placeholder="Suburb"><br/>
+            <input id="state" type="text" placeholder="State"><br/>
+            <input id="zip" type="text" placeholder="Zip code"> <br/>
+            <input id="country" type="text" placeholder="Country"><br/>
+        </div>
+
+        <!-- Enter date of event -->
+        <label for="date" id="label-date">Date:</label><br/>
+        <div id="date-div">
+            <input id="date" type="date" ><br/>
+        </div>
+
+        <br/>
+        <!-- Select time of event -->
+        <label id="label-select-time">Select a time range:</label><br>
+        <div class="time-div">
+            <div>
+                <label for="from-time"> From: </label>
+                <input type="time" id="from-time" value="09:00">
+            </div>
+            <div id="to-time-div">
+                <label for="to-time"> To: </label>
+                <input type="time" id="to-time" value="17:00">
+            </div>
+        </div>
+        <br><br>
+
+        <!-- Create event -->
+        <input type="submit" value="Create event">
+        <!-- Cancel button -->
+        <button id="cancel-button"> Cancel </button>
+
     </form>
-    <br/>
-    <input type="submit" id="form" value="Create event">
+
+    </div>
+
 </body>
 </html>
 

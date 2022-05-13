@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book your event</title>
+
+    <link rel="stylesheet" href="book_event_user.css">
+    <link rel="stylesheet" href="template.css">
+    <link rel="stylesheet" href="user-account.css">
+    <link rel="stylesheet" href="buttons.css">
+
+    <script src="https://kit.fontawesome.com/2385786b33.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<!--Header contains logo on top left, link to user dashboard and profile picture on top right-->
+<header>
+
+    <!--Logo/website name-->
+    <div>
+        <a href="index.html" id="home-btn" class="link-black" title="Home">EventCal</a>
+    </div>
+
+    <!--container for links to Home and Profile settings-->
+    <div class="top-right-menu">
+        <div class="menu-div">
+            <a href="#user-dashboard" class="link-black menu-btn">Home</a>
+        </div>
+        <div class="settings-dropdown">
+            <button type="button" class="blue-btn">Flindy
+                <i class="fa fa-caret-down"></i> <!-- shows dropdown icon -->
+            </button>
+            <!-- settings to be shown from dropdown menu -->
+            <div class="settings">
+                <a href="user-account.html" class="link-black">Account Settings</a>
+                <a href="calendar-settings.html" class="link-black">Calendar Settings</a>
+            </div>
+        </div>
+    </div>
+
+</header>
+<hr>
+<div id="content">
+    <h1>Book your event</h1>
+
+    <!-- Event name -->
+    <p id="event-name"> John's 25th Birthday Party </p>
+
+    <!-- Location -->
+    <i class="fa-solid fa-location-dot"></i><p class="p"> 136 North Terrace, Adelaide 5000, Australia</p>
+
+    <!-- Date -->
+    <i class="fa fa-calendar" aria-hidden="true"></i><p class="p"> 15th June, 2022 </p><br/>
+
+    <!-- Select availability -->
+    <b class="b"> Specify your availability for the day: </b> <br/><br/>
+    <input type="checkbox"><label id="not-available">I am not available that day.</label><br/><br/>
+    <div class="time-div">
+        <div>
+            <label for="from-time"> From: </label>
+            <input type="time" id="from-time" name="appt" value="09:00">
+        </div>
+        <div id="to-time-div">
+            <label for="to-time"> To: </label>
+            <input type="time" id="to-time" name="appt" value="17:00">
+        </div>
+    </div>
+    <!-- Submit availability -->
+    <input type="submit" value="Submit availability"/>
+    <!-- Cancel button -->
+    <button id="cancel-button"> Cancel </button>
+</div>
+
+</body>
+</html>

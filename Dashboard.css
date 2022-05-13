@@ -9,55 +9,25 @@ body {
     font-family: Tahoma, sans-serif;
 }
 
-.header {
-    background-color: #283593; /*Search for material design colors */
-    color: white;
-    display: flex;
-    justify-content: space-between; /*Spaces elements evenly*/
-    align-items: center; /*Controls the vertical alignment*/
-    padding: 2% 4%;
-    flex-wrap: wrap;
-    border-bottom: 2cm;
-    border-color: aqua;
-    border-width: 20px;
-}
-
-.nav {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-}
-
-.nav li {
-    margin-left: 20px;
-}
-
-.nav a {
-    color: white;
-    text-decoration: none;
-}
-
-.nav a:hover {
-    display: block;
-    color: rgb(145, 145, 206);
-    transform: scale(1.05);
-    transition: all 0.15s ease-out; /*These tags seem very useful */
-}
-
 /* Content element */
 .content {
-    margin-left: 25%;
-    margin-right: 25%;
+    margin-left: 22%;
+    margin-right: 22%;
 }
 
 .content h1 {
-    text-align: center;
-    text-decoration: underline;
-    padding: 2em 1em 0.5em 1em;
-    font-size: xx-large;
+    text-align: left;
+    /* text-decoration: underline; */
+    padding: 2em 0.5em 0.5em 0.1em;
+    font-size: xxx-large;
     border-color: #283593;
     border-width: 0.2em;
+    font-family: Tahoma;
+    font-weight: normal;
+}
+
+.content a:visited {
+    color: black;
 }
 
 .buttons {
@@ -66,12 +36,12 @@ body {
     justify-content: center;
 }
 
-.buttons button {
+#BlueButton, button {
     padding: 1em 3em;
-    color: #283593;
+    color: black;
     font-size:1.5vw;
     background-color: #ffffff;
-    border-color: #283593;
+    border-color: blue;
     border-width: 0.2em;
     border-radius: 10px;
     width: 100%;
@@ -79,11 +49,10 @@ body {
 }
 
 .buttons button:hover {
-    background-color:#384397;
+    background-color: blue;
     color:#ffffff;
     font-weight: bold;
-
-
+    cursor: pointer;
 }
 
 /* The dashboard */
@@ -94,7 +63,7 @@ body {
 .ongoing {
     text-align: center;
     padding-top: 0.2em;
-    background-color: #283593;
+    background-color: blue;
     border: 200px;
     /* margin-left: 30%;
     margin-right: 30%; */
@@ -109,12 +78,12 @@ body {
     padding-bottom: 30px;
     font-size: xx-large;
     margin-bottom: 0px;
+    font-weight: normal;
 }
 
 /* Events */
-
 #events {
-    background-color: #b6b8ca;
+    background-color: #cfcfcf;
     margin-top: 0px;
     padding-top: 20px;
     padding-bottom: 20px;
@@ -128,13 +97,14 @@ body {
 /*Always on the main axis */
     margin-left: 5%;
     margin-right: 5%;
-    background-color: grey;
-    color: white;
+    background-color: white;
+    color: black;
     padding: 10px;
     border-radius: 10px;
     margin-bottom: 15px;
     padding-left: 40px;
     padding-right: 10px;
+    padding-bottom: 20px;
     align-content: center;
 }
 
@@ -164,6 +134,7 @@ body {
 .dateTime {
     margin: 0;
     padding: 0;
+    padding-top: 7px;
     align-self: left;
 }
 
@@ -172,4 +143,51 @@ body {
     padding-top: 0px;
     margin-top: 0px;
     margin-left: 50px;
+}
+
+#dashboardSearch, input[type=text] {
+    width: 65%;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 12px;
+    border: 3px solid;
+    font-family: "Tahoma", sans-serif;
+}
+
+#viewMore {
+    margin-top: 30px;
+    text-align: center;
+    font-weight: bold;
+}
+
+#viewMore a:active {
+    color: black;
+}
+
+#viewmore a:visited {
+    color:black;
+}
+
+/* Events search field  */
+#searchField {
+    display: flex;
+    justify-content: center;
+    margin-right: 10px;
+    /* justify-content: center; */
+    gap: 1.5em;
+}
+
+/* Icons  */
+.fa-solid.fa-magnifying-glass {
+    color: black;
+    font-size: 2.5em;
+    padding-top: 10px;
+    cursor: pointer;
+}
+
+.fa-solid.fa-filter {
+    color: black;
+    font-size: 2.5em;
+    padding-top: 10px;
+    cursor: pointer;
 }
