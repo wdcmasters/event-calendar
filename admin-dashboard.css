@@ -1,3 +1,5 @@
+/* General */
+
 * {
     box-sizing: border-box;
 }
@@ -7,10 +9,18 @@ body {
     font-family: Tahoma, sans-serif;
 }
 
+/* Sidebar */
+
 #sidebar {
-    background-color: blue;
+    background-color: #363636;
     height: 100%;
-    width: 26%;
+    width: 23%;
     position: fixed;
     padding-top: 10px;
+}
+
+#adminDashboard {
+    color: white;
+    font-weight: normal;
+    text-align: center;
 }
