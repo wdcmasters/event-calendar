@@ -113,3 +113,7 @@ body {
 #FilterOptions button {
     border-radius: 10px;
 }
+
+table {
+    margin-left: 25%;
+}
