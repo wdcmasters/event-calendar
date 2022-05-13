@@ -8,9 +8,9 @@ body {
 }
 
 #sidebar {
-    display: block;
     background-color: blue;
     height: 100%;
-    width: 30%;
+    width: 26%;
     position: fixed;
+    padding-top: 10px;
 }
