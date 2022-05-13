@@ -36,3 +36,14 @@ body {
     display: flex;
     flex-direction: column;
 }
+
+#dashboardCatagories button {
+    padding: 20px;
+    font-size: medium;
+    margin-left: 30%;
+    margin-right: 30%;
+    color: white;
+    background-color: #363636;
+    border: none;
+    cursor: pointer;
+}
