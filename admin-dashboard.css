@@ -73,8 +73,12 @@ body {
     font-weight: normal;
 }
 
+#searchField {
+
+}
+
 #adminDashboardSearch, input[type=text] {
-    /* width: 30%; */
+    width: 100px;
     padding: 20px;
     margin-right: 5%;
     border-radius: 12px;
