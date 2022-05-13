@@ -62,6 +62,8 @@ body {
 
 /* Section */
 #adminSection {
+    display: flex;
+    justify-content: space-between;
     margin-left: 25%;
     padding-left: 40px;
 }
