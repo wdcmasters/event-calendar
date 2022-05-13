@@ -82,3 +82,12 @@ body {
     font-family: "Tahoma", sans-serif;
     height: 20px;
 }
+
+#FilterOptions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 25%;
+    padding-left: 40px;
+    margin-right: 5%;
+}
