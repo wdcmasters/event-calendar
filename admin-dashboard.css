@@ -77,16 +77,19 @@ body {
 
 }
 
-.blueButton button {
-    padding: 1em 3em;
+#BlueButton {
     color: black;
-    font-size:1.5vw;
     background-color: #ffffff;
     border-color: blue;
     border-width: 0.2em;
     border-radius: 10px;
-    width: 100%;
+    width: 10%;
     font-family: Tahoma;
+}
+
+#blueButton button:hover {
+    background-color: blue;
+    cursor: pointer;
 }
 
 #adminDashboardSearch, input[type=text] {
