@@ -80,6 +80,7 @@ body {
 #adminDashboardSearch, input[type=text] {
     width: 75%;
     padding-right: 30px;
+    margin-top: 15px;
 }
 
 #FilterOptions {
