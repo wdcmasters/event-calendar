@@ -9,6 +9,11 @@ body {
     font-family: Tahoma, sans-serif;
 }
 
+/* Nav bar */
+#menu-spacer {
+    padding-bottom: 0px;
+}
+
 /* Sidebar */
 
 #sidebar {
