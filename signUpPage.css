@@ -95,19 +95,19 @@ h1 {
 }
 
 #name:focus {
-    border-bottom: 2px solid #0596fc;
+    border-bottom: 2px solid blue;
 }
 
 #name1:focus {
-    border-bottom: 2px solid #0596fc;
+    border-bottom: 2px solid blue;
 }
 
 #name2:focus {
-    border-bottom: 2px solid #0596fc;
+    border-bottom: 2px solid blue;
 }
 
 #name3:focus {
-    border-bottom: 2px solid #0596fc;
+    border-bottom: 2px solid blue;
 }
 
 div.inputs input{
