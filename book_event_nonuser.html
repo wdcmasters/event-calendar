@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Book your event</title>
 
-    <link rel="stylesheet" href="book_event.css">
+    <link rel="stylesheet" href="book_event_user.css">
     <link rel="stylesheet" href="template.css">
     <link rel="stylesheet" href="user-account.css">
     <link rel="stylesheet" href="buttons.css">
@@ -49,22 +49,22 @@
     <p id="event-name"> John's 25th Birthday Party </p>
 
     <!-- Location -->
-    <i class="fa-solid fa-location-dot"></i><p id="p"> 136 North Terrace, Adelaide 5000, Australia</p>
+    <i class="fa-solid fa-location-dot"></i><p class="p"> 136 North Terrace, Adelaide 5000, Australia</p>
 
     <!-- Date -->
-    <i class="fa fa-calendar" aria-hidden="true"></i><p id="p"> 15th June, 2022 </p><br/>
+    <i class="fa fa-calendar" aria-hidden="true"></i><p class="p"> 15th June, 2022 </p><br/>
 
     <!-- Select availability -->
-    <b id="b"> Specify your availability for the day: </b> <br/><br/>
+    <b class="b"> Specify your availability for the day: </b> <br/><br/>
     <input type="checkbox"><label id="not-available">I am not available that day.</label><br/><br/>
     <div class="time-div">
         <div>
-            <label for="time"> From: </label>
-            <input type="time" id="time" name="appt" value="09:00">
+            <label for="from-time"> From: </label>
+            <input type="time" id="from-time" name="appt" value="09:00">
         </div>
         <div id="to-time-div">
-            <label for="time"> To: </label>
-            <input type="time" id="time" name="appt" value="17:00">
+            <label for="to-time"> To: </label>
+            <input type="time" id="to-time" name="appt" value="17:00">
         </div>
     </div>
     <!-- Submit availability -->
