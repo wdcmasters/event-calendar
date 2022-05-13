@@ -85,7 +85,8 @@ body {
 
 #FilterOptions {
     display: flex;
-    justify-content: space-between;
+    gap: 2em;
+    justify-content: left;
     align-items: center;
     margin-left: 25%;
     padding-left: 40px;
