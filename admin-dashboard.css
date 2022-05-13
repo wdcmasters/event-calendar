@@ -31,3 +31,8 @@ body {
     text-align: center;
     font-size: x-large;
 }
+
+#dashboardCatagories {
+    display: flex;
+    flex-direction: column;
+}
