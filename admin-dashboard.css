@@ -52,6 +52,20 @@ body {
     cursor: pointer;
 }
 
+#dashboardCatagories button:hover {
+    color: blue;
+}
+
 #dashboardCatagories i {
     padding-right: 20px;
+}
+
+/* Section */
+#adminSection {
+    margin-left: 25%;
+    padding-left: 40px;
+}
+
+#adminSection h1 {
+    font-weight: normal;
 }
