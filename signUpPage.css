@@ -29,9 +29,6 @@ div.picture1 {
     font-family: tahoma, arial, sans-serif;
 }
 
-html {
-    background: lightblue;
-}
 
 .SignUpRectSection {
 
@@ -154,7 +151,7 @@ input[type="submit"]{
 }
 
 input[type="submit"]:hover{
-    background: #1871ed;
+    background: blue;
     transition: 1s;
 }
 
