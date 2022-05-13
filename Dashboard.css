@@ -11,8 +11,8 @@ body {
 
 /* Content element */
 .content {
-    margin-left: 27%;
-    margin-right: 27%;
+    margin-left: 22%;
+    margin-right: 22%;
 }
 
 .content h1 {
@@ -36,7 +36,7 @@ body {
     justify-content: center;
 }
 
-.buttons button {
+#BlueButton, button {
     padding: 1em 3em;
     color: black;
     font-size:1.5vw;
