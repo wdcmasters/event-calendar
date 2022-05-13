@@ -116,5 +116,7 @@ body {
 
 table {
     margin-left: 30%;
-    border-spacing: 25px;
+    border-spacing: 100px 25px;
+    text-align: center;
+    border: 1px solid;
 }
