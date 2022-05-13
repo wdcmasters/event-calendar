@@ -19,7 +19,7 @@ body {
     text-align: left;
     /* text-decoration: underline; */
     padding: 2em 0.5em 0.5em 0.1em;
-    font-size: xxx-large;
+    font-size: 50px; /* xxx-large? */
     border-color: #283593;
     border-width: 0.2em;
     font-family: Tahoma;
@@ -135,7 +135,7 @@ body {
     margin: 0;
     padding: 0;
     padding-top: 7px;
-    align-self: left;
+    align-self: center; /* left? */
 }
 
 .nameLocale {

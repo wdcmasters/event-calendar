@@ -6,14 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/2dc2f1fbdb.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="admin-dashboard.css" />
-    <link rel="stylesheet" type="text/css" href="template.css" />
-    <link rel="stylesheet" type="text/css" href="user-account.css" />
-    <link rel="stylesheet" type="text/css" href="buttons.css" />
+    <link rel="stylesheet" href="settings.css"> <!--link to get specific elements for settings pages-->
+    <link rel="stylesheet" href="header.css"> <!--link to get header format-->
+    <link rel="stylesheet" href="buttons.css"> <!--link to get buttons format-->
     <title>Admin Dashboard</title>
 </head>
 <body>
-        <!-- HEADER -->
+        <!--Header contains logo on top left, link to user dashboard and profile picture on top right-->
         <header>
+
             <!--Logo/website name-->
             <div>
                 <a href="index.html" id="home-btn" class="link-black" title="Home">EventCal</a>
@@ -25,17 +26,21 @@
                     <a href="#user-dashboard" class="link-black menu-btn">Home</a>
                 </div>
                 <div class="settings-dropdown">
-                    <button type="button" class="blue-btn">Jane Doe
+                    <button type="button" class="blue-btn">Profile
                         <i class="fa fa-caret-down"></i> <!-- shows dropdown icon -->
                     </button>
+
                     <!-- settings to be shown from dropdown menu -->
                     <div class="settings">
                         <a href="user-account.html" class="link-black">Account Settings</a>
                         <a href="email-settings.html" class="link-black">Email Settings</a>
                     </div>
+
                 </div>
             </div>
+
         </header>
+
         <hr id="menu-spacer"  />
 
         <!-- Sidebar -->
