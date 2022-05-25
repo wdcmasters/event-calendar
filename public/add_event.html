@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create event</title>
+
+    <link rel="stylesheet" href="add_event.css">
+    <link rel="stylesheet" href="settings.css"> <!--link to get specific elements for settings pages-->
+    <link rel="stylesheet" href="header.css"> <!--link to get header format-->
+    <link rel="stylesheet" href="buttons.css"> <!--link to get buttons format-->
+    <script src="https://kit.fontawesome.com/2dc2f1fbdb.js" crossorigin="anonymous"></script>
+
+    <script src="add_event.js"></script>
+
+</head>
+<body>
+
+   <!-- nav bar -->
+
+   <!--Header contains logo on top left, link to user dashboard and profile picture on top right-->
+        <header>
+
+            <!--Logo/website name-->
+            <div>
+                <a href="index.html" id="home-btn" class="link-black" title="Home">EventCal</a>
+            </div>
+
+            <!--container for links to Home and Profile settings-->
+            <div class="top-right-menu">
+                <div class="menu-div">
+                    <a href="#user-dashboard" class="link-black menu-btn">Home</a>
+                </div>
+                <div class="settings-dropdown">
+                    <button type="button" class="blue-btn">Profile
+                        <i class="fa fa-caret-down"></i> <!-- shows dropdown icon -->
+                    </button>
+
+                    <!-- settings to be shown from dropdown menu -->
+                    <div class="settings">
+                        <a href="user-account.html" class="link-black">Account Settings</a>
+                        <a href="email-settings.html" class="link-black">Email Settings</a>
+                    </div>
+
+                </div>
+            </div>
+
+        </header>
+        <hr />
+
+
+    <div id="content-div">
+
+    <h1>Create your event</h1>
+
+    <!-- Form -->
+    <form id="form">
+
+        <!-- Event name input  -->
+        <label id="label-eventname" for="event-name">Event name:</label><br/>
+        <input type="text" id="event-name" placeholder="My event name"><br/>
+
+        <!-- Location input -->
+        <label id="label-address">Address:</label><br/>
+        <div id="div-address">
+            <input id="street" type="text" placeholder="Street"><br/>
+            <input id="suburb" type="text" placeholder="Suburb"><br/>
+            <input id="state" type="text" placeholder="State"><br/>
+            <input id="zip" type="text" placeholder="Zip code"> <br/>
+            <input id="country" type="text" placeholder="Country"><br/>
+        </div>
+
+        <!-- Enter date of event -->
+        <label for="date" id="label-date">Date:</label><br/>
+        <div id="date-div">
+            <input id="date" type="date" ><br/>
+        </div>
+
+        <br/>
+        <!-- Select time of event -->
+        <label id="label-select-time">Select a time range:</label><br>
+        <div class="time-div">
+            <div>
+                <label for="from-time"> From: </label>
+                <input type="time" id="from-time" value="09:00">
+            </div>
+            <div id="to-time-div">
+                <label for="to-time"> To: </label>
+                <input type="time" id="to-time" value="17:00">
+            </div>
+        </div>
+        <br><br>
+
+        <!-- Create event -->
+        <input type="submit" value="Create event">
+        <!-- Cancel button -->
+        <button id="cancel-button"> Cancel </button>
+
+    </form>
+
+    </div>
+
+</body>
+</html>
+
+<!-- input field needs name attributed to be submitted -->

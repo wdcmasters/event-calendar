@@ -1,0 +1,55 @@
+body {
+    /* remove default margin and paddings so they don't affect style of header */
+    margin: 0;
+    padding: 0;
+    font-family: "Tahoma", sans-serif;
+    background-color: blue;
+}
+
+/*---------- HEADING AND DESCRIPTION ----------*/
+section {
+    padding-top: 100px;
+    text-align: center;
+    color: white;
+}
+
+#h1icon {
+    display: flex;
+    justify-content: center;
+}
+
+.icon {
+    padding-top: 50px;
+    padding-right: 100px;
+}
+
+#home-heading {
+    font-size: 60px;
+    font-weight: 700;
+}
+
+.tagline {
+    font-size: 20px;
+}
+
+#get-started {
+    padding-top: 30px;
+}
+
+.big-white-btn {
+    font-size: 24px;
+    font-family: "Tahoma", sans-serif;
+    color: blue;
+    width: 250px;
+    height: 50px;
+    background-color: white;
+
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+.big-white-btn:hover {
+    background-color: black;
+    color: white;
+}

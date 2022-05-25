@@ -1,0 +1,116 @@
+
+/* dropdown menu on top right for settings */
+.settings {
+    display: none;
+    background-color: white;
+    width: 200px;
+
+    /* bring dropdown links forward */
+    position: absolute;
+    z-index: 1;
+}
+
+/* settings links */
+.settings a {
+    display: block; /* make links take up whole width */
+    text-align: left;
+    padding: 30px 20px 30px 20px;
+    font-family: "Tahoma", sans-serif;
+}
+
+/* bold the options when hovering over the dropdown links */
+.settings a:hover {
+    font-weight: 700;
+}
+
+/* display dropdown settings on hover over profile button */
+.settings-dropdown:hover .settings {
+    display: block;
+}
+
+/* -------------------- SIDEBAR + CONTENT -------------------------- */
+
+.sidebar {
+    height: 100%;
+    width: 300px;
+    padding-top: 100px;
+}
+
+.sidebar a {
+    display: block;
+    padding: 10px 6px 30px 6px;
+    text-decoration: none;
+    font-size: 16px;
+    color: black;
+}
+
+.sidebar a:hover {
+    font-weight: 700;
+}
+
+.sidebar a.current-page {
+    color: blue;
+}
+
+.content-section {
+    display: flex;
+    justify-content: center;
+}
+
+.main-container {
+    display: flex;
+    justify-content: center;
+    width: 1000px;
+}
+
+.main-body {
+    text-align: left;
+    width: 500px;
+}
+
+.light-h1 {
+    font-weight: 500;
+}
+
+input[type=text], input[type=password] {
+    width: 70%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 12px;
+    border: 1px solid;
+    font-family: "Tahoma", sans-serif;
+}
+
+/* ------------ POP UP BOX -------------- */
+.popup {
+    display: none;
+
+    /* set popup div to be 0px from the left and top edge of nearest ancestor element */
+    left: 0px;
+    top: 0px;
+
+    position: fixed;
+    z-index: 1; /* bring on top */
+    padding-top: 150px;
+
+    /* take up full width and height of window - mainly the transparent background */
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    background-color: rgba(0,0,0,0.5);
+
+}
+
+.popup-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 10px 10px 30px 30px;
+    border: 1px solid #888;
+    width: 300px;
+}
+
+.cancel-save {
+    display: flex;
+    justify-content: space-between;
+    width: 300px;
+    margin-left: 0;
+}

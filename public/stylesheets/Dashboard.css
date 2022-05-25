@@ -1,0 +1,193 @@
+/*Header elements*/
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin:0;
+    font-family: Tahoma, sans-serif;
+}
+
+/* Content element */
+.content {
+    margin-left: 22%;
+    margin-right: 22%;
+}
+
+.content h1 {
+    text-align: left;
+    /* text-decoration: underline; */
+    padding: 2em 0.5em 0.5em 0.1em;
+    font-size: 50px; /* xxx-large? */
+    border-color: #283593;
+    border-width: 0.2em;
+    font-family: Tahoma;
+    font-weight: normal;
+}
+
+.content a:visited {
+    color: black;
+}
+
+.buttons {
+    display: flex;
+    gap: 1.5em;
+    justify-content: center;
+}
+
+#BlueButton, button {
+    padding: 1em 3em;
+    color: black;
+    font-size:1.5vw;
+    background-color: #ffffff;
+    border-color: blue;
+    border-width: 0.2em;
+    border-radius: 10px;
+    width: 100%;
+    font-family: Tahoma;
+}
+
+.buttons button:hover {
+    background-color: blue;
+    color:#ffffff;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* The dashboard */
+.dashboard {
+    padding-bottom: 60px;
+
+}
+.ongoing {
+    text-align: center;
+    padding-top: 0.2em;
+    background-color: blue;
+    border: 200px;
+    /* margin-left: 30%;
+    margin-right: 30%; */
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    margin-top: 20px;
+    margin-bottom: 0px;
+}
+
+.ongoing h2 {
+    color: white;
+    padding-bottom: 30px;
+    font-size: xx-large;
+    margin-bottom: 0px;
+    font-weight: normal;
+}
+
+/* Events */
+#events {
+    background-color: #cfcfcf;
+    margin-top: 0px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.event {
+    display: flex;
+    flex-direction: row;
+/*Always on the main axis */
+    margin-left: 5%;
+    margin-right: 5%;
+    background-color: white;
+    color: black;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    padding-left: 40px;
+    padding-right: 10px;
+    padding-bottom: 20px;
+    align-content: center;
+}
+
+.date {
+    margin: 0;
+    padding: 0;
+    font-size: 2em;
+}
+
+.time {
+    margin: 0;
+    padding: 0;
+    font-size: 1.5em;
+}
+
+.eventName {
+    font-size: 3em;
+    margin: 0;
+    padding: 0;
+}
+
+.eventLocation {
+    margin: 0;
+    padding: 0;
+}
+
+.dateTime {
+    margin: 0;
+    padding: 0;
+    padding-top: 7px;
+    align-self: center; /* left? */
+}
+
+.nameLocale {
+    align-self: center;
+    padding-top: 0px;
+    margin-top: 0px;
+    margin-left: 50px;
+}
+
+#dashboardSearch, input[type=text] {
+    width: 65%;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 12px;
+    border: 3px solid;
+    font-family: "Tahoma", sans-serif;
+}
+
+#viewMore {
+    margin-top: 30px;
+    text-align: center;
+    font-weight: bold;
+}
+
+#viewMore a:active {
+    color: black;
+}
+
+#viewmore a:visited {
+    color:black;
+}
+
+/* Events search field  */
+#searchField {
+    display: flex;
+    justify-content: center;
+    margin-right: 10px;
+    /* justify-content: center; */
+    gap: 1.5em;
+}
+
+/* Icons  */
+.fa-solid.fa-magnifying-glass {
+    color: black;
+    font-size: 2.5em;
+    padding-top: 10px;
+    cursor: pointer;
+}
+
+.fa-solid.fa-filter {
+    color: black;
+    font-size: 2.5em;
+    padding-top: 10px;
+    cursor: pointer;
+}

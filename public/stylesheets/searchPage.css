@@ -1,0 +1,40 @@
+div.searchInput input{
+    width: 100%;
+    height: 30px;
+    font-size: 30px;
+    border: none;
+}
+
+#eventName{
+    border-bottom: 2px solid rgb(173, 173, 173);
+    display: block;
+    margin: auto;
+    width: 50%;
+}
+
+#eventName:focus {
+    border-bottom: 2px solid #0596fc;
+    z-index: 100;
+    outline: none;
+}
+
+.searchInput{
+    position: relative;
+    top: 55px;
+}
+
+input:focus::placeholder{
+    color: transparent;
+}
+
+.fa-search{
+    transform: scale(2,2);
+    position: relative;
+    left: 900px;
+    top: 25px;
+}
+
+button{
+    background-color: white;
+    border: none;
+}
