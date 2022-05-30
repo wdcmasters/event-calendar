@@ -5,8 +5,8 @@ CREATE TABLE Event (
    suburb VARCHAR (25),
    state VARCHAR (25),
    country VARCHAR (25),
-   date,
-   time,
+   date DATE,
+   time TIME,
    userID,
    PRIMARY KEY (eventID),
    FOREIGN KEY (userID) REFERENCES Users(userID)
