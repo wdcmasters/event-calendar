@@ -7,7 +7,7 @@ CREATE TABLE Event (
    country VARCHAR (25),
    date DATE,
    time TIME,
-   userID,
+   userID INT,
    PRIMARY KEY (eventID),
    FOREIGN KEY (userID) REFERENCES Users(userID)
 );
