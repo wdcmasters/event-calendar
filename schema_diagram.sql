@@ -1,12 +1,13 @@
 CREATE TABLE Event (
    eventID INT,
-   eventNAME VARCHAR (40),
-   street_no VARCHAR ,
-   suburb VARCHAR (25) ,
-   state,
-   country,
+   eventNAME VARCHAR (50),
+   street_no VARCHAR (10),
+   suburb VARCHAR (25),
+   state VARCHAR (25),
+   country VARCHAR (25),
    date,
-   time
-   UserID
-   PRIMARY KEY (eventID)
+   time,
+   userID,
+   PRIMARY KEY (eventID),
+   FOREIGN KEY (userID) REFERENCES Users-events(userID)
 );
