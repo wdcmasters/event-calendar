@@ -1,8 +1,12 @@
 CREATE TABLE Event (
    eventID INT,
-   eventNAME VARCHAR (30),
-   AGE  INT              NOT NULL,
-   ADDRESS  CHAR (25) ,
-   SALARY   DECIMAL (18, 2),
-   PRIMARY KEY (ID)
+   eventNAME VARCHAR (40),
+   street_no VARCHAR ,
+   suburb VARCHAR (25) ,
+   state,
+   country,
+   date,
+   time
+   UserID
+   PRIMARY KEY (eventID)
 );
