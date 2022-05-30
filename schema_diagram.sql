@@ -9,5 +9,5 @@ CREATE TABLE Event (
    time,
    userID,
    PRIMARY KEY (eventID),
-   FOREIGN KEY (userID) REFERENCES Users-events(userID)
+   FOREIGN KEY (userID) REFERENCES Users(userID)
 );
