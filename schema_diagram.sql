@@ -12,9 +12,10 @@ CREATE TABLE Event (
    FOREIGN KEY (userID) REFERENCES Users(userID)
 );
 
+-- password won't actually be stored, it will be the hash generated from salt + password
 CREATE TABLE Users (
     first_name VARCHAR(30),
     last_name VARCHAR(30),
     email VARCHAR(50),
-    password 
+    password VARCHAR(50)
 );
