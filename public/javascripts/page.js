@@ -16,7 +16,15 @@ function signup()
 
     xhttp.onreadystatechange = function () {
         //Not necessary
-        console.log("worked");
+        if (this.readyState == 4 && this.responseStatus == 200)
+        {
+            alert("worked");
+        }
+
+        if (this.readyState == 4 && this.responseStatus == 500)
+        {
+            alert("Could not make account");
+        }
     };
 
     //Open the request
