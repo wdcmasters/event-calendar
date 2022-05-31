@@ -1,4 +1,3 @@
-
 DROP SCHEMA IF EXISTS eventcalendar;
 CREATE SCHEMA eventcalendar;
 USE eventcalendar;
