@@ -23,7 +23,7 @@
             <div class="sections">
                 <div class="SignUpRectSection">
             <span class="socMed">SIGN UP USING SOCIAL MEDIA:</span> <span class="arrow1"> &#x2193;</span>
-                <form action="/example">
+                <form>
                     <div class="socialMedia">
                         <div>
                             <a href='https://accounts.google.com/signin/v2/identifier?flowName=GlifWebSignIn&flowEntry=ServiceLogin' class="googleBtn">
@@ -44,17 +44,17 @@
                     <div class="UserDetails">
                         <span class="or">OR PLEASE FILL IN THE FOLLOWING DETAILS:</span>
                             <div id="fnInput" class="inputs">
-                                <input name="firstName" type="text" placeholder="First Name" required>
+                                <input id="name" name="firstName" type="text" placeholder="First Name" required>
                             </div>
                             <div id="lnInput" class="inputs">
-                                <input name="lastName" type="text" placeholder="Last Name" required>
+                                <input id="name1" name="lastName" type="text" placeholder="Last Name" required>
                             </div>
                             <div class="inputfields2">
                                 <div id="emailInput" class="inputs">
-                                    <input name="email" type="text" placeholder="Email" required>
+                                    <input id="name2" name="email" type="text" placeholder="Email" required>
                                 </div>
                                 <div id="passwordInput" class="inputs">
-                                    <input name="password" type="password" placeholder="Password" required>
+                                    <input id="name3" name="password" type="password" placeholder="Password" required>
                                 </div>
                                 <div class="CreateAccount">
                                     <input type="submit" value="CREATE ACCOUNT!" onclick="signup()">
