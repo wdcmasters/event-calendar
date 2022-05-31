@@ -7,21 +7,39 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/signup', function(req, res, next) {
+  //Checking if all the fields are filled
   if ('first_name' in req.body && 'last_name' in req.body && 'email' in req.body && 'password' in req.body) {
-    if (req.body.email in users) {
-      console.log('user exists!');
-      res.sendStatus(403);
-    } else {
-      users[req.body.email] = { email: req.body.email, first_name: req.body.first_name, last_name: req.body.last_name, password: req.body.password };
-      res.sendStatus(200);
-    }
-  } else {
-    console.log("Bad Request");
-    res.sendStatus(400);
+
+    //Opening connection to insert user
+    req.pool.getConnection(function(error,connection) {
+      if(error)
+      {
+        console.log(error);
+        res.sendStatus(500);
+        return;
+      }
+
+      let query = "INSERT INTO users (first_name,last_name,email,password) VALUES (?,?,?,?);"; //Inserting user
+      connection.query(query,[req.body.first_name, req.body.last_name, req.body.email, req.body.password], function(error, rows, fields)
+      {
+        //Running query
+        connection.release(); // release connection
+        if (error) {
+          console.log(error);
+          console.log("Could not alert");
+          res.sendStatus(500);
+          return;
+        }
+        res.end();
+      });
+    });
+  }
+  else
+  {
+    console.log("Fill in the inputs");
+    res.send(404);
   }
 });
-
-
 
 
 module.exports = router;
