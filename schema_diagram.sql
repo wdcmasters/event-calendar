@@ -16,7 +16,7 @@ CREATE TABLE roles (
     );
 
 CREATE TABLE email_pref (
-    email_settings_ID INT,
+    email_settings_ID INT UNSIGNED NOT NULL AUTO_INCREMENT,
     notify_user_response VARCHAR(30),
     notify_all_confirm VARCHAR(30),
     notify_final_time VARCHAR(30),
@@ -27,7 +27,7 @@ CREATE TABLE email_pref (
     );
 
 CREATE TABLE event (
-   eventID INT,
+   eventID INT UNSIGNED NOT NULL AUTO_INCREMENT,
    eventNAME VARCHAR(50),
    street_no VARCHAR(10),
    suburb VARCHAR(25),
@@ -41,8 +41,8 @@ CREATE TABLE event (
 );
 
 CREATE TABLE users-events (
-    userID INT,
-    eventID INT,
+    userID INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    eventID INT UNSIGNED NOT NULL AUTO_INCREMENT,
     PRIMARY KEY (userID, eventID),
     FOREIGN KEY (userID) REFERENCES users(userID),
     FOREIGN KEY (eventID) REFERENCES event(eventID),
