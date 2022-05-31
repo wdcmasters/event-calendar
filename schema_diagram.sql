@@ -1,3 +1,7 @@
+
+DROP SCHEMA IF EXISTS sakila;
+CREATE SCHEMA sakila;
+USE sakila;
 -- password won't actually be stored, it will be the hash generated from salt + password
 CREATE TABLE users (
     userID INT UNSIGNED NOT NULL AUTO_INCREMENT,
