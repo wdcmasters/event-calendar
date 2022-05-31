@@ -21,7 +21,8 @@ router.post('/signup', function(req, res, next) {
 
       let query = "INSERT INTO users (first_name,last_name,email,password) VALUES (?,?,?,?);"; //Inserting user
       connection.query(query,[req.body.first_name, req.body.last_name, req.body.email, req.body.password], function(error, rows, fields)
-      { //Running query
+      {
+        //Running query
         connection.release(); // release connection
         if (error) {
           console.log(error);
@@ -32,6 +33,11 @@ router.post('/signup', function(req, res, next) {
         res.end();
       });
     });
+  }
+  else
+  {
+    console.log("Fill in the inputs");
+    res.send(404);
   }
 });
 
