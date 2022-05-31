@@ -8,6 +8,15 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 var app = express();
+var dbConnectionPool = mysql.createPool({
+  host: 'localhost',
+  database: 'eventcalendar'
+});
+
+app.use(function(req,res,next){
+  req.pool = dbConnectionPool;
+  next();
+});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
