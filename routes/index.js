@@ -15,6 +15,9 @@ router.post('/signup', function(req, res, next) {
       users[req.body.email] = { email: req.body.email, first_name: req.body.first_name, last_name: req.body.last_name, password: req.body.password };
       res.sendStatus(200);
     }
+  } else {
+    console.log("Bad Requeset");
+    res.sendStatus(400);
   }
 });
 
