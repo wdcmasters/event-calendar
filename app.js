@@ -4,19 +4,19 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var session = require('express-session');
+var mysql = require('mysql');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
-
-
-
 var app = express();
+
 var dbConnectionPool = mysql.createPool({
   host: 'localhost',
   database: 'eventcalendar'
 });
 
+// middleware
 app.use(function(req,res,next){
   req.pool = dbConnectionPool;
   next();
