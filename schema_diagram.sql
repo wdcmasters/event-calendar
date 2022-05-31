@@ -1,6 +1,6 @@
 -- password won't actually be stored, it will be the hash generated from salt + password
 CREATE TABLE users (
-    userID INT,
+    userID INT UNSIGNED NOT NULL AUTO_INCREMENT,
     first_name VARCHAR(30),
     last_name VARCHAR(30),
     email VARCHAR(50),
@@ -9,7 +9,7 @@ CREATE TABLE users (
     );
 
 CREATE TABLE roles (
-    userID INT,
+    userID INT UNSIGNED NOT NULL AUTO_INCREMENT,
     role VARCHAR(20),
     PRIMARY KEY (userID),
     FOREIGN KEY (role) REFERENCES users(userID)
