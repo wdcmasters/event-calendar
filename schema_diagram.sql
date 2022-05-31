@@ -26,7 +26,7 @@ CREATE TABLE email_pref (
     notify_all_confirm VARCHAR(30),
     notify_final_time VARCHAR(30),
     notify_cancelled_event VARCHAR(30),
-    userID INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    userID INT,
     PRIMARY KEY(email_settings_ID),
     FOREIGN KEY(userID) REFERENCES users(userID) ON DELETE CASCADE
     );
