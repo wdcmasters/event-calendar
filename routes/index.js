@@ -16,7 +16,7 @@ router.post('/signup', function(req, res, next) {
       res.sendStatus(200);
     }
   } else {
-    console.log("Bad Requeset");
+    console.log("Bad Request");
     res.sendStatus(400);
   }
 });
