@@ -17,7 +17,7 @@ router.post('/signup', function(req, res, next) {
     }
   } else {
     console.log("Bad Request");
-    res.se9ndStatus(400);
+    res.sendStatus(400);
   }
 });
 
