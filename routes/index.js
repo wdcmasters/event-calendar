@@ -7,7 +7,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/signup', function(req, res, next) {
-  
+  if ('first_name' in req.body && 'last_name' in req.body )
 });
 
 
