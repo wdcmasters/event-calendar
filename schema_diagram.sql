@@ -1,3 +1,7 @@
+DROP SCHEMA IF EXISTS eventcalendar;
+CREATE SCHEMA eventcalendar;
+USE eventcalendar;
+
 -- password won't actually be stored, it will be the hash generated from salt + password
 CREATE TABLE users (
     userID INT UNSIGNED NOT NULL AUTO_INCREMENT,
@@ -11,8 +15,8 @@ CREATE TABLE users (
 CREATE TABLE roles (
     userID INT UNSIGNED NOT NULL AUTO_INCREMENT,
     role VARCHAR(20),
-    PRIMARY KEY (userID),
-    FOREIGN KEY (role) REFERENCES users(userID) ON DELETE CASCADE
+    PRIMARY KEY (userID, role),
+    FOREIGN KEY (userID) REFERENCES users(userID) ON DELETE CASCADE
     );
 
 CREATE TABLE email_pref (
@@ -21,7 +25,7 @@ CREATE TABLE email_pref (
     notify_all_confirm VARCHAR(30),
     notify_final_time VARCHAR(30),
     notify_cancelled_event VARCHAR(30),
-    userID INT,
+    userID INT UNSIGNED NOT NULL,
     PRIMARY KEY(email_settings_ID),
     FOREIGN KEY(userID) REFERENCES users(userID) ON DELETE CASCADE
     );
@@ -35,14 +39,14 @@ CREATE TABLE event (
    country VARCHAR(25),
    date DATE,
    time TIME,
-   userID INT,
+   userID INT UNSIGNED NOT NULL,
    PRIMARY KEY (eventID),
    FOREIGN KEY (userID) REFERENCES users(userID) ON DELETE CASCADE
 );
 
-CREATE TABLE users-events (
-    userID INT UNSIGNED NOT NULL AUTO_INCREMENT,
-    eventID INT UNSIGNED NOT NULL AUTO_INCREMENT,
+CREATE TABLE users_events (
+    userID INT UNSIGNED NOT NULL,
+    eventID INT UNSIGNED NOT NULL,
     PRIMARY KEY (userID, eventID),
     FOREIGN KEY (userID) REFERENCES users(userID) ON DELETE CASCADE,
     FOREIGN KEY (eventID) REFERENCES event(eventID) ON DELETE CASCADE
