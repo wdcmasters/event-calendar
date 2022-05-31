@@ -11,15 +11,17 @@ router.post('/signup', function(req, res, next) {
   if ('first_name' in req.body && 'last_name' in req.body && 'email' in req.body && 'password' in req.body) {
 
     //Opening connection to insert user
-    req.pool.getConnection(function(error,connection){
-      if(error){
+    req.pool.getConnection(function(error,connection) {
+      if(error)
+      {
         console.log(error);
         res.sendStatus(500);
         return;
       }
 
       let query = "INSERT INTO users (first_name,last_name,email,password) VALUES (?,?,?,?);"; //Inserting user
-      connection.query(query,[req.body.first_name, req.body.last_name, req.body.email, req.body.password], function(error, rows, fields) { //Running query
+      connection.query(query,[req.body.first_name, req.body.last_name, req.body.email, req.body.password], function(error, rows, fields)
+      { //Running query
         connection.release(); // release connection
         if (error) {
           console.log(error);
@@ -29,11 +31,7 @@ router.post('/signup', function(req, res, next) {
         }
         res.end();
       });
-    res.sendStatus(200);
-    }
-  } else {
-    console.log("Bad Request");
-    res.sendStatus(400);
+    });
   }
 });
 
