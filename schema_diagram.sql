@@ -45,5 +45,5 @@ CREATE TABLE users-events (
     eventID INT,
     PRIMARY KEY (userID, eventID),
     FOREIGN KEY (userID) REFERENCES users(userID),
-    
-)
+    FOREIGN KEY (eventID) REFERENCES event(eventID),
+);
