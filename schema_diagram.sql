@@ -1,7 +1,8 @@
 
-DROP SCHEMA IF EXISTS sakila;
-CREATE SCHEMA sakila;
-USE sakila;
+DROP SCHEMA IF EXISTS eventcalendar;
+CREATE SCHEMA eventcalendar;
+USE eventcalendar;
+
 -- password won't actually be stored, it will be the hash generated from salt + password
 CREATE TABLE users (
     userID INT UNSIGNED NOT NULL AUTO_INCREMENT,
