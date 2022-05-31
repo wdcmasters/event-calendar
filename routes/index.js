@@ -12,7 +12,8 @@ router.post('/signup', function(req, res, next) {
       console.log('user exists!');
       res.sendStatus(403);
     } else {
-      users[req.body.email] = { email: req.body.email, first_name: req.body.first_name, last_name: req.body.last_name, password: req.body.password }
+      users[req.body.email] = { email: req.body.email, first_name: req.body.first_name, last_name: req.body.last_name, password: req.body.password };
+      res.sendStatus(200);
     }
   }
 });
