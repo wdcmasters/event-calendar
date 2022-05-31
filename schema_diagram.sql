@@ -16,7 +16,7 @@ CREATE TABLE users (
 CREATE TABLE roles (
     userID INT UNSIGNED NOT NULL AUTO_INCREMENT,
     role VARCHAR(20),
-    PRIMARY KEY (userID),
+    PRIMARY KEY (userID, role),
     FOREIGN KEY (userID) REFERENCES users(userID) ON DELETE CASCADE
     );
 
