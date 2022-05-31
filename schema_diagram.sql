@@ -12,7 +12,7 @@ CREATE TABLE roles (
     userID INT UNSIGNED NOT NULL AUTO_INCREMENT,
     role VARCHAR(20),
     PRIMARY KEY (userID),
-    FOREIGN KEY (role) REFERENCES users(userID)
+    FOREIGN KEY (role) REFERENCES users(userID) ON DELETE CASCADE
     );
 
 CREATE TABLE email_pref (
@@ -23,7 +23,7 @@ CREATE TABLE email_pref (
     notify_cancelled_event VARCHAR(30),
     userID INT,
     PRIMARY KEY(email_settings_ID),
-    FOREIGN KEY(userID) REFERENCES users(userID)
+    FOREIGN KEY(userID) REFERENCES users(userID) ON DELETE CASCADE
     );
 
 CREATE TABLE event (
@@ -37,13 +37,13 @@ CREATE TABLE event (
    time TIME,
    userID INT,
    PRIMARY KEY (eventID),
-   FOREIGN KEY (userID) REFERENCES users(userID)
+   FOREIGN KEY (userID) REFERENCES users(userID) ON DELETE CASCADE
 );
 
 CREATE TABLE users-events (
     userID INT UNSIGNED NOT NULL AUTO_INCREMENT,
     eventID INT UNSIGNED NOT NULL AUTO_INCREMENT,
     PRIMARY KEY (userID, eventID),
-    FOREIGN KEY (userID) REFERENCES users(userID),
-    FOREIGN KEY (eventID) REFERENCES event(eventID),
+    FOREIGN KEY (userID) REFERENCES users(userID) ON DELETE CASCADE,
+    FOREIGN KEY (eventID) REFERENCES event(eventID) ON DELETE CASCADE
 );
