@@ -4,18 +4,24 @@
     <head>
 
         <meta charset="UTF-8">
-        <meta name="google-signin-client_id" content="395070286663-kh1dfmb6jjmd5pomdu9q086bns8mkqm5.apps.googleusercontent.com">
+        <meta name="google-signin-client_id" content="395070286663-89a13j9p6bnq3ipd91072dfpjk2d61fj.apps.googleusercontent.com">
         <title>Login Page</title>
-        <link rel="stylesheet" type="text/css" href="stylesheets/loginPage.css">
-        <script src="/javascripts/login.js"></script>
+        <link rel="stylesheet" type="text/css" href="/stylesheets/loginPage.css">
+        <!--<script src="/javascripts/login.js"></script>-->
         <script src="https://kit.fontawesome.com/a2e31acb7a.js" crossorigin="anonymous"></script>
-        <script src="https://apis.google.com/js/platform.js" async defer></script>
+        <!--link google authentication library-->
+        <!--<script src="https://apis.google.com/js/platform.js" async defer></script>-->
+        <script src="https://apis.google.com/js/platform.js?onload=init" async defer></script>
+
+        <!--<script src="https://accounts.google.com/gsi/client" async defer></script>-->
+
 
     </head>
 
     <body>
 
         <a href="index.html" id="home-btn" class="link-black" title="Home">EventCal</a>
+        <div class="g-signin2" data-onsuccess="onSignIn"></div>
 
         <h1 class="LoginToCont"><strong>LOGIN TO CONTINUE</strong></h1>
 
@@ -38,8 +44,6 @@
                             <i class="fa-brands fa-twitter"></i>
                             </a>
                         </div>
-                        <!-- Google sign in button test -->
-                        <div class="g-signin2" data-onsuccess="onSignIn"></div>
                     </div>
 
                     <div class="UserDetails">
@@ -60,6 +64,29 @@
                     </div>
                 </form>
         </div>
+<script>
+function init() {
+  /*gapi.load('auth2', function() {
+
+    gapi.auth2.init({
+        client_id: '395070286663-89a13j9p6bnq3ipd91072dfpjk2d61fj.apps.googleusercontent.com',
+        plugin_name: "eventcal"
+  })
+  });*/
+
+  window.gapi.load('auth2', () => {
+
+    this.auth2 = gapi.auth2.init({
+
+        client_id: '395070286663-89a13j9p6bnq3ipd91072dfpjk2d61fj.apps.googleusercontent.com',
+        plugin_name: "eventcalendar"
+
+    })
+});
+}
+
+</script>
+
 
 
 
