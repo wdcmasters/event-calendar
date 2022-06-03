@@ -5,13 +5,15 @@
 
         <meta charset="UTF-8">
         <meta name="google-signin-client_id" content="395070286663-89a13j9p6bnq3ipd91072dfpjk2d61fj.apps.googleusercontent.com">
+        <meta name="google-signin-plugin_name" content="eventcal">
         <title>Login Page</title>
         <link rel="stylesheet" type="text/css" href="/stylesheets/loginPage.css">
         <!--<script src="/javascripts/login.js"></script>-->
         <script src="https://kit.fontawesome.com/a2e31acb7a.js" crossorigin="anonymous"></script>
         <!--link google authentication library-->
         <!--<script src="https://apis.google.com/js/platform.js" async defer></script>-->
-        <script src="https://apis.google.com/js/platform.js?onload=init" async defer></script>
+        <script src="https://apis.google.com/js/platform.js" async defer></script>
+        <script src="/javascripts/login.js"></script>
 
         <!--<script src="https://accounts.google.com/gsi/client" async defer></script>-->
 
@@ -64,32 +66,6 @@
                     </div>
                 </form>
         </div>
-<script>
-function init() {
-  /*gapi.load('auth2', function() {
-
-    gapi.auth2.init({
-        client_id: '395070286663-89a13j9p6bnq3ipd91072dfpjk2d61fj.apps.googleusercontent.com',
-        plugin_name: "eventcal"
-  })
-  });*/
-
-  window.gapi.load('auth2', () => {
-
-    this.auth2 = gapi.auth2.init({
-
-        client_id: '395070286663-89a13j9p6bnq3ipd91072dfpjk2d61fj.apps.googleusercontent.com',
-        plugin_name: "eventcalendar"
-
-    })
-});
-}
-
-</script>
-
-
-
-
     </body>
 
 </html>
