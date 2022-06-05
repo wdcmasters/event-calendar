@@ -24,3 +24,27 @@ function onSignIn(googleUser) {
     token: googleUser.getAuthResponse().id_token
   }));
 }
+
+
+/*LOGIN*/
+function login()
+{
+    //Getting email and password from page
+    let userEmail = document.getElementById("name").value;
+    let userPassword = document.getElementById("name1").value;
+
+    //Putting into object
+    let userLogin = { email: userEmail, password: userPassword };
+
+
+    //AJAX
+    let xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+
+    };
+
+    //Open the request
+    xhttp.open("POST", "/login");
+    xhttp.setRequestHeader("Content-type", "application/json");
+    xhttp.send(JSON.stringify(userLogin));
+}
