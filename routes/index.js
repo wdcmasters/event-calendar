@@ -7,6 +7,14 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/signup', function(req, res, next) {
+
+  //Making sure all fields are filled
+  if (req.body.first_name == "" || req.body.last_name == "" || req.body.email == "" || req.body.password == "")
+  {
+    console.log("Fill in the inputs");
+    res.sendStatus(404);
+    return;
+  }
   //Checking if all the fields are filled
   if ('first_name' in req.body && 'last_name' in req.body && 'email' in req.body && 'password' in req.body) {
 
@@ -29,15 +37,12 @@ router.post('/signup', function(req, res, next) {
           console.log("Could not alert");
           res.sendStatus(500);
           return;
+
+          //Associating session with user and redirecting them to dashboard
         }
         res.end();
       });
     });
-  }
-  else
-  {
-    console.log("Fill in the inputs");
-    res.send(404);
   }
 });
 
