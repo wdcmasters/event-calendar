@@ -34,7 +34,7 @@ h1 {
 }
 
 .arrow1{
-    position: relative;
+    position: absolute;
     top: 35px;
     left: -140px;
 }
