@@ -11,9 +11,10 @@ function onSignIn(googleUser) {
   let xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if(this.readyState == 4 && this.status == 200) {
-      alert("Login successful");
+      //alert("Login successful");
+      window.location.href = '/public/Dashboard.html';
     } else if (this.readyState == 4 && this.status >=400){
-      alert("Login failed");
+      alert("Login failed. Try again.");
     }
   };
 
