@@ -16,14 +16,11 @@ function signup()
 
     xhttp.onreadystatechange = function () {
         //Not necessary
-        if (this.readyState == 4 && this.responseStatus == 200)
-        {
-            alert("worked");
-        }
-
-        if (this.readyState == 4 && this.responseStatus == 500)
-        {
-            alert("Could not make account");
+        if(this.readyState == 4 && this.status == 200) {
+            //alert("Login successful");
+            window.location.href = '/Dashboard.html';
+        } else if (this.readyState == 4 && this.status >=400){
+            alert("Could not create account. ");
         }
     };
 

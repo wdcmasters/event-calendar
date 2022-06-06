@@ -8,15 +8,17 @@
         <meta name="google-signin-plugin_name" content="eventcal">
         <title>Login Page</title>
         <link rel="stylesheet" type="text/css" href="/stylesheets/loginPage.css">
-        <!--<script src="/javascripts/login.js"></script>-->
         <script src="https://kit.fontawesome.com/a2e31acb7a.js" crossorigin="anonymous"></script>
-        <!--link google authentication library-->
-        <!--<script src="https://apis.google.com/js/platform.js" async defer></script>-->
+
+        <!--for google authentication-->
         <script src="https://apis.google.com/js/platform.js" async defer></script>
         <script src="/javascripts/login.js"></script>
 
+<<<<<<< HEAD
         <!--<script src="https://accounts.google.com/gsi/client" async defer></script>-->
 
+=======
+>>>>>>> 9055d6919c68afa24af25216d76d1b421aa341bc
     </head>
 
     <body>
@@ -26,8 +28,13 @@
         <h1 class="LoginToCont"><strong>LOGIN TO CONTINUE</strong></h1>
 
         <div class="LoginRectSection">
+<<<<<<< HEAD
             <span class="socMed">SIGN IN:</span><span class="arrow1"> &#x2193;</span>
                 <form action="/example">
+=======
+            <span class="socMed">SIGN IN USING SOCIAL MEDIA:</span> <span class="arrow1"> &#x2193;</span>
+                <!-- <form> -->
+>>>>>>> 9055d6919c68afa24af25216d76d1b421aa341bc
                     <div class="socialMedia">
                         <div>
                             <div class="g-signin2" data-onsuccess="onSignIn" data-longtitle="true" data-width="220" data-height="50"></div>
@@ -57,13 +64,13 @@
                         </div>
 
                         <div class="login">
-                            <button type="submit">LOGIN</button>
+                            <button id="loginButon" type="submit" onclick="login()">LOGIN</button>
                         </div>
                         <div class="NoAccount">
                             Don't have an account? <a href="signUpPage.html">SIGN UP!</a>
                         </div>
                     </div>
-                </form>
+                <!-- </form> -->
         </div>
     </body>
 
