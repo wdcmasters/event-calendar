@@ -12,7 +12,8 @@ function onSignIn(googleUser) {
   xhttp.onreadystatechange = function() {
     if(this.readyState == 4 && this.status == 200) {
       //alert("Login successful");
-      window.location.href = '/public/Dashboard.html';
+      //window.location.href = '/Dashboard.html';
+      console.log("Google login successful");
     } else if (this.readyState == 4 && this.status >=400){
       alert("Login failed. Try again.");
     }

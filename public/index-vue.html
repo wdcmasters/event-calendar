@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Home</title>
+        <meta charset="UTF-8">
+
+        <!--getting all styles-->
+        <link rel="stylesheet" href="stylesheets/homepage.css">
+        <link rel="stylesheet" href="stylesheets/header.css">
+        <link rel="stylesheet" href="stylesheets/buttons.css">
+        <link rel="stylesheet" type="text/css" href="/stylesheets/loginPage.css">
+        <script src="https://kit.fontawesome.com/a2e31acb7a.js" crossorigin="anonymous"></script> <!--login page icons-->
+        <script src="https://kit.fontawesome.com/2dc2f1fbdb.js" crossorigin="anonymous"></script> <!--home page icons-->
+
+        <!--For Vue-->
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+        <script src="/javascripts/index-vue.js" defer></script> <!-- defer makes it run after body has loaded -->
+
+        <!--For google authentication -->
+        <meta name="google-signin-client_id" content="395070286663-89a13j9p6bnq3ipd91072dfpjk2d61fj.apps.googleusercontent.com">
+        <meta name="google-signin-plugin_name" content="eventcal">
+        <script src="https://apis.google.com/js/platform.js" async defer></script>
+
+        <!--Other JS files-->
+        <!--<script src="/javascripts/login.js"></script>-->
+
+    </head>
+    <body>
+        <div id="vue-app">
+            <div id="home" v-if="show_home">
+                <header>
+                    <div>
+                        <a href="index.html" id="home-btn" class="link-black" title="Home">EventCal</a>
+                    </div>
+
+                    <!--container for login/signup buttons-->
+                    <div class="top-right-menu">
+                        <div class="menu-div">
+                            <a href="signUpPage.html" class="link-black menu-btn">Sign Up</a>
+                        </div>
+                        <div>
+                            <button type="button" class="blue-btn">Log In</button> <!--onclick="app.show_login = true; app.show_home = false;"-->
+                        </div>
+                    </div>
+
+                </header>
+
+                <section>
+                    <div id="h1icon">
+                        <i class="fa-solid fa-calendar-days fa-9x icon"></i>
+                        <h1 id="home-heading">
+                            Scheduling made <br />
+                            hassle-free.
+                        </h1>
+                    </div>
+
+                    <p class="tagline">
+                        An all-in-one event planning system that makes it easy to create and join events, and manage your schedule.<br />
+                        With Google Calendar integration, EventCal automatically identifies your available time so that you don't have to.
+                    </p>
+                    <p class="tagline">Click the button below to get started.</p>
+
+                    <div id="get-started">
+                        <button type="button" class="big-white-btn">Get Started</button>
+                    </div>
+                </section>
+            </div>
+
+            <div id="login" v-if="show_login">
+                <div class="g-signin2" data-onsuccess="onSignIn" style="display:inline"></div>
+                <h1 class="LoginToCont"><strong>LOGIN TO CONTINUE</strong></h1>
+
+                <div class="LoginRectSection">
+                    <span class="socMed">SIGN IN USING SOCIAL MEDIA:</span> <span class="arrow1"> &#x2193;</span>
+
+                        <form action="/example">
+
+
+                            <div class="UserDetails">
+                                <span class="or">OR:</span>
+                                <div id="emailInput" class="inputs">
+                                    <input id="name" type="text" placeholder="Email" required>
+                                </div>
+                                <div id="passwordInput" class="inputs">
+                                    <input id="name1" type="password" placeholder="Password" required>
+                                </div>
+
+                                <div class="login">
+                                    <button type="submit">LOGIN</button>
+                                </div>
+                                <div class="NoAccount">
+                                    Don't have an account? <a href="signUpPage.html">SIGN UP!</a>
+                                    <button type="button">Cancel Login</button> <!--onclick="app.show_login = false; app.show_home = true;"-->
+                                </div>
+                            </div>
+                        </form>
+                </div>
+            </div>
+
+        </div>
+    </body>
+</html>

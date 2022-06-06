@@ -66,7 +66,6 @@ router.post('/logintest', function(req, res, next)
               req.session.user = rows[0];
               // console.log("rows[0] = " + rows[0].userID);
               res.sendStatus(200);
-              //res.redirect('/Dashboard.html');
             }
             // if user isn't in database yet, create new user record
             else
@@ -92,7 +91,6 @@ router.post('/logintest', function(req, res, next)
                   // establish session for user
                   req.session.user = email;
                   res.sendStatus(200);
-                  // res.redirect('/Dashboard.html');
                 });
               });
             }
