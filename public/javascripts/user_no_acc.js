@@ -29,8 +29,9 @@ function no_acc() {
 */
 
 function guest() {
-
-
+    let firstName = document.getElementsByName("firstName")[0].value;
+    let lastName = document.getElementsByName("lastName")[0].value;
+    let guest =   { first_name: firstName, last_name: lastName };
 
 }
 
