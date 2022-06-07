@@ -76,7 +76,6 @@ app.get('/event/:id', (req, res) => {
       connection.release(); // release connection
       if (error) {
         console.log(error);
-        console.log("Could not alert");
         res.sendStatus(500);
         return;
       }
@@ -88,7 +87,7 @@ app.get('/event/:id', (req, res) => {
 
 
 app.get('/event/respond', (req, res) => {
-  
+
 
 
   res.sendFile("book_event.html", { root: path.resolve(_dirname, '/event/:id') }, function(err) {
