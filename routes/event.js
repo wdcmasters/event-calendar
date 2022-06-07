@@ -15,6 +15,9 @@ router.post('/addevent', function(req, res, next) {
     let start_time = req.body.start_time;
     let fin_time = req.body.fin_time;
 
+    // get user id from session (assuming theyre logged in)
+    // get us
+
     // console.log(req.body.eventName);
     // res.end();
     //Parsing  (do later)
