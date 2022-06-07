@@ -123,6 +123,7 @@ app.post('/event/respond', (req, res) => {
         }
 
       });
+    }
 });
 
 
