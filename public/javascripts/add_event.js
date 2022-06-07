@@ -10,7 +10,10 @@ function addEvent()
     let post_code = document.getElementById("post-code").value;
     let country = document.getElementById("country").value;
     //Getting event time from page
-    let date = document.getElementById("myDate").value
+    let date = document.getElementById("date").value
+    let start_time = document.getElementById("from-time").value
+    let fin_time = document.getElementById("to-time").value
+
     //Putting into object
     let userLogin = { email: userEmail, password: userPassword };
 
