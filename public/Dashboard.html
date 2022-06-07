@@ -15,9 +15,10 @@
     <script src="/javascripts/events.js"></script>
 
     <!--For Vue-->
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
-    <script src="javascripts/Dashboard-vue.js" defer></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script> -->
+    <script src="javascripts/Dashboard-noVue.js" defer></script>
 </head>
+<body>
             <!--Logo/website name-->
             <div>
                 <a href="index.html" id="home-btn" class="link-black" title="Home">EventCal</a>
@@ -47,7 +48,7 @@
 
         <!-- Page content -->
 <div class="content">
-    <h1> Dashboard </h1>
+    <h1 onclick=""> Dashboard </h1>
     <!-- Create & Join Event Buttons -->
     <div class="buttons">
         <button type="button" onclick="window.location.href='/add_event.html'"><i class="fa-solid fa-plus"></i> Create Event </button>
@@ -70,7 +71,7 @@
             <!--container for cancel and save buttons-->
             <div class="cancel-save">
                 <!--<button type="button" class="white-btn" onclick="hidePopup()">Cancel</button><br><br>-->
-                <button type="button" class="small-blue-btn" onclick="getEvent()">Search event<br><br>
+                <button type="button" class="small-blue-btn" onclick="getEvent();">Search event<br><br>
             </div>
         </form>
 
@@ -85,13 +86,13 @@
         <!-- Events container -->
         <div id="eventsSection">
             <div id="searchField">
-                <i class="fa-solid fa-magnifying-glass"></i>
+                <i class="fa-solid fa-magnifying-glass" onclick=""></i>
                 <input type="text" id="dashboardSearch" name="search" placeholder="Find an event">
                 <i class="fa-solid fa-filter"></i>
             </div>
             <br><br>
             <!-- Individual Events -->
-            <div id="events" v-on:click="getEvents()">
+            <div id="events">
                 <div class="event">
                     <div class="dateTime">
                         <p class="date"><i class="fa-solid fa-calendar"></i> 09/24 </p>
