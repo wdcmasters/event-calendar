@@ -124,7 +124,7 @@ app.post('/event/respond', (req, res) => {
         return;
       }
 
-      let query = "INSERT INTO users (first_name,last_name,email,password) VALUES (?,?,?,?);"; //Inserting guest into db
+      let query = "INSERT INTO users (first_name,last_name) VALUES (?,?) WHERE userID=NULL;"; //Inserting guest into db
       connection.query(query,[req.body.first_name, req.body.last_name, req.body.email, req.body.password], function(error, rows, fields)
       {
         //Running query
