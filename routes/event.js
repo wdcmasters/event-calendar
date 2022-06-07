@@ -16,7 +16,7 @@ router.post('/addevent', function(req, res, next) {
     let fin_time = req.body.fin_time;
 
     console.log(req.body.eventName);
-    //Parsing email and password (do later)
+    //Parsing  (do later)
     //
     //
 
