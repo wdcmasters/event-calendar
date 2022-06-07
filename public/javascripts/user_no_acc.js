@@ -61,7 +61,7 @@ function guest() {
 
     xhttp.onreadystatechange = function () {
         if(this.readyState == 4 && this.status == 200) {
-            window.location.href = "book_event.html";
+            window.location.href = "pop_up_guest.html";
         } else if (this.readyState == 4 && this.status >=400){
             alert("Could not create guest");
         }
@@ -70,7 +70,7 @@ function guest() {
     //Open the request
     xhttp.open("GET", "/guestDetails");
     xhttp.setRequestHeader("Content-type", "application/json");
-
+    xhttp.send();
 }
 
 
