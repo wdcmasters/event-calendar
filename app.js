@@ -95,6 +95,7 @@ app.get('/event/respond', (req, res) => {
   });
 });
 
+
 app.post('/event/respond', (req, res) => {
   if (req.body.first_name == "" || req.body.last_name == "")
   {
@@ -111,7 +112,7 @@ app.post('/event/respond', (req, res) => {
         return;
       }
 
-      let query = "INSERT INTO users (first_name,last_name,email,password) VALUES (?,?,?,?);"; //Inserting user
+      let query = "INSERT INTO users (first_name,last_name,email,password) VALUES (?,?,?,?);"; //Inserting guest into db
       connection.query(query,[req.body.first_name, req.body.last_name, req.body.email, req.body.password], function(error, rows, fields)
       {
         //Running query
@@ -121,7 +122,7 @@ app.post('/event/respond', (req, res) => {
           res.sendStatus(500);
           return;
         }
-        
+
       });
     });
   }
