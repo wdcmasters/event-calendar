@@ -33,7 +33,22 @@ function guest() {
     let lastName = document.getElementsByName("lastName")[0].value;
     let guest =   { first_name: firstName, last_name: lastName };
 
-        
+    //AJAX
+    let xhttp = new XMLHttpRequest();
+
+    xhttp.onreadystatechange = function () {
+        if(this.readyState == 4 && this.status == 200) {
+            window.location.href = '/Dashboard.html';
+        } else if (this.readyState == 4 && this.status >=400){
+            alert("Could not create account. ");
+        }
+    };
+
+    //Open the request
+    xhttp.open("POST", "/event/respond");
+    xhttp.setRequestHeader("Content-type", "application/json");
+    xhttp.send(JSON.stringify(guest));
+}
 
 
 
