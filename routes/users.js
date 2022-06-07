@@ -126,7 +126,6 @@ router.post('/logintest', function(req, res, next)
   }
 });
 
-<<<<<<< HEAD
 router.post('/signout', function(req, res, next) {
   if('user' in req.session){
     delete req.session.user;
@@ -137,7 +136,6 @@ router.post('/signout', function(req, res, next) {
   res.end();
 });
 
-=======
 /* Retrieving the userID*/
 router.get('/getID', function(req, res, next) {
 
@@ -171,11 +169,13 @@ router.get('/getID', function(req, res, next) {
   });
 });
 
+
 /* DASHBOARD PAGE: Retrieving the event details based on a userID */
 router.post('/getEvents', function(req, res, next) {
 
   //Storing userID for prepared statement
   let userID = req.body.userID;
+  console.log("Received user id is "+userID);
 
   //Opening connection
   req.pool.getConnection(function(error,connection) {
@@ -198,12 +198,11 @@ router.post('/getEvents', function(req, res, next) {
         return;
       }
 
-      res.send(rows);
+        res.send(rows);
 
     });
   });
 });
 
 
->>>>>>> 832c1a2d0cb959ef0163b5bea804745d94937f5e
 module.exports = router;
