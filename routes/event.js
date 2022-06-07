@@ -15,40 +15,40 @@ router.post('/addevent', function(req, res, next) {
     let start_time = req.body.start_time;
     let fin_time = req.body.fin_time;
 
-    console.log(req.body.eventName);
-    res.end();
+    // console.log(req.body.eventName);
+    // res.end();
     //Parsing  (do later)
     //
     //
 
     //Making sure all fields are filled
-    if (req.body.eventName == "" || street_no == "")
-    {
-      console.log("Fill in the inputs");
-      res.sendStatus(404);
-      return;
-    }
+    // if (req.body.eventName == "" || street_no == "")
+    // {
+    //   console.log("Fill in the inputs");
+    //   res.sendStatus(404);
+    //   return;
+    // }
 
     //Opening connection to check logins
-    // req.pool.getConnection(function(error,connection) {
-    //   if(error)
-    //   {
-    //     console.log(error);
-    //     res.sendStatus(500);
-    //     return;
-    //   }
+    req.pool.getConnection(function(error,connection) {
+      if(error)
+      {
+        console.log(error);
+        res.sendStatus(500);
+        return;
+      }
 
-    //   let query = "SELECT email,password FROM users WHERE email = ? AND password = ?"; //Inserting user
-    //   connection.query(query,[email, password], function(error, rows, fields)
-    //   {
-    //     //Running query
-    //     connection.release(); // release connection
-    //     if (error) {
-    //       console.log(error);
-    //       console.log("Could not alert");
-    //       res.sendStatus(500);
-    //       return;
-    //     }
+      let query = "SELECT email,password FROM users WHERE email = ? AND password = ?"; //Inserting user
+      connection.query(query,[email, password], function(error, rows, fields)
+      {
+        //Running query
+        connection.release(); // release connection
+        if (error) {
+          console.log(error);
+          console.log("Could not alert");
+          res.sendStatus(500);
+          return;
+        }
 
     //     if (rows.length > 0) {
     //       console.log("login success");
