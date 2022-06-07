@@ -126,6 +126,7 @@ router.post('/logintest', function(req, res, next)
   }
 });
 
+<<<<<<< HEAD
 router.post('/signout', function(req, res, next) {
   if('user' in req.session){
     delete req.session.user;
@@ -136,4 +137,73 @@ router.post('/signout', function(req, res, next) {
   res.end();
 });
 
+=======
+/* Retrieving the userID*/
+router.get('/getID', function(req, res, next) {
+
+  //Getting the email
+  email = req.session.user.email;
+
+  /*Getting userID with mySQL */
+  req.pool.getConnection(function(error,connection) { //Opening the connection
+    if(error)
+    {
+      console.log(error);
+      res.sendStatus(500);
+      return;
+    }
+
+    let query = "SELECT userID FROM users WHERE email = ?"; //Inserting user
+    connection.query(query,[email], function(error, rows, fields)
+    {
+      //Running query
+      connection.release();
+      if (error) {
+        console.log(error);
+        console.log("Could not alert");
+        res.sendStatus(500);
+        return;
+      }
+
+      res.send(rows);
+
+    });
+  });
+});
+
+/* DASHBOARD PAGE: Retrieving the event details based on a userID */
+router.post('/getEvents', function(req, res, next) {
+
+  //Storing userID for prepared statement
+  let userID = req.body.userID;
+
+  //Opening connection
+  req.pool.getConnection(function(error,connection) {
+    if(error)
+    {
+      console.log(error);
+      res.sendStatus(500);
+      return;
+    }
+
+    let query = "SELECT event.eventName,event.suburb,event.country,event.date,event_times.start_time FROM event INNER JOIN event_times ON event.eventID = event_times.eventID INNER JOIN users_events ON users_events.eventID = event.eventID WHERE users_events.userID = ?"; //Inserting user
+    connection.query(query,[userID], function(error, rows, fields)
+    {
+      //Running query
+      connection.release();
+      if (error) {
+        console.log(error);
+        console.log("Could not alert");
+        res.sendStatus(500);
+        return;
+      }
+
+      res.send(rows);
+
+    });
+  });
+});
+
+
+>>>>>>> 832c1a2d0cb959ef0163b5bea804745d94937f5e
 module.exports = router;

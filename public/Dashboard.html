@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <title>Dashboard</title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,20 +10,14 @@
     <link rel="stylesheet" href="stylesheets/settings.css"> <!--link to get specific elements for settings pages-->
     <link rel="stylesheet" href="stylesheets/header.css"> <!--link to get header format-->
     <link rel="stylesheet" href="stylesheets/buttons.css"> <!--link to get buttons format-->
-    <title>Dashboard</title>
     <script src="/javascripts/settings.js"></script>
     <script src="/javascripts/login.js"></script>
     <script src="/javascripts/events.js"></script>
 
     <!--For Vue-->
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
-    <script src="/javascripts/events.js" defer></script> <!-- defer makes it run after body has loaded -->
-
+    <script src="javascripts/Dashboard-vue.js" defer></script>
 </head>
-<body>
-<!--Header contains logo on top left, link to user dashboard and profile picture on top right-->
-        <header>
-
             <!--Logo/website name-->
             <div>
                 <a href="index.html" id="home-btn" class="link-black" title="Home">EventCal</a>
@@ -88,7 +83,7 @@
         </div>
 
         <!-- Events container -->
-        <div id="events">
+        <div id="eventsSection">
             <div id="searchField">
                 <i class="fa-solid fa-magnifying-glass"></i>
                 <input type="text" id="dashboardSearch" name="search" placeholder="Find an event">
@@ -96,26 +91,19 @@
             </div>
             <br><br>
             <!-- Individual Events -->
-            <div class="event">
-                <div class="dateTime">
-                    <p class="date"><i class="fa-solid fa-calendar"></i> 09/24 </p>
-                    <p class="time"><i class="fa-solid fa-clock"></i> 5:13pm </p>
-                </div>
-                <div class="nameLocale">
-                    <h3 class="eventName"><a href="Dashboard.html"> Tennis Squad </a></h3>
-                    <p class="eventLocation"> <i class="fa-solid fa-location-pin"></i> Adelaide, Australia </p>
-                </div>
-            </div>
-            <div class="event">
-                <div class="dateTime">
-                    <p class="date"><i class="fa-solid fa-calendar"></i> 09/24 </p>
-                    <p class="time"><i class="fa-solid fa-clock"></i> 5:13pm </p>
-                </div>
-                <div class="nameLocale">
-                    <h3 class="eventName"><a href="Dashboard.html"> Birthday Catchup </a></h3>
-                    <p class="eventLocation"> <i class="fa-solid fa-location-pin"></i> 366 Main Road, Adelaide </p>
+            <div id="events" v-on:click="getEvents()">
+                <div class="event">
+                    <div class="dateTime">
+                        <p class="date"><i class="fa-solid fa-calendar"></i> 09/24 </p>
+                        <p class="time"><i class="fa-solid fa-clock"></i> 5:13pm </p>
+                    </div>
+                    <div class="nameLocale">
+                        <h3 class="eventName"><a href="Dashboard.html"> Tennis Squad </a></h3>
+                        <p class="eventLocation"> <i class="fa-solid fa-location-pin"></i> Adelaide, Australia </p>
+                    </div>
                 </div>
             </div>
+
             <!-- View More Button -->
             <p id="viewMore"><a href="Dashboard.html"> View More <i class="fa-solid fa-caret-down"></i></a></p>
         </div>
