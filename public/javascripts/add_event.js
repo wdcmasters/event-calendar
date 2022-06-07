@@ -30,14 +30,14 @@ function addEvent()
 
     //AJAX
     let xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function () {
-      if(this.readyState == 4 && this.status == 200) {
-        window.location.href = '/Dashboard.html'; // redirects to dashboard
-      }
-      else if (this.readyState == 4 && this.status >=400){
-        alert("Couldn't create event. Try again.");
-      }
-    };
+    // xhttp.onreadystatechange = function () {
+    //   if(this.readyState == 4 && this.status == 200) {
+    //     // window.location.href = '/Dashboard.html'; // redirects to dashboard
+    //   }
+    //   else if (this.readyState == 4 && this.status >=400){
+    //     alert("Couldn't create event. Try again.");
+    //   }
+    // };
 
     //Open the request
     xhttp.open("POST", "/addevent"); // post: sending info to server
