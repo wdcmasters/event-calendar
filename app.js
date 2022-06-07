@@ -121,9 +121,10 @@ app.post('/event/respond', (req, res) => {
           res.sendStatus(500);
           return;
         }
-
+        
       });
-    }
+    });
+  }
 });
 
 
