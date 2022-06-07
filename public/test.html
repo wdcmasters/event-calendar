@@ -1,0 +1,28 @@
+<!--FOR TESTING LINK GENERATION FOR PEOPLE WITHOUT ACCOUNTS -->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Link Test</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <p>Sample link:</p>
+        <p id="event-link"></p>
+
+    </body>
+
+    <script>
+        let eventID = "hjk2Ls"; // replace with event id from database
+        let url = location.href + "/event/respond/:" + eventID;
+        document.getElementById("event-link").innerText = url;
+
+        let date_today = new Date();
+        console.log(date_today);
+        let millisecondsSince1970 = date_today.getTime();
+        console.log(millisecondsSince1970);
+
+        let jun7 = new Date('2022-06-07');
+        
+
+    </script>
+</html>
