@@ -72,7 +72,7 @@ input[type="checkbox"] {
     margin-right: 10px;
   }
 
-input[type=submit] {
+#submit-button{
     min-width: 25%;
     font-size: 1.2em;
     background-color: #007fff;
@@ -82,7 +82,7 @@ input[type=submit] {
     border-radius: 5px; /*rounded borders  */
 }
 
-input[type=submit]:hover {
+#submit-button:hover {
     background-color: #444dff;
     cursor: pointer;
 }
