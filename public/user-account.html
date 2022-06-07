@@ -8,6 +8,13 @@
         <link rel="stylesheet" href="stylesheets/buttons.css"> <!--link to get buttons format-->
         <script src="https://kit.fontawesome.com/2dc2f1fbdb.js" crossorigin="anonymous"></script>
         <script src="/javascripts/settings.js"></script>
+        <script src="/javascripts/login.js"></script>
+
+        <meta name="google-signin-client_id" content="395070286663-89a13j9p6bnq3ipd91072dfpjk2d61fj.apps.googleusercontent.com">
+        <meta name="google-signin-plugin_name" content="eventcal">
+        <!--for google authentication-->
+        <script src="https://apis.google.com/js/platform.js" async defer></script>
+        <script src="/javascripts/login.js"></script>
 
     </head>
     <body>
@@ -18,6 +25,11 @@
             <div>
                 <a href="index.html" id="home-btn" class="link-black" title="Home">EventCal</a>
             </div>
+
+            <!-- sign out link -->
+                    <div class="menu-div" >
+                        <a href="index.html" onclick="signOut();" class="link-black menu-btn">Sign out</a>
+                    </div>
 
             <!--container for links to Home and Profile settings-->
             <div class="top-right-menu">
@@ -35,10 +47,7 @@
                         <a href="email-settings.html" class="link-black">Email Settings</a>
                     </div>
 
-                    <!-- sign out link -->
-                    <div class="menu-div" >
-                        <a href="#" onclick="signOut();" class="link-black menu-btn">Sign out</a>
-                    </div>
+
                 </div>
             </div>
 
