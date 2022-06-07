@@ -16,7 +16,8 @@ router.post('/addevent', function(req, res, next) {
     let fin_time = req.body.fin_time;
 
     // get user id from session (assuming theyre logged in)
-    // get us
+    // find where user id in the session matches w user id in the users table
+    // 
 
     // console.log(req.body.eventName);
     // res.end();
