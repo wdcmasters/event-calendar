@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-router.post('/login', function(req, res, next) {
+router.post('/addevent', function(req, res, next) {
 
     //Storing the login details
     let email = req.body.email;
