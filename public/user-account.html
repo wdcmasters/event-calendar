@@ -10,12 +10,6 @@
         <script src="/javascripts/settings.js"></script>
         <script src="/javascripts/login.js"></script>
 
-        <meta name="google-signin-client_id" content="395070286663-89a13j9p6bnq3ipd91072dfpjk2d61fj.apps.googleusercontent.com">
-        <meta name="google-signin-plugin_name" content="eventcal">
-        <!--for google authentication-->
-        <script src="https://apis.google.com/js/platform.js" async defer></script>
-        <script src="/javascripts/login.js"></script>
-
     </head>
     <body>
         <!--Header contains logo on top left, link to user dashboard and profile picture on top right-->
@@ -27,14 +21,14 @@
             </div>
 
             <!-- sign out link -->
-                    <div class="menu-div" >
-                        <a href="index.html" onclick="signOut();" class="link-black menu-btn">Sign out</a>
-                    </div>
+            <div class="menu-div" >
+                <a onclick="signOut();" class="link-black menu-btn">Sign out</a>
+            </div>
 
             <!--container for links to Home and Profile settings-->
             <div class="top-right-menu">
                 <!-- <div class="menu-div">
-                    <a href="#user-dashboard" class="link-black menu-btn">Home</a>
+                    <a href="/Dashboard.html" class="link-black menu-btn">Home</a>
                 </div> -->
                 <div class="settings-dropdown">
                     <button type="button" class="blue-btn">Profile

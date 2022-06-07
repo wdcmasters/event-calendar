@@ -10,6 +10,14 @@
     <link rel="stylesheet" href="stylesheets/header.css"> <!--link to get header format-->
     <link rel="stylesheet" href="stylesheets/buttons.css"> <!--link to get buttons format-->
     <title>Dashboard</title>
+    <script src="/javascripts/settings.js"></script>
+    <script src="/javascripts/login.js"></script>
+    <script src="/javascripts/events.js"></script>
+
+    <!--For Vue-->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <script src="/javascripts/events.js" defer></script> <!-- defer makes it run after body has loaded -->
+
 </head>
 <body>
 <!--Header contains logo on top left, link to user dashboard and profile picture on top right-->
@@ -47,8 +55,30 @@
     <h1> Dashboard </h1>
     <!-- Create & Join Event Buttons -->
     <div class="buttons">
-        <button type="button"><i class="fa-solid fa-plus"></i> Create Event </button>
-        <button type="button"><i class="fa-solid fa-link"></i> Join Event </button>
+        <button type="button" onclick="window.location.href='/add_event.html'"><i class="fa-solid fa-plus"></i> Create Event </button>
+        <button type="button" onclick="showEventSearch()"><i class="fa-solid fa-link"></i> Join Event </button>
+        <!--The popup email container-->
+
+    </div>
+
+    <!--The popup join event container-->
+    <div class="popup" id="event-container">
+
+        <!--popup content-->
+        <form class="popup-content">
+
+            <!--ask user to enter event ID-->
+            <h3>Join an Event</h3>
+            <label for="join-event">Enter Event ID</label><br />
+            <input type="text" id="eventID" name="eventID"><br><br>
+
+            <!--container for cancel and save buttons-->
+            <div class="cancel-save">
+                <!--<button type="button" class="white-btn" onclick="hidePopup()">Cancel</button><br><br>-->
+                <button type="button" class="small-blue-btn" onclick="getEvent()">Search event<br><br>
+            </div>
+        </form>
+
     </div>
 
     <!-- The dashboard itself-->
@@ -92,4 +122,14 @@
     </div>
 </div>
 </body>
+
+    <script>
+        // close pop up event container whenever user clicks outside it
+        var container = document.getElementById("event-container");
+        window.onclick = function(event) {
+            if (event.target == container) {
+                container.style.display = "none";
+            }
+        };
+    </script>
 </html>

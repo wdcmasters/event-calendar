@@ -126,4 +126,14 @@ router.post('/logintest', function(req, res, next)
   }
 });
 
+router.post('/signout', function(req, res, next) {
+  if('user' in req.session){
+    delete req.session.user;
+  }
+  else {
+    res.sendStatus(401);
+  }
+  res.end();
+});
+
 module.exports = router;
