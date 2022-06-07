@@ -60,4 +60,9 @@ app.use('/users', usersRouter);
 //   res.render('error');
 // });
 
+app.get('/event/:id', function(req, res, next) {
+  
+});
+
+
 module.exports = app;

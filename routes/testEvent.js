@@ -3,9 +3,7 @@ var router = express.Router();
 
 
 // get event details for a given event id
-app.get('/event/:id', function(req, res, next) {
-    res.send()
-});
+
 
 
 router.get('/event/respond', function(req, res, next) {
