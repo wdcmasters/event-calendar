@@ -62,7 +62,14 @@ app.use('/event', eventRouter);
 //   res.render('error');
 // });
 
-app.get(')
+app.get('/guestDetails', (req, res) => {
+  if (!user in session) {
+    
+  }
+
+
+});
+
 
 app.get('/event/:id', (req, res) => {
   eventID = Number(req.params.id);   //set eventID as the id in the path
