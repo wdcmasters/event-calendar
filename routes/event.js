@@ -38,8 +38,8 @@ router.post('/addevent', function(req, res, next) {
         return;
       }
 
-      let query = "SELECT email,password FROM users WHERE email = ? AND password = ?"; //Inserting user
-      connection.query(query,[email, password], function(error, rows, fields)
+      let query = "INSERT INTO users (first_name,last_name,email,password) VALUES (?,?,?,?);"; //Inserting user
+      connection.query(query,[req.body.first_name, req.body.last_name, req.body.email, req.body.password], function(error, rows, fields)
       {
         //Running query
         connection.release(); // release connection
@@ -48,26 +48,15 @@ router.post('/addevent', function(req, res, next) {
           console.log("Could not alert");
           res.sendStatus(500);
           return;
-        }
-
-    //     if (rows.length > 0) {
-    //       console.log("login success");
-
-    //       //Associating user with session
-    //       req.session.authenticated = true;
-    //       req.session.user = { email: email, password: password };
-
-    //       console.log(req.session.user);
-
-    //       //Redirecting to dashboard
-    //       res.redirect('/Dashboard.html');
-    //       return;
-    //     }
-
-    //     res.sendStatus(401);
-    //   });
-    // });
-
+          //Associating session with user and redirecting them to dashboard
+          res.session.authenticated = true;
+          res.session.user = { email: req.body.email, password: req.body.password };
+          res.redirect("Dashboard.html");
+          }
+          res.end();
+        });
+      });
+    }
   });
 
 module.exports = router;
