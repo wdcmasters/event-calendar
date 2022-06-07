@@ -15,14 +15,6 @@ router.post('/addevent', function(req, res, next) {
     let start_time = req.body.start_time;
     let fin_time = req.body.fin_time;
 
-    // get user id from session (assuming theyre logged in)
-    // find where user id in the session matches w user id in the users table
-    // in events time table, insert start time and end time, and the user id is the user id from session
-    // when inserting the rest of the details into event table, may need to use inner join
-    // get last inserted time id and insert all the event details + time id into the event table 
-
-    // console.log(req.body.eventName);
-    // res.end();
     //Parsing  (do later)
     //
     //
@@ -44,6 +36,11 @@ router.post('/addevent', function(req, res, next) {
         return;
       }
 
+    // get user id from session (assuming theyre logged in)
+    // find where user id in the session matches w user id in the users table
+    // in events time table, insert start time and end time, and the user id is the user id from session
+    // when inserting the rest of the details into event table, may need to use inner join
+    // get last inserted time id and insert all the event details + time id into the event table
       let query = "INSERT INTO users (first_name,last_name,email,password) VALUES (?,?,?,?);"; //Inserting user
       connection.query(query,[req.body.first_name, req.body.last_name, req.body.email, req.body.password], function(error, rows, fields)
       {
