@@ -96,7 +96,7 @@ app.get('/event/respond', (req, res) => {
 });
 
 app.post('/event/respond', (req, res) => {
-  if (req.body.first_name == "" || req.body.last_name == "" || req.body.email == "" || req.body.password == "")
+  if (req.body.first_name == "" || req.body.last_name == "")
   {
     console.log("Fill in the inputs");
     res.sendStatus(404);
