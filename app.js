@@ -62,6 +62,8 @@ app.use('/event', eventRouter);
 //   res.render('error');
 // });
 
+app.get(')
+
 app.get('/event/:id', (req, res) => {
   eventID = Number(req.params.id);   //set eventID as the id in the path
   req.pool.getConnection(function(error,connection) {.  //get connection
