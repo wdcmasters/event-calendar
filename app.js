@@ -69,8 +69,12 @@ app.get('/event/:id', (req, res) => {
       res.sendStatus(500);
       return;
     }
-  let query="SELECT something WHERE eventID = ?
-})
+    let query="SELECT eventName WHERE eventID = ?;";
+    connection.query(query,[eventID], function(error, rows, fields){
+
+
+    })
+  })
 
 });
 
