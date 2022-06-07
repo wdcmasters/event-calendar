@@ -3,15 +3,14 @@ var router = express.Router();
 
 
 
-router.get('/event/respond', function(req, res, next) {
-
+router.get('/event_id', function(req, res, next) {
     
 });
 
 
 router.get('/event/respond', function(req, res, next) {
 
-    res.sendFile("book_event.html", { root: path.resolve(_dirname, '') }, function(err) {
+    res.sendFile("book_event.html", { root: path.resolve(_dirname, '/event_id') }, function(err) {
         if(err) {
             //error handling
         }
