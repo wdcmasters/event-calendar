@@ -61,7 +61,7 @@ app.use('/users', usersRouter);
 // });
 
 app.get('/event/:id', (req, res) => {
-  eventID = req.params.id;
+  eventID = Number(req.params.id);
   req.pool.getConnection(function(error,connection) {
     if(error)
     {
