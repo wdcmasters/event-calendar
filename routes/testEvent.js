@@ -2,11 +2,9 @@ var express = require('express');
 var router = express.Router();
 
 
-
+// get event details for a given event id
 router.get('/event_details', function(req, res, next) {
-    
-
-
+    res.send()
 });
 
 
