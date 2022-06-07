@@ -12,7 +12,7 @@ function no_acc() {
     xhttp.onreadystatechange = function () {
         if(this.readyState == 4 && this.status == 200) {
 
-            
+            console.log
 
         } else if (this.readyState == 4 && this.status >=400){
 
