@@ -88,6 +88,9 @@ app.get('/event/:id', (req, res) => {
 
 
 app.get('/event/respond', (req, res) => {
+  
+
+
   res.sendFile("book_event.html", { root: path.resolve(_dirname, '/event/:id') }, function(err) {
       if(err) {
         res.sendStatus(500); //error handling
