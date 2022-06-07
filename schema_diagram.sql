@@ -40,11 +40,23 @@ CREATE TABLE event (
    post_code VARCHAR (10),
    country VARCHAR(25),
    date DATE,
-   time TIME,
+   timeID INT UNSIGNED NOT NULL,
    userID INT UNSIGNED NOT NULL,
    PRIMARY KEY (eventID),
    FOREIGN KEY (userID) REFERENCES users(userID) ON DELETE CASCADE
+   FOREIGN KEY (timeID) REFERENCES event_times(timeID) ON DELETE CASCADE
 );
+
+CREATE TABLE event_times (
+    timeID INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    startTime TIME,
+    endTime TIME,
+    userID INT UNSIGNED NOT NULL,
+    eventID INT UNSIGNED NOT NULL,
+    PRIMARY KEY (timeID),
+    FOREIGN KEY (userID) REFERENCES users(userID) ON DELETE CASCADE,
+    FOREIGN KEY (eventID) REFERENCES event(eventID) ON DELETE CASCADE
+)
 
 CREATE TABLE users_events (
     userID INT UNSIGNED NOT NULL,
