@@ -4,7 +4,7 @@ var router = express.Router();
 
 // get event details for a given event id
 
-
+/*
 
 router.get('/event/respond', function(req, res, next) {
 
@@ -19,7 +19,7 @@ router.get('/event/respond', function(req, res, next) {
 
 });
 
-
+*/
 
 
 module.exports = router;

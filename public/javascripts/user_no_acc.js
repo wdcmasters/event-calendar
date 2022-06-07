@@ -28,7 +28,11 @@ function no_acc() {
 }
 */
 
+function guest() {
 
+
+
+}
 
 
 
