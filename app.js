@@ -70,6 +70,8 @@ app.get('/event/:id', (req, res) => {
       return;
     }
   let query="SELECT 
+})
+
 });
 
 
