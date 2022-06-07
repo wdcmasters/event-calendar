@@ -17,6 +17,11 @@ function no_acc() {
         }
     };
 
+    xhttp.open("POST", "/signup");
+    xhttp.setRequestHeader("Content-type", "application/json");
+    xhttp.send(JSON.stringify(newUser));
+
+
 }
 
 
