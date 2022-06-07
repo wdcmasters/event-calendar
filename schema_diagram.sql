@@ -33,9 +33,10 @@ CREATE TABLE email_pref (
 CREATE TABLE event (
    eventID INT UNSIGNED NOT NULL AUTO_INCREMENT,
    eventName VARCHAR(50),
-   street_no VARCHAR(10),
+   street VARCHAR (25),
    suburb VARCHAR(25),
    state VARCHAR(25),
+   zip VARCHAR (10),
    country VARCHAR(25),
    date DATE,
    time TIME,
