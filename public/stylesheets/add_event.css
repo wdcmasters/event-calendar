@@ -80,9 +80,11 @@ input[type="time"] {
     cursor: pointer;
 }
 
-input[type=submit]:hover {
+#submit-button:hover {
     background-color: #444dff;
+    cursor: pointer;
 }
+
 #cancel-button {
     width: 20%;
     background-color: white;
