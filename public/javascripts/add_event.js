@@ -36,7 +36,6 @@ function addEvent()
       else if (this.readyState == 4 && this.status >=400){
         alert("Couldn't create event. Try again.");
       }
-
     };
 
     //Open the request
