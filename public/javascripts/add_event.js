@@ -42,5 +42,5 @@ function addEvent()
     //Open the request
     xhttp.open("POST", "/login");
     xhttp.setRequestHeader("Content-type", "application/json");
-    xhttp.send(JSON.stringify(userLogin));
+    xhttp.send(JSON.stringify(event_details));
 }
