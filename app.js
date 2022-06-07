@@ -67,6 +67,7 @@ app.get('/guestDetails', (req, res) => {
   if (!user in session) {
     console.log("you are a guest");
     res.sendStatus(200);
+    res.redirect("pop_up_guest.html");
   }
 
 
@@ -132,6 +133,8 @@ app.post('/event/respond', (req, res) => {
           console.log(error);
           res.sendStatus(500);
           return;
+
+          res.redirect("book_event.html");
         }
 
       });
