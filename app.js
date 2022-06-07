@@ -76,7 +76,7 @@ app.get('/guestDetails', (req, res) => {
 
 app.get('/event/:id', (req, res) => {
   eventID = Number(req.params.id);   //set eventID as the id in the path
-  req.pool.getConnection(function(error,connection) {.  //get connection
+  req.pool.getConnection(function(error,connection) {  //get connection
     if(error)
     {
       console.log(error);
