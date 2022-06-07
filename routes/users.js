@@ -89,8 +89,25 @@ router.post('/logintest', function(req, res, next)
                     return;
                   }
                   // establish session for user
-                  req.session.user = email;
-                  res.sendStatus(200);
+                  // CHANGE CODE HERE - NEED TO SET REQ.SESSION.USER TO USER ID
+                  req.pool.getConnection(function(error, connection) {
+                    if (error) {
+                      console.log(error);
+                      res.sendStatus(500);
+                      return;
+                    }
+                    let query = "SELECT LAST_INSERT_ID() FROM users;";
+                    connection.query(query, function(error, rows, fields){
+                      connection.release();
+                      if (error) {
+                        console.log(error);
+                        res.sendStatus(500);
+                        return;
+                      }
+                      req.session.user = rows[0];
+                      res.sendStatus(200);
+                    })
+                  })
                 });
               });
             }
