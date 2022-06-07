@@ -17,7 +17,9 @@ router.post('/addevent', function(req, res, next) {
 
     // get user id from session (assuming theyre logged in)
     // find where user id in the session matches w user id in the users table
-    // 
+    // in events time table, insert start time and end time, and the user id is the user id from session
+    // when inserting the rest of the details into event table, may need to use inner join
+    // get last inserted time id and insert all the event details + time id into the event table 
 
     // console.log(req.body.eventName);
     // res.end();
