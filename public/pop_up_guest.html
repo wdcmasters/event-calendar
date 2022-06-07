@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+
+        <meta charset="UTF-8">
+        <title>Guest Details</title>
+        <link rel="stylesheet" type="text/css" href="/stylesheets/loginPage.css">
+        <script src="/javascripts/login.js"></script>
+
+    </head>
+
+    <body>
+
+        <a href="index.html" id="home-btn" class="link-black" title="Home">EventCal</a>
+
+        <h1 class="LoginToCont"><strong>LOGIN TO CONTINUE</strong></h1>
+
+        <div class="LoginRectSection">
+            <span class="socMed">SIGN IN:</span><span class="arrow1"> &#x2193;</span>
+                <!-- <form action="/example"> -->
+                    <div class="socialMedia">
+                        <div>
+                            <div class="g-signin2" data-onsuccess="onSignIn" data-longtitle="true" data-width="220" data-height="50"></div>
+                            <!-- onSignIn gives user info -->
+                            <!-- <a href='https://accounts.google.com/signin/v2/identifier?flowName=GlifWebSignIn&flowEntry=ServiceLogin' class="googleBtn"> -->
+                            <!-- <i class="fa-brands fa-google"></i> Login With Google -->
+                            <!-- </a> -->
+                        </div>
+                        <!-- <div>
+                            <a href='https://www.facebook.com/login.php/' class="fb btn">
+                            <i class="fa-brands fa-facebook-f"></i>
+                            </a>
+                        </div>
+                        <div>
+                            <a href='https://twitter.com/i/flow/login' class="tw btn">
+                            <i class="fa-brands fa-twitter"></i>
+                            </a>
+                        </div> -->
+
+                    <div class="UserDetails">
+                        <span class="or">OR:</span>
+                        <div id="emailInput" class="inputs">
+                            <input id="name" type="text" placeholder="Email" required>
+                        </div>
+                        <div id="passwordInput" class="inputs">
+                            <input id="name1" type="password" placeholder="Password" required>
+                        </div>
+
+                        <div class="login">
+                            <button id="loginButon" type="submit" onclick="login()">LOGIN</button>
+                        </div>
+                        <div class="NoAccount">
+                            Don't have an account? <a href="signUpPage.html">SIGN UP!</a>
+                        </div>
+                    </div>
+                <!-- </form> -->
+        </div>
+    </body>
+
+</html>
+
+
