@@ -60,7 +60,7 @@ app.use('/users', usersRouter);
 //   res.render('error');
 // });
 
-app.get('/event/:id', function(req, res, next) {
+app.get('/event/:id', (req, res) => {
   
 });
 
