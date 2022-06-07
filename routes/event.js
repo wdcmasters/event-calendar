@@ -22,12 +22,12 @@ router.post('/addevent', function(req, res, next) {
     //
 
     //Making sure all fields are filled
-    // if (req.body.eventName == "" || street_no == "")
-    // {
-    //   console.log("Fill in the inputs");
-    //   res.sendStatus(404);
-    //   return;
-    // }
+    if (req.body.eventName == "" || req.body.street_no == "")
+    {
+      console.log("Fill in the inputs");
+      res.sendStatus(404);
+      return;
+    }
 
     //Opening connection to check logins
     req.pool.getConnection(function(error,connection) {
