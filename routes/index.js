@@ -13,7 +13,7 @@ router.post('/signup', function(req, res, next) {
   {
     console.log("Fill in the inputs");
     res.sendStatus(404);
-    return;
+    return; 
   }
 
   //Checking if all the fields are filled
