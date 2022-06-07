@@ -1,5 +1,7 @@
 // user without account clicks link
+/*
 function no_acc() {
+
     location.href = "<url>/event/id". // setting url
     var url = window.location.href;  //getting the url of the page
     var splitUrl = myString.split('/');
@@ -24,6 +26,8 @@ function no_acc() {
 
 
 }
+*/
+
 
 
 
