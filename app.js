@@ -71,10 +71,17 @@ app.get('/event/:id', (req, res) => {
     }
     let query="SELECT eventName WHERE eventID = ?;";
     connection.query(query,[eventID], function(error, rows, fields){
+      connection.release(); // release connection
+      if (error) {
+        console.log(error);
+        console.log("Could not alert");
+        res.sendStatus(500);
+        return;
+      }
+      
 
-
-    })
-  })
+    });
+  });
 
 });
 
