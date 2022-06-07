@@ -15,8 +15,17 @@ function addEvent()
     let fin_time = document.getElementById("to-time").value
 
     //Putting into object
-    let userLogin = { email: userEmail, password: userPassword };
-
+    let event_details = {
+      street_no: street_no,
+      street: street,
+      city: city,
+      state: state,
+      post_code: post_code,
+      country: country,
+      date: date,
+      start_time: start_time,
+      fin_time: fin_time
+    };
 
     //AJAX
     let xhttp = new XMLHttpRequest();
