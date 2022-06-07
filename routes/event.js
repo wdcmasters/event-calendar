@@ -62,4 +62,63 @@ router.post('/addevent', function(req, res, next) {
     }
   });
 
+// router.post('/matchid', function(req, res, next) {
+//   res.sendStatus(200);
+//   // let event_id = req.body;
+
+//   // //Connect to the database
+//   // req.pool.getConnection( function(err,connection) {
+//   //   if (err) {
+//   //     res.sendStatus(500);
+//   //     return;
+//   //   }
+//   //   var query = "SELECT eventID FROM event WHERE eventID = ?;";
+//   //   connection.query(query, [event_id], function(err, rows, fields) {
+//   //     connection.release(); // release connection
+//   //     if (err) {
+//   //       res.sendStatus(500);
+//   //       return;
+//   //     }
+//   //     if (rows.length == 1) {
+//   //       console.log("Id matched");
+//   //       res.sendStatus(200);
+//   //     }
+//   //     else {
+//   //       res.sendStatus(400);
+//   //     }
+//   //   });
+//   // });
+// });
+
+router.post('/matchid', function(req, res, next) {
+
+  req.pool.getConnection(function(error,connection){
+    if(error){
+      console.log(error);
+      res.sendStatus(500);
+      return;
+    }
+
+    let query = "SELECT eventName FROM event WHERE eventName = ?;";
+    connection.query(query,[req.body.event_id], function(error, rows, fields) {
+      connection.release(); // release connection
+      if (error) {
+        console.log(error);
+        res.sendStatus(500);
+        return;
+      }
+      // if (rows.length == 1) {
+      //   console.log("Found event");
+      //   res.sendStatus(200);
+      // }
+      // else {
+      //   res.sendStatus(401);
+      // }
+      res.send(rows);
+    });
+
+  });
+
+});
+
 module.exports = router;

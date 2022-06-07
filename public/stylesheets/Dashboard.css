@@ -82,7 +82,7 @@ body {
 }
 
 /* Events */
-#events {
+#eventsSection {
     background-color: #cfcfcf;
     margin-top: 0px;
     padding-top: 20px;
@@ -139,6 +139,7 @@ body {
 }
 
 .nameLocale {
+    color: black;
     align-self: center;
     padding-top: 0px;
     margin-top: 0px;
