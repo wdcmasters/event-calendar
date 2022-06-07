@@ -87,4 +87,14 @@ app.get('/event/:id', (req, res) => {
 });
 
 
+router.get('/event/respond', function(req, res, next) {
+  res.sendFile("book_event.html", { root: path.resolve(_dirname, '/event/:id') }, function(err) {
+      if(err) {
+          //error handling
+      }
+  });
+});
+
+
+
 module.exports = app;
