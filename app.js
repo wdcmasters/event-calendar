@@ -88,14 +88,24 @@ app.get('/event/:id', (req, res) => {
 
 app.get('/event/respond', (req, res) => {
 
-
-
   res.sendFile("book_event.html", { root: path.resolve(_dirname, '/event/:id') }, function(err) {
       if(err) {
         res.sendStatus(500); //error handling
       }
   });
 });
+
+app.post('/event/respond', (req, res) => {
+  if (req.body.first_name == "" || req.body.last_name == "" || req.body.email == "" || req.body.password == "")
+  {
+    console.log("Fill in the inputs");
+    res.sendStatus(404);
+    return;
+  }
+
+});
+
+
 
 
 

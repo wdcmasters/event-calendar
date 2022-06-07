@@ -33,6 +33,10 @@ function guest() {
     let lastName = document.getElementsByName("lastName")[0].value;
     let guest =   { first_name: firstName, last_name: lastName };
 
+        
+
+
+
 }
 
 
