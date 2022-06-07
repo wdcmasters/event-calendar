@@ -102,6 +102,26 @@ app.post('/event/respond', (req, res) => {
     res.sendStatus(404);
     return;
   }
+  if ('first_name' in req.body && 'last_name' in req.body) {
+    //Opening connection
+    req.pool.getConnection(function(error,connection) {
+      if(error)
+      {
+        console.log(error);
+        res.sendStatus(500);
+        return;
+      }
+
+      let query = "INSERT INTO users (first_name,last_name,email,password) VALUES (?,?,?,?);"; //Inserting user
+      connection.query(query,[req.body.first_name, req.body.last_name, req.body.email, req.body.password], function(error, rows, fields)
+      {
+        //Running query
+        connection.release(); // release connection
+        if (error) {
+          console.log(error);
+          res.sendStatus(500);
+          return;
+        }
 
 });
 
