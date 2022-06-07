@@ -3,10 +3,11 @@ function addEvent()
     //Getting event name from page
     let eventName = document.getElementById("event-name").value;
     //Getting event address from page
+    let street_no = document.getElementById("street-no").value;
     let street = document.getElementById("street").value;
-    let suburb = document.getElementById("suburb").value;
+    let city = document.getElementById("city").value;
     let state = document.getElementById("state").value;
-    let zip = document.getElementById("zip").value;
+    let post-code = document.getElementById("post-code").value;
     let country = document.getElementById("country").value;
     //Getting event time from page
 
