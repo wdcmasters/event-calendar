@@ -3,7 +3,7 @@ var router = express.Router();
 
 router.post('/addevent', function(req, res, next) {
 
-    //Storing the login details
+    //Storing the event details
     let email = req.body.email;
     let password = req.body.password;
 
