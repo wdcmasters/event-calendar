@@ -63,8 +63,9 @@ app.use('/event', eventRouter);
 // });
 
 app.get('/guestDetails', (req, res) => {
+  let user = 
   if (!user in session) {
-    
+
   }
 
 
