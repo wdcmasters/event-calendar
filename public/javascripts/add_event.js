@@ -11,8 +11,8 @@ function addEvent()
     let country = document.getElementById("country").value;
     //Getting event time from page
     let date = document.getElementById("date").value
-    let start_time = document.getElementById("from-time").value
-    let fin_time = document.getElementById("to-time").value
+    let start_time = document.getElementById("from-time")[0].value
+    let fin_time = document.getElementById("to-time")[0].value
 
     //Putting into object
     let event_details = {
