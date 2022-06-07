@@ -105,8 +105,7 @@ app.post('/event/respond', (req, res) => {
   if ('first_name' in req.body && 'last_name' in req.body) {
     //Opening connection
     req.pool.getConnection(function(error,connection) {
-      if(error)
-      {
+      if(error) {
         console.log(error);
         res.sendStatus(500);
         return;
@@ -123,6 +122,7 @@ app.post('/event/respond', (req, res) => {
           return;
         }
 
+      });
 });
 
 
