@@ -159,11 +159,13 @@ router.get('/getID', function(req, res, next) {
   });
 });
 
+
 /* DASHBOARD PAGE: Retrieving the event details based on a userID */
 router.post('/getEvents', function(req, res, next) {
 
   //Storing userID for prepared statement
   let userID = req.body.userID;
+  console.log("Received user id is "+userID);
 
   //Opening connection
   req.pool.getConnection(function(error,connection) {
@@ -186,7 +188,7 @@ router.post('/getEvents', function(req, res, next) {
         return;
       }
 
-      res.send(rows);
+        res.send(rows);
 
     });
   });
