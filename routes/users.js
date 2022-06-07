@@ -126,4 +126,39 @@ router.post('/logintest', function(req, res, next)
   }
 });
 
+/* Retrieving the userID*/
+router.get('/getID', function(req, res, next) {
+
+  //Getting the email
+  email = req.session.user.email;
+
+  /*Getting userID with mySQL */
+  req.pool.getConnection(function(error,connection) { //Opening the connection
+    if(error)
+    {
+      console.log(error);
+      res.sendStatus(500);
+      return;
+    }
+
+    let query = "SELECT userID FROM users WHERE email = ?"; //Inserting user
+    connection.query(query,[email], function(error, rows, fields)
+    {
+      //Running query
+      connection.release(); 
+      if (error) {
+        console.log(error);
+        console.log("Could not alert");
+        res.sendStatus(500);
+        return;
+      }
+
+      res.send(rows);
+
+    });
+  });
+
+
+});
+
 module.exports = router;
