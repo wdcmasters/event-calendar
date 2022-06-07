@@ -2,8 +2,8 @@ var express = require('express');
 var router = express.Router();
 
 // load google auth library and client id
-// const {OAuth2Client} = require('google-auth-library');
-// const client = new OAuth2Client('395070286663-89a13j9p6bnq3ipd91072dfpjk2d61fj.apps.googleusercontent.com');
+const {OAuth2Client} = require('google-auth-library');
+const client = new OAuth2Client('395070286663-89a13j9p6bnq3ipd91072dfpjk2d61fj.apps.googleusercontent.com');
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
