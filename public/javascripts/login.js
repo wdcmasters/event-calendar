@@ -12,7 +12,7 @@ function onSignIn(googleUser) {
   xhttp.onreadystatechange = function() {
     if(this.readyState == 4 && this.status == 200) {
       //alert("Login successful");
-      //window.location.href = '/Dashboard.html';
+      window.location.href = '/user-account.html';
       console.log("Google login successful");
     } else if (this.readyState == 4 && this.status >=400){
       alert("Login failed. Try again.");
@@ -54,4 +54,20 @@ function login()
     xhttp.open("POST", "/login");
     xhttp.setRequestHeader("Content-type", "application/json");
     xhttp.send(JSON.stringify(userLogin));
+}
+
+const {OAuth2Client} = require('google-auth-library');
+const client = new OAuth2Client('395070286663-89a13j9p6bnq3ipd91072dfpjk2d61fj.apps.googleusercontent.com');
+
+function signOut() {
+  // var auth2 = gapi.auth2.getAuthInstance();
+  // auth2.signOut().then(function () {
+  //   console.log('User signed out.');
+  // });
+  const token = gapi.client.getToken();
+  if (token !== null) {
+      google.accounts.oauth2.revoke(token.access_token);
+      gapi.client.setToken('');
+      console.log('User signed out.');
+  }
 }
