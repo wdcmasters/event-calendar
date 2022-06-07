@@ -39,7 +39,7 @@ function addEvent()
     };
 
     //Open the request
-    xhttp.open("POST", "/login");
+    xhttp.open("POST", "/addevent"); // post: sending info to server
     xhttp.setRequestHeader("Content-type", "application/json");
     xhttp.send(JSON.stringify(event_details));
 }
