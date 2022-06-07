@@ -69,7 +69,7 @@ app.get('/event/:id', (req, res) => {
       res.sendStatus(500);
       return;
     }
-  let query="SELECT 
+  let query="SELECT something WHERE eventID =
 })
 
 });
