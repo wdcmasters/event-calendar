@@ -78,8 +78,7 @@ app.get('/event/:id', (req, res) => {
         res.sendStatus(500);
         return;
       }
-      res.send(row))
-
+      res.send(rows);
     });
   });
 
