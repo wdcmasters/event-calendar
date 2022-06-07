@@ -16,6 +16,7 @@ function addEvent()
 
     //Putting into object
     let event_details = {
+      eventName: eventName,
       street_no: street_no,
       street: street,
       city: city,
