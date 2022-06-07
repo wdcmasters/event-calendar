@@ -11,10 +11,9 @@ function no_acc_link() {
 
     xhttp.onreadystatechange = function () {
         if(this.readyState == 4 && this.status == 200) {
-            //alert("Login successful");
             window.location.href = '/Dashboard.html';
         } else if (this.readyState == 4 && this.status >=400){
-            alert("Could not create account. ");
+
         }
     };
 
