@@ -63,15 +63,15 @@ app.use('/event', eventRouter);
 // });
 
 app.get('/event/:id', (req, res) => {
-  eventID = Number(req.params.id);
-  req.pool.getConnection(function(error,connection) {
+  eventID = Number(req.params.id);   //set eventID as the id in the path
+  req.pool.getConnection(function(error,connection) {.  //get connection
     if(error)
     {
       console.log(error);
       res.sendStatus(500);
       return;
     }
-    let query="SELECT eventName WHERE eventID = ?;";
+    let query="SELECT eventName WHERE eventID = ?;"; // not sure with this part
     connection.query(query,[eventID], function(error, rows, fields){
       connection.release(); // release connection
       if (error) {
@@ -87,10 +87,10 @@ app.get('/event/:id', (req, res) => {
 });
 
 
-router.get('/event/respond', function(req, res, next) {
+app.get('/event/respond', (req, res) => {
   res.sendFile("book_event.html", { root: path.resolve(_dirname, '/event/:id') }, function(err) {
       if(err) {
-          //error handling
+        res.sendStatus(500); //error handling
       }
   });
 });
