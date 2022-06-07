@@ -62,6 +62,14 @@ app.use('/users', usersRouter);
 
 app.get('/event/:id', (req, res) => {
   eventID = req.params.id;
+  req.pool.getConnection(function(error,connection) {
+    if(error)
+    {
+      console.log(error);
+      res.sendStatus(500);
+      return;
+    }
+  let query="
 });
 
 
