@@ -126,6 +126,18 @@ router.post('/logintest', function(req, res, next)
   }
 });
 
+<<<<<<< HEAD
+router.post('/signout', function(req, res, next) {
+  if('user' in req.session){
+    delete req.session.user;
+  }
+  else {
+    res.sendStatus(401);
+  }
+  res.end();
+});
+
+=======
 /* Retrieving the userID*/
 router.get('/getID', function(req, res, next) {
 
@@ -195,4 +207,5 @@ router.post('/getEvents', function(req, res, next) {
 });
 
 
+>>>>>>> 832c1a2d0cb959ef0163b5bea804745d94937f5e
 module.exports = router;
