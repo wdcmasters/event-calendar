@@ -22,7 +22,7 @@ router.post('/addevent', function(req, res, next) {
     //
 
     //Making sure all fields are filled
-    if (req.body.eventName == "" || req.body.street_no == "")
+    if (req.body.eventName == "" || req.body.street_no == ""req.body.street == "" || req.body.city == ""req.body.state == "" || req.body.post_code == ""req.body.country == "" || req.body.date == ""req.body.start_time == "" || req.body.fin_time == "")
     {
       console.log("Fill in the inputs");
       res.sendStatus(404);
