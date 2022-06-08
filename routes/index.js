@@ -131,7 +131,7 @@ router.post('/login', function(req, res, next) {
 
 router.get('/logout', function (req,res,next) {
 
-    if (user in req.session)
+    if ('user' in req.session)
     {
       delete req.session.user;
     }
