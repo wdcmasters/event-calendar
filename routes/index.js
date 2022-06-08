@@ -60,8 +60,8 @@ router.post('/signup', function(req, res, next) {
           return;
 
         //Associating session with user and redirecting them to dashboard
-        res.session.authenticated = true;
-        res.session.user = { email: req.body.email, password: req.body.password };
+        req.session.authenticated = true;
+        req.session.user = { email: req.body.email, password: req.body.password };
         res.redirect("Dashboard.html");
         }
         res.end();
