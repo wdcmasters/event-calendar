@@ -67,7 +67,6 @@ app.get('/guestDetails', (req, res) => {
   if !('user' in session) {   // not too sure
     console.log("you are a guest");
     res.sendStatus(200);
-    res.redirect("pop_up_guest.html");
   }
 
 
