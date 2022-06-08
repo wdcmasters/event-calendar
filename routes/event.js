@@ -49,7 +49,14 @@ router.post('/addevent', function(req, res, next) {
     // userID FROM users_events INNER JOIN users WHERE users.userID = users_events.userID
     // how to generate eventID?
     // req.session.user
-    let event_query = "INSERT INTO event (eventID, eventName, street_no, street, suburb, state, post_code, country, date, userID) VALUES (?,?,?,?,?,?,?,?,?,?);";
+
+    let event_query = "INSERT INTO event_times (eventID, eventName, street_no, street, suburb, state, post_code, country, date, userID) VALUES (?,?,?,?,?,?,?,?,?,?);";
+    timeID INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    start_time TIME,
+    end_time TIME,
+    eventID INT UNSIGNED NOT NULL,
+
+    let query = "INSERT INTO event (eventID, eventName, street_no, street, suburb, state, post_code, country, date, userID) VALUES (?,?,?,?,?,?,?,?,?,?);";
     connection.query(query,[req.body.eventName, req.body.street_no, req.body.street, req.body.city, req.body.state, req.body.post_code, req.body.country, req.body.date, req.body.start_time , req.body.fin_time], function(error, rows, fields)
     {
         //Running query
@@ -69,6 +76,19 @@ router.post('/addevent', function(req, res, next) {
             console.log(error);
             res.sendStatus(500);
             return;
+          }
+
+          let event_query = "INSERT INTO event (eventID, eventName, street_no, street, suburb, state, post_code, country, date, userID) VALUES (?,?,?,?,?,?,?,?,?,?);";
+          connection.query(query,[req.body.eventName, req.body.street_no, req.body.street, req.body.city, req.body.state, req.body.post_code, req.body.country, req.body.date, req.body.start_time , req.body.fin_time], function(error, rows, fields){
+              //Running query
+              connection.release(); // release connection
+              if (error)
+              {
+                console.log(error);
+                console.log("Could not alert");
+                res.sendStatus(500);
+                return;
+              }
           }
 
         });
