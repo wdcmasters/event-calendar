@@ -1,33 +1,35 @@
-// SUPER GLOBAL STUFF
-
 // VUE
 var vueinst = new Vue({
     el: "#vueBody",
     data: {
         userID: 99,
+        eventsPopulated: false,
+        search: 'Search your events',
         events: []
     },
 
-    mounted() {
-
+    created () { /*Getting the ID of the user*/
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
             if (xhttp.readyState == 4 && xhttp.status == 200)
             {
-                let response = JSON.parse(xhttp.responseText);
-                vueinst.userID = response[0].userID;
+                let response = xhttp.responseText;
+                vueinst.userID = response;
+                console.log(response);
                 console.log("UserID (getid function): "+vueinst.userID);
             }
         }
 
         xhttp.open("GET", "/users/getID", true);
         xhttp.send();
+    },
 
+    mounted () { /*Populating the page initially*/
     },
 
     methods: {
 
-        getEvents: function (event) {
+        initialPopulate: function (event) {
             document.getElementById("events").innerHTML = "";
             var xhttp = new XMLHttpRequest();
 
@@ -75,7 +77,7 @@ var vueinst = new Vue({
             xhttp.send(JSON.stringify(userId_object));
 
         }
-
     }
+
 });
 

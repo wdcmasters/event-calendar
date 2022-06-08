@@ -6,6 +6,10 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
+
+/*SIGN UP */
+//
+//
 router.post('/signup', function(req, res, next) {
 
   //Making sure all fields are filled
@@ -16,7 +20,7 @@ router.post('/signup', function(req, res, next) {
     return;
   }
 
-  //Checking if all the fields are filled
+  //Checking if all fields are present
   if ('first_name' in req.body && 'last_name' in req.body && 'email' in req.body && 'password' in req.body) {
 
     //Opening connection
@@ -28,44 +32,51 @@ router.post('/signup', function(req, res, next) {
         return;
       }
 
-      //Checking if email is already in database
-      // let query = "SELECT userID FROM users WHERE email = ?;";
-      // connection.query(query, [req.body.email], function(error, rows, fields)
-      // {
-      //   if (error)
-      //   {
-      //     console.log(error);
-      //     res.sendStatus(500);
-      //     return;
-      //   }
-      //   //If something actually does come back,
-      //   if (rows.length > 0)
-      //   {
-      //     console.log("User already exists");
-      //     res.sendStatus(409);
-      //     return;
-      //   }
-      // });
-
       //Inserting user into database
       let query = "INSERT INTO users (first_name,last_name,email,password) VALUES (?,?,?,?);"; //Inserting user
       connection.query(query,[req.body.first_name, req.body.last_name, req.body.email, req.body.password], function(error, rows, fields)
       {
-        //Running query
-        connection.release(); // release connection
-        if (error) {
+          //Running query
+          connection.release(); // release connection
+          if (error)
+          {
           console.log(error);
           console.log("Could not alert");
           res.sendStatus(500);
           return;
+          }
 
-        //Associating session with user and redirecting them to dashboard
-        req.session.authenticated = true;
-        req.session.user = { email: req.body.email, password: req.body.password };
-        res.redirect("Dashboard.html");
-        }
-        res.end();
+          //NEW CONNECTION --> Getting id of account just created
+          req.pool.getConnection(function(error,connection) {
+            if(error)
+            {
+              console.log(error);
+              res.sendStatus(500);
+              return;
+            }
+
+            //Inserting user into database
+            let query = "SELECT LAST_INSERT_ID() AS lastID FROM users;"; //Inserting user
+            connection.query(query, function(error, rows, fields)
+            {
+              //Running query
+              connection.release();
+              //Error handling
+              if (error)
+              {
+              console.log(error);
+              console.log("Could not alert");
+              res.sendStatus(500);
+              return;
+              }
+              //Storing userID in session
+              req.session.user = rows[0].lastID;
+              console.log(rows[0].lastID);
+              res.sendStatus(200);
+            });
+          });
       });
+
     });
   }
 });
@@ -76,7 +87,7 @@ router.post('/login', function(req, res, next) {
   let email = req.body.email;
   let password = req.body.password;
 
-  //Parsing email and password (do later)
+  //Parsing email and password (security)
   //
   //
 
@@ -97,7 +108,7 @@ router.post('/login', function(req, res, next) {
       return;
     }
 
-    let query = "SELECT email,password FROM users WHERE email = ? AND password = ?"; //Inserting user
+    let query = "SELECT userID FROM users WHERE email = ? AND password = ?"; //Inserting user
     connection.query(query,[email, password], function(error, rows, fields)
     {
       //Running query
@@ -113,22 +124,19 @@ router.post('/login', function(req, res, next) {
         console.log("login success");
 
         //Associating user with session
-        req.session.authenticated = true;
-        req.session.user = { email: email, password: password };
-
+        req.session.user = rows[0].userID;
         console.log(req.session.user);
+        res.redirect("/Dashboard.html");
 
-        //Redirecting to dashboard
-        res.redirect('/Dashboard.html');
         return;
       }
 
       res.sendStatus(401);
     });
   });
-
 });
 
+// Logout Route
 router.get('/logout', function (req,res,next) {
 
     if ('user' in req.session)
