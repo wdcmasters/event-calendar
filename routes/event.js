@@ -4,16 +4,16 @@ var router = express.Router();
 router.post('/addevent', function(req, res, next) {
 
     //Storing the event details
-    let eventName = req.body.eventName;
-    let street_no = req.body.street_no;
-    let street = req.body.street;
-    let city = req.body.city;
-    let state = req.body.state;
-    let post_code = req.body.post_code;
-    let country = req.body.country;
-    let date = req.body.date;
-    let start_time = req.body.start_time;
-    let fin_time = req.body.fin_time;
+    // let eventName = req.body.eventName;
+    // let street_no = req.body.street_no;
+    // let street = req.body.street;
+    // let city = req.body.city;
+    // let state = req.body.state;
+    // let post_code = req.body.post_code;
+    // let country = req.body.country;
+    // let date = req.body.date;
+    // let start_time = req.body.start_time;
+    // let fin_time = req.body.fin_time;
 
     //Parsing  (do later)
     //
@@ -27,7 +27,9 @@ router.post('/addevent', function(req, res, next) {
       return;
     }
 
-    //Opening connection to check logins
+  if ('first_name' in req.body && 'last_name' in req.body && 'email' in req.body && 'password' in req.body) {
+
+    //Opening connection
     req.pool.getConnection(function(error,connection) {
       if(error)
       {
