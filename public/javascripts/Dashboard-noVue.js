@@ -1,7 +1,7 @@
 /* DATA */
 var userID = 99;
 var events = [];
-var id_acquired = 0
+var id_acquired = 0;
 
 
 // function caller
