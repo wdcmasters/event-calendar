@@ -145,7 +145,7 @@ app.use('/event', eventRouter);
   }
 });
 */
-// app.post('/event/respond', (req, res) => {
+// app.post('/event/respond/guest', (req, res) => {
 //   if (req.body.first_name == "" || req.body.last_name == "")
 //   {
 //     console.log("Fill in the inputs");
@@ -161,7 +161,7 @@ app.use('/event', eventRouter);
 //         return;
 //       }
 
-//       let query = "INSERT INTO users (first_name,last_name) VALUES (?,?) WHERE userID IS NULL;"; //Inserting guest into db
+//       let query = "INSERT INTO users (first_name,last_name) VALUES (?,?);"; //Inserting guest into db
 //       connection.query(query,[req.body.first_name, req.body.last_name], function(error, rows, fields)
 //       {
 //         //Running query
@@ -171,7 +171,7 @@ app.use('/event', eventRouter);
 //           res.sendStatus(500);
 //           return;
 
-//           res.redirect("book_event.html");
+//           res.sendStatus(200);
 //         }
 
 //       });
