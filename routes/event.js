@@ -86,7 +86,7 @@ router.post('/addevent', function(req, res, next) {
               {
                 console.log(error);
                 console.log("Could not alert");
-                res.sendStatus(500);
+                res.sendStatus(500);  
                 return;
               }
           });
