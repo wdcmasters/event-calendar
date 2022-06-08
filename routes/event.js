@@ -107,26 +107,31 @@ router.post('/matchid', function(req, res, next) {
       return;
     }
 
-    let query = "SELECT eventName FROM event WHERE eventName = ?;";
-    connection.query(query,[req.body.event_id], function(error, rows, fields) {
+    let query = "SELECT eventID FROM event WHERE eventID = ?;";
+    connection.query(query,[req.body.eventID], function(error, rows, fields) {
       connection.release(); // release connection
       if (error) {
         console.log(error);
         res.sendStatus(500);
         return;
       }
-      // if (rows.length == 1) {
-      //   console.log("Found event");
-      //   res.sendStatus(200);
-      // }
-      // else {
-      //   res.sendStatus(401);
-      // }
-      res.send(rows);
+      if (req.body.eventID == rows[0].eventID) {
+        res.sendStatus(200);
+      }
+      else {
+        console.log(rows[0].eventID);
+        res.sendStatus(404);
+      }
     });
 
   });
 
+});
+
+router.get('/respond', function(req, res, next){
+  //req.session.eventID = "1";
+  var q = req.query.eventID;
+  res.send('Event id is' +q);
 });
 
 module.exports = router;

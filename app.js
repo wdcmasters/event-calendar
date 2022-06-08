@@ -62,4 +62,14 @@ app.use('/event', eventRouter);
 //   res.render('error');
 // });
 
+app.get('/event/respond/:id', function(req, res, next) {
+  res.send('event id:' + req.params.id);
+  // res.sendFile("book_event.html", { root: path.resolve(__dirname, "../pages") }, function(err) {
+  //   if(err) {
+  //     console.log(err);
+  //   }
+  // });
+  next();
+});
+
 module.exports = app;
