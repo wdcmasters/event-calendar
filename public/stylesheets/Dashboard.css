@@ -23,7 +23,7 @@ body {
     border-color: #283593;
     border-width: 0.2em;
     font-family: 'Open Sans', sans-serif;
-    font-weight: normal;
+    /* font-weight: normal; */
 }
 
 .content a:visited {
@@ -63,7 +63,7 @@ body {
 .ongoing {
     text-align: center;
     padding-top: 0.2em;
-    background-color: #8e9899;
+    background-color: #bec4c4;
     border: 200px;
     /* margin-left: 30%;
     margin-right: 30%; */
@@ -78,7 +78,7 @@ body {
     padding-bottom: 30px;
     font-size: xx-large;
     margin-bottom: 0px;
-    font-weight: normal;
+    /* font-weight: bold; */
 }
 
 /* Events */
