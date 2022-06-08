@@ -38,10 +38,11 @@ body {
 
 #BlueButton, button {
     padding: 1em 3em;
-    color: #95a5a6;
+    color: black;
     font-size:1.5vw;
     background-color: #ecf0f1;
     /* border: 2px solid; */
+    border:none;
     border-radius: 5px;
     width: 100%;
     font-family: Tahoma;
