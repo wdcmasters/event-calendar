@@ -75,9 +75,12 @@ router.post('/addevent', function(req, res, next) {
     // in events time table, insert start time and end time, and the user id is the user id from session
     // when inserting the rest of the details into event table, may need to use inner join
     // get last inserted time id and insert all the event details + time id into the event table
-
+    timeID INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    start_time TIME,
+    end_time TIME,
+    eventID INT UNSIGNED NOT NULL,
     // userID FROM users_events INNER JOIN users WHERE users.userID = users_events.userID
-          let event_query = "INSERT INTO event_times (eventID, eventName, street_no, street, suburb, state, post_code, country, date, userID) VALUES (?,?,?,?,?,?,?,?,?,?);";
+          let event_query = "INSERT INTO event_times (timeID, start_time, end_time, eventID) VALUES (?,?,?,?)
           connection.query(query,[], function(error, rows, fields){
               //Running query
               connection.release(); // release connection
