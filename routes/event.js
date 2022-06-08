@@ -27,7 +27,8 @@ router.post('/addevent', function(req, res, next) {
       return;
     }
 
-  if ('first_name' in req.body && 'last_name' in req.body && 'email' in req.body && 'password' in req.body) {
+// do i need to check for this when opening connection?
+  if ('eventName' in req.body && 'street_no' in req.body){
 
     //Opening connection
     req.pool.getConnection(function(error,connection) {
@@ -44,6 +45,7 @@ router.post('/addevent', function(req, res, next) {
     // when inserting the rest of the details into event table, may need to use inner join
     // get last inserted time id and insert all the event details + time id into the event table
 
+
     // how to generate eventID?
     let event_query = "SELECT userID FROM users_events INNER JOIN users WHERE users.userID = users_events.userID INSERT INTO event (eventID, eventName, street_no, street, suburb, state, post_code, country, date, userID) VALUES (?,?,?,?,?,?,?,?,?,?);";
     connection.query(query,[req.body.eventName, req.body.street_no, req.body.street, req.body.city, req.body.state, req.body.post_code, req.body.country, req.body.date, req.body.start_time , req.body.fin_time], function(error, rows, fields)
@@ -56,7 +58,7 @@ router.post('/addevent', function(req, res, next) {
           res.sendStatus(500);
           return;
 
-          //Associating session with user and redirecting them to dashboard
+        //Associating session with user and redirecting them to dashboard
           res.session.authenticated = true;
           res.session.user = { email: req.body.email, password: req.body.password };
           res.redirect("Dashboard.html");
