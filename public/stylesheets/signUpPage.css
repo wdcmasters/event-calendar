@@ -16,7 +16,7 @@ div.picture1 {
     border-top-right-radius: 0px;
     margin-left:70px;
     padding:10px;
-    border: 2px solid black;
+    /* border: 2px solid black; */
     border-right: none;
 }
 
@@ -33,7 +33,7 @@ div.picture1 {
 .SignUpRectSection {
 
     margin-right: 70px;
-    border: 2px solid black;
+    /* border: 2px solid black; */
     background: white;
     padding: 20px;
     height:610px;
@@ -45,40 +45,12 @@ div.picture1 {
 }
 
 h1 {
-    border-bottom: 2px solid black;
+    /* border-bottom: 2px solid black; */
     margin-left: 350px;
     margin-right: 350px;
 
 }
 
-.arrow1{
-    position: relative;
-    top: 35px;
-    left: -140px;
-}
-
-.fa-facebook-f {
-    position: relative;
-    transform: scale(2,2);
-    left: -40px;
-    top: 20px;
-    background: #3B5998;
-    color: white;
-    width: 38px;
-    height: 18px;
-    border-radius: 5px;
-}
-
-.fa-twitter {
-    position: relative;
-    transform: scale(2,2);
-    left: 40px;
-    background: #55ACEE;
-    color: white;
-    width: 38px;
-    height: 18px;
-    border-radius: 5px;
-}
 
 .socialMedia{
     position: relative;
@@ -221,3 +193,26 @@ div.inputs:focus{
     position: relative;
     top:17px;
 }
+/*
+.fa-facebook-f {
+    position: relative;
+    transform: scale(2,2);
+    left: -40px;
+    top: 20px;
+    background: #3B5998;
+    color: white;
+    width: 38px;
+    height: 18px;
+    border-radius: 5px;
+}
+
+.fa-twitter {
+    position: relative;
+    transform: scale(2,2);
+    left: 40px;
+    background: #55ACEE;
+    color: white;
+    width: 38px;
+    height: 18px;
+    border-radius: 5px;
+} */
