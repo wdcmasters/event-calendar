@@ -72,10 +72,10 @@ router.post('/addevent', function(req, res, next) {
           }
 
         });
-
       });
     }
-  });
+  )}
+});
 
 // router.post('/matchid', function(req, res, next) {
 //   res.sendStatus(200);
