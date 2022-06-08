@@ -83,16 +83,25 @@
 
         <!-- Events container -->
         <div id="eventsSection">
+
             <div id="searchField">
-                <i class="fa-solid fa-magnifying-glass" onclick=""></i>
+                <i class="fa-solid fa-magnifying-glass"></i>
                 <input type="text" id="dashboardSearch" name="search" placeholder="Find an event">
-                <i class="fa-solid fa-filter"></i>
+                <i class="fa-solid fa-filter" v-on:click="showFilter = !showFilter"></i>
             </div>
+
+            <!-- Expandable filter section -->
+            <template>
+                <div v-if="showFilter" id="filterSection">
+                    <button>By Date </button>
+                    <button>By Name </button>
+                </div>
+            </template>
             <br><br>
             <!-- Individual Events -->
             <div id="events">
                 <template>
-                    {{ initialPopulate() }}
+                    {{ populateCaller() }}
                     <div class="event" v-for="item in events">
                         <div class="dateTime">
                             <p class="date"><i class="fa-solid fa-calendar"></i> {{ item.DATE }} </p>
