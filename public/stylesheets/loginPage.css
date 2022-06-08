@@ -35,11 +35,12 @@
 
 #name,#name1 {
     border: 1px solid #95a5a6; /* Grey border */
-    display: block;
+    padding: 15px; /* adds space inside text field */
     margin: auto;
     width: 30%;
     position: relative;
-    border-radius: 3px; /* rounded borders  */
+    border-radius: 5px; /* rounded borders  */
+    box-sizing: border-box; /* padding and width are included in total width/height and stays in place */
     top: -2px;
 }
 
