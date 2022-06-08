@@ -10,9 +10,8 @@
     <link rel="stylesheet" href="stylesheets/settings.css"> <!--link to get specific elements for settings pages-->
     <link rel="stylesheet" href="stylesheets/header.css"> <!--link to get header format-->
     <link rel="stylesheet" href="stylesheets/buttons.css"> <!--link to get buttons format-->
-    <script src="/javascripts/settings.js"></script>
+    <script src="/javascripts/dashboard.js"></script>
     <script src="/javascripts/login.js"></script>
-    <script src="/javascripts/events.js"></script>
 </head>
 <body>
             <!--Logo/website name-->
@@ -22,9 +21,11 @@
 
             <!--container for links to Home and Profile settings-->
             <div class="top-right-menu">
-                <div class="menu-div">
-                    <a href="#user-dashboard" class="link-black menu-btn">Home</a>
+                <!-- sign out link -->
+                <div class="menu-div" >
+                    <a onclick="signOut();" class="link-black menu-btn">Sign out</a>
                 </div>
+
                 <div class="settings-dropdown">
                     <button type="button" class="blue-btn">Profile
                         <i class="fa fa-caret-down"></i> <!-- shows dropdown icon -->

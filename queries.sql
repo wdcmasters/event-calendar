@@ -12,7 +12,10 @@ INSERT INTO event (eventName, street_no, street, suburb, state, post_code, count
 INSERT INTO event_times (start_time, end_time, eventID) VALUES (?,?,?);
 
 --testing getting details using inner join
-SELECT users.first_name,users.last_name FROM users INNER JOIN event ON users.userID = event.userID WHERE eventID = 2;
+SELECT users.first_name,users.last_name FROM users INNER JOIN event ON users.userID = event.userID WHERE eventID = 1;
+
+--inserting data to event table for testing retrieval of information
+INSERT INTO event (eventName, street_no, street, suburb, state, post_code, country, date, userID) VALUES ("Example bday", "136", "North tce", "Adelaide", "SA", "5000", "Australia", "2022-06-10", 1);
 
 
 /* Queries for dashboard */

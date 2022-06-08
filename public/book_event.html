@@ -12,8 +12,12 @@
     <link rel="stylesheet" href="stylesheets/buttons.css"> <!--link to get buttons format-->
 
     <script src="https://kit.fontawesome.com/2385786b33.js" crossorigin="anonymous"></script>
+    <script src="javascripts/book_event.js"></script>
+
+    <script async defer src="https://apis.google.com/js/api.js" onload="gapiLoaded()"></script>
+    <script async defer src="https://accounts.google.com/gsi/client" onload="gisLoaded()"></script>
 </head>
-<body>
+<body onload="getEventDetails()">
 
 <!--Header contains logo on top left, link to user dashboard and profile picture on top right-->
         <header>
@@ -49,16 +53,27 @@
     <h1>Book your event</h1>
 
     <!-- Event name -->
-    <p id="event-name"> John's 25th Birthday Party </p>
+    <p id="event-name"></p>
 
     <!-- Location -->
-    <i class="fa-solid fa-location-dot"></i><p class="p"> 136 North Terrace, Adelaide 5000, Australia</p>
+    <i class="fa-solid fa-location-dot"></i><p class="p" id="location"></p>
 
     <!-- Date -->
-    <i class="fa fa-calendar" aria-hidden="true"></i><p class="p"> 15th June, 2022 </p><br/>
+    <i class="fa fa-calendar" aria-hidden="true"></i><p class="p" id="date"></p><br/>
+
+    <!-- Event Host -->
+    <h3>Proposed Times</h3>
+    <p class="p" id="event-times"></p><br/>
+
+    <!-- Event Host -->
+    <h3>Event Host</h3>
+    <p class="p" id="event-host"></p><br/>
 
     <!-- Select availability -->
-    <b class="b"> Specify your availability for the day: </b> <br/><br/>
+    <h3> Specify your availability for the event: </h3> <br/><br/>
+    <div id="free-busy"></div><br/>
+    <button id="authorize_button" onclick="handleAuthClick()">Fetch Times from GCal</button><br/><br/>
+
     <input type="checkbox"><label id="not-available">I am not available that day.</label><br/><br/>
     <div class="time-div">
         <div>
