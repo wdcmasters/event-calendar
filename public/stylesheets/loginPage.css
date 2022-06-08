@@ -3,7 +3,7 @@
 }
 
 #home-btn{
-    font-family: "Helvetica", sans-serif;
+    /* font-family: "Helvetica", sans-serif; */
     font-size: 40px;
     color: blue;
     text-decoration: none;
@@ -11,7 +11,7 @@
 
 *{
     box-sizing: border-box;
-    font-family: tahoma, arial, sans-serif;
+    /* font-family: tahoma, arial, sans-serif; */
 }
 
 .LoginRectSection {
@@ -33,11 +33,11 @@ h1 {
 
 }
 
-.arrow1{
+/* .arrow1{
     position: absolute;
     top: 35px;
     left: -140px;
-}
+} */
 
 
 /* .fa-facebook-f {
