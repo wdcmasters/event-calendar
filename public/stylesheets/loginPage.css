@@ -111,24 +111,21 @@ div#passwordInput{
     position: relative;
     top: 150px;
 }
-
-/* button[type="submit"]{
-    width: 50%;
-    height: 50px;
-    background: #0596fc;
-    color: white;
-    border: 1px solid black;
-    border-radius: 20px;
-    position: relative;
-    top: 20px;
-    font-size: 20px;
-
+#submit-button{
+    min-width:20%;
+    background-color: #007fff;
+    font-size: 1.2em;
+    color:white;
+    padding: 10px; /* adds space inside text field */
+    border: none;
+    border-radius: 5px; /*rounded borders  */
+    cursor: pointer;
 }
 
-button[type="submit"]:hover{
-    background: blue;
-    transition: 1s;
-} */
+#submit-button:hover {
+    background-color: #444dff;
+    cursor: pointer;
+}
 
 div.NoAccount{
     position: relative;
