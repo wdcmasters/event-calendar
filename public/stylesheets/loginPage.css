@@ -30,14 +30,14 @@
 
 .socialMedia{
     position: relative;
-    top: 30px;
+    /* top: 10px; */
 }
 
 #name,#name1 {
-    border-bottom: 2px solid rgb(173, 173, 173);
+    border: 2px solid rgb(173, 173, 173);
     display: block;
     margin: auto;
-    width: 50%;
+    width: 30%;
     position: relative;
     top: -2px;
 }
