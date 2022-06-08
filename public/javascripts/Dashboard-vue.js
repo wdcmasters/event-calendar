@@ -5,7 +5,9 @@ var vueinst = new Vue({
         userID: 99,
         eventsPopulated: false,
         search: 'Search your events',
-        events: []
+        populatedOnce: false,
+        events: [],
+        showFilter: false
     },
 
     created () { /*Getting the ID of the user*/
@@ -24,14 +26,26 @@ var vueinst = new Vue({
         xhttp.send();
     },
 
-    mounted () { /*Populating the page initially*/
+    mounted () {
     },
 
     methods: {
 
+        populateCaller: function(event) {
+            if (this.populatedOnce == false)
+            {
+                this.populatedOnce = true;
+                setTimeout(this.initialPopulate, 500);
+            }
+            else
+            {
+                setTimeout(this.initialPopulate, 10000);
+            }
+        },
+
         initialPopulate: function (event) {
-            document.getElementById("events").innerHTML = "";
             var xhttp = new XMLHttpRequest();
+
 
             // console.log("ID to send: "+this.userID);
             userId_object = { userID: this.userID };
@@ -45,6 +59,8 @@ var vueinst = new Vue({
                 {
                     // console.log(xhttp.responseText);
                     let receivedEvents = JSON.parse(xhttp.responseText);
+
+                    document.getElementById("events").innerHTML = "";
 
                     for (i in receivedEvents)
                     {
