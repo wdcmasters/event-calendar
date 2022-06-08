@@ -50,7 +50,7 @@ body {
 .buttons button:hover {
     background-color: #444dff;
     color:#ffffff;
-    font-weight: bold;
+    /* font-weight: bold; */
     cursor: pointer;
 }
 
