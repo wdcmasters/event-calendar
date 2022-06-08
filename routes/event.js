@@ -41,7 +41,7 @@ router.post('/addevent', function(req, res, next) {
     // in events time table, insert start time and end time, and the user id is the user id from session
     // when inserting the rest of the details into event table, may need to use inner join
     // get last inserted time id and insert all the event details + time id into the event table
-      let query = "INSERT INTO event_times (startTime,endTime,userID,eventID) VALUES (?,?,?,?);"; //Inserting event
+      let query = "SELECT INSERT INTO event_times (startTime,endTime,userID,eventID) VALUES (?,?,?,?);"; //Inserting event
       connection.query(query,[req.body.first_name, req.body.last_name, req.body.email, req.body.password], function(error, rows, fields)
       {
         //Running query
@@ -51,7 +51,7 @@ router.post('/addevent', function(req, res, next) {
           console.log("Could not alert");
           res.sendStatus(500);
           return;
-          
+
           //Associating session with user and redirecting them to dashboard
           res.session.authenticated = true;
           res.session.user = { email: req.body.email, password: req.body.password };
