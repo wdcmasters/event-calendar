@@ -63,7 +63,7 @@ body {
 .ongoing {
     text-align: center;
     padding-top: 0.2em;
-    background-color: blue;
+    background-color: #8e9899;
     border: 200px;
     /* margin-left: 30%;
     margin-right: 30%; */
@@ -74,7 +74,7 @@ body {
 }
 
 .ongoing h2 {
-    color: white;
+    color: black;
     padding-bottom: 30px;
     font-size: xx-large;
     margin-bottom: 0px;
