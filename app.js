@@ -63,7 +63,6 @@ app.use('/event', eventRouter);
 // });
 
 app.get('/guestDetails', (req, res) => {
-  // let user =
   if !('user' in session) {   // not too sure
     console.log("you are a guest");
     res.sendStatus(200);
