@@ -39,7 +39,7 @@ h1 {
 input[type=text] {
     padding: 15px; /* adds space inside text field */
     border: 1px solid #95a5a6; /* Grey border */
-    border-radius: 3px; /* rounded borders  */
+    border-radius: 5px; /* rounded borders  */
     box-sizing: border-box; /* padding and width are included in total width/height and stays in place */
     margin-top: 15px;
 }
@@ -101,6 +101,21 @@ input[type="time"] {
     background-color: #f5f5f5;
 }
 
+#login-button{
+    min-width:20%;
+    background-color: #007fff;
+    font-size: 1.2em;
+    color:white;
+    padding: 10px; /* adds space inside text field */
+    border: none;
+    border-radius: 5px; /*rounded borders  */
+    cursor: pointer;
+}
+
+#login-button:hover {
+    background-color: #444dff;
+    cursor: pointer;
+}
 
 #div-address {
     margin-top: 10px;

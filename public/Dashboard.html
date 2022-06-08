@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="stylesheets/buttons.css"> <!--link to get buttons format-->
     <script src="/javascripts/dashboard.js"></script>
     <script src="/javascripts/login.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <script src="javascripts/Dashboard-vue.js" defer></script>
 </head>
 <body>
             <!--Logo/website name-->
@@ -45,7 +47,7 @@
 
         <!-- Page content -->
 <div class="content" id="vueBody">
-    <h1 v-on:click="getEvents()"> Dashboard </h1>
+    <h1> Dashboard </h1>
     <!-- Create & Join Event Buttons -->
     <div class="buttons">
         <button type="button" onclick="window.location.href='/add_event.html'"><i class="fa-solid fa-plus"></i> Create Event </button>
@@ -90,16 +92,19 @@
             <br><br>
             <!-- Individual Events -->
             <div id="events">
-                <div class="event" v-for="item in events">
-                    <div class="dateTime">
-                        <p class="date"><i class="fa-solid fa-calendar"></i> {{ item.DATE }} </p>
-                        <p class="time"><i class="fa-solid fa-clock"></i> {{ item.START_TIME }} </p>
+                <template>
+                    {{ initialPopulate() }}
+                    <div class="event" v-for="item in events">
+                        <div class="dateTime">
+                            <p class="date"><i class="fa-solid fa-calendar"></i> {{ item.DATE }} </p>
+                            <p class="time"><i class="fa-solid fa-clock"></i> {{ item.START_TIME }} </p>
+                        </div>
+                        <div class="nameLocale">
+                            <h3 class="eventName"><a href="Dashboard.html"> {{ item.EVENTNAME }} </a></h3>
+                            <p class="eventLocation"> <i class="fa-solid fa-location-pin"></i> {{item.STREETNO}} {{item.STREET}}, {{ item.SUBURB }} </p>
+                        </div>
                     </div>
-                    <div class="nameLocale">
-                        <h3 class="eventName"><a href="Dashboard.html"> {{ item.EVENTNAME }} </a></h3>
-                        <p class="eventLocation"> <i class="fa-solid fa-location-pin"></i> {{item.STREETNO}} {{item.STREET}}, {{ item.SUBURB }} </p>
-                    </div>
-                </div>
+                </template>
             </div>
 
             <!-- View More Button -->
