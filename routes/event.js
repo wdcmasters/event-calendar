@@ -89,7 +89,7 @@ router.post('/addevent', function(req, res, next) {
                 res.sendStatus(500);
                 return;
               }
-          }
+          });
         });
       });
     }
