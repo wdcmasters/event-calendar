@@ -15,59 +15,58 @@ router.post('/addevent', function(req, res, next) {
     // let start_time = req.body.start_time;
     // let fin_time = req.body.fin_time;
 
-    console.log(req.body.eventName);
-    res.end();
     //Parsing  (do later)
     //
     //
 
-    //Making sure fields are filled
-    // if (email == "" || password == "")
-    // {
-    //   console.log("Fill in the inputs");
-    //   res.sendStatus(404);
-    //   return;
-    // }
+    //Making sure all fields are filled
+    if (req.body.eventName == "" || req.body.street_no == ""||req.body.street == "" || req.body.city == ""||req.body.state == "" || req.body.post_code == ""||req.body.country == "" || req.body.date == ""||req.body.start_time == "" || req.body.fin_time == "")
+    {
+      console.log("Fill in the inputs");
+      res.sendStatus(404);
+      return;
+    }
 
-    //Opening connection to check logins
-    // req.pool.getConnection(function(error,connection) {
-    //   if(error)
-    //   {
-    //     console.log(error);
-    //     res.sendStatus(500);
-    //     return;
-    //   }
+// do i need to check for this when opening connection?
+  if ('eventName' in req.body && 'street_no' in req.body){
 
-    //   let query = "SELECT email,password FROM users WHERE email = ? AND password = ?"; //Inserting user
-    //   connection.query(query,[email, password], function(error, rows, fields)
-    //   {
-    //     //Running query
-    //     connection.release(); // release connection
-    //     if (error) {
-    //       console.log(error);
-    //       console.log("Could not alert");
-    //       res.sendStatus(500);
-    //       return;
-    //     }
+    //Opening connection
+    req.pool.getConnection(function(error,connection) {
+      if(error)
+      {
+        console.log(error);
+        res.sendStatus(500);
+        return;
+      }
 
-    //     if (rows.length > 0) {
-    //       console.log("login success");
+    // get user id from session (assuming theyre logged in)
+    // find where user id in the session matches w user id in the users table
+    // in events time table, insert start time and end time, and the user id is the user id from session
+    // when inserting the rest of the details into event table, may need to use inner join
+    // get last inserted time id and insert all the event details + time id into the event table
 
-    //       //Associating user with session
-    //       req.session.authenticated = true;
-    //       req.session.user = { email: email, password: password };
 
-    //       console.log(req.session.user);
+    // how to generate eventID?
+    let event_query = "SELECT userID FROM users_events INNER JOIN users WHERE users.userID = users_events.userID INSERT INTO event (eventID, eventName, street_no, street, suburb, state, post_code, country, date, userID) VALUES (?,?,?,?,?,?,?,?,?,?);";
+    connection.query(query,[req.body.eventName, req.body.street_no, req.body.street, req.body.city, req.body.state, req.body.post_code, req.body.country, req.body.date, req.body.start_time , req.body.fin_time], function(error, rows, fields)
+    {
+        //Running query
+        connection.release(); // release connection
+        if (error) {
+          console.log(error);
+          console.log("Could not alert");
+          res.sendStatus(500);
+          return;
 
-    //       //Redirecting to dashboard
-    //       res.redirect('/Dashboard.html');
-    //       return;
-    //     }
-
-    //     res.sendStatus(401);
-    //   });
-    // });
-
+        //Associating session with user and redirecting them to dashboard
+          res.session.authenticated = true;
+          res.session.user = { email: req.body.email, password: req.body.password };
+          res.redirect("Dashboard.html");
+          }
+          res.end();
+        });
+      });
+    }
   });
 
 // router.post('/matchid', function(req, res, next) {

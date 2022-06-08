@@ -1,5 +1,4 @@
-function addEvent()
-{
+function addEvent(){
     //Getting event name from page
     let eventName = document.getElementById("event-name").value;
     //Getting event address from page
