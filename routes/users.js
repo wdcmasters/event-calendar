@@ -186,7 +186,7 @@ router.post('/getEvents', function(req, res, next) {
       return;
     }
 
-    let query = "SELECT event.eventName,event.suburb,event.country,event.date,event_times.start_time FROM event INNER JOIN event_times ON event.eventID = event_times.eventID INNER JOIN users_events ON users_events.eventID = event.eventID WHERE users_events.userID = ?"; //Inserting user
+    let query = "SELECT event.eventID,event.eventName,event.street_no,event.street,event.suburb,event.country,event.date,event_times.start_time FROM event INNER JOIN event_times ON event.eventID = event_times.eventID INNER JOIN users_events ON users_events.eventID = event.eventID WHERE users_events.userID = ?"; //Inserting user
     connection.query(query,[userID], function(error, rows, fields)
     {
       //Running query

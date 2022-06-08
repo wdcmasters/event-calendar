@@ -29,4 +29,4 @@ INSERT INTO event_times (start_time, end_time, eventID) VALUES ('08:00:00','10:0
 INSERT INTO users_events VALUES (1, 2);
 
 -- Getting an event and required details for a user
-SELECT event.eventName,event.suburb,event.country,event.date,event_times.start_time FROM event INNER JOIN event_times ON event.eventID = event_times.eventID INNER JOIN users_events ON users_events.eventID = event.eventID WHERE users_events.userID = ?;
+SELECT event.eventID,event.eventName,event.street_no,event.street,event.suburb,event.country,event.date,event_times.start_time FROM event INNER JOIN event_times ON event.eventID = event_times.eventID INNER JOIN users_events ON users_events.eventID = event.eventID WHERE users_events.userID = ?;
