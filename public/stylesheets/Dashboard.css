@@ -6,7 +6,7 @@
 
 body {
     margin:0;
-    font-family: Tahoma, sans-serif;
+    font-family: 'Open Sans', sans-serif;
 }
 
 /* Content element */
@@ -22,7 +22,7 @@ body {
     font-size: 50px; /* xxx-large? */
     border-color: #283593;
     border-width: 0.2em;
-    font-family: Tahoma;
+    font-family: 'Open Sans', sans-serif;
     font-weight: normal;
 }
 
