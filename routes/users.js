@@ -195,12 +195,7 @@ router.post('/getEvents', function(req, res, next) {
         res.sendStatus(500);
         return;
       }
-<<<<<<< HEAD
       res.send(rows);
-=======
-
-        res.send(rows);
->>>>>>> e793a1c57a871d89672268e505a45517f77a7648
 
     });
   });
