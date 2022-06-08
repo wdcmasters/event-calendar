@@ -81,7 +81,7 @@ router.post('/addevent', function(req, res, next) {
     eventID INT UNSIGNED NOT NULL,
     // userID FROM users_events INNER JOIN users WHERE users.userID = users_events.userID
           let event_query = "INSERT INTO event_times (timeID, start_time, end_time, eventID) VALUES (?,?,?,?)
-          connection.query(query,[], function(error, rows, fields){
+          connection.query(query,[req.start_time, req.end_time,], function(error, rows, fields){
               //Running query
               connection.release(); // release connection
               if (error)
