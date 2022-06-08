@@ -199,6 +199,37 @@ router.post('/signout', function(req, res, next) {
 
 //     });
 //   });
+// // });
+// router.post('/getEvents', function(req, res, next) {
+
+//   //Storing userID for prepared statement
+//   let userID = req.body.userID;
+//   console.log("Received user id is "+userID);
+
+//   //Opening connection
+//   req.pool.getConnection(function(error,connection) {
+//     if(error)
+//     {
+//       console.log(error);
+//       res.sendStatus(500);
+//       return;
+//     }
+
+//     let query = "SELECT event.eventID,event.eventName,event.street_no,event.street,event.suburb,event.country,event.date,event_times.start_time FROM event INNER JOIN event_times ON event.eventID = event_times.eventID INNER JOIN users_events ON users_events.eventID = event.eventID WHERE users_events.userID = ?"; //Inserting user
+//     connection.query(query,[userID], function(error, rows, fields)
+//     {
+//       //Running query
+//       connection.release();
+//       if (error) {
+//         console.log(error);
+//         console.log("Could not alert");
+//         res.sendStatus(500);
+//         return;
+//       }
+//       res.send(rows);
+
+//     });
+//   });
 // });
 
 
