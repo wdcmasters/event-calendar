@@ -17,12 +17,12 @@ function guest() {
     };
 
     //Open the request
-    xhttp.open("POST", "/event/respond");
+    xhttp.open("POST", "/event/respond/guest");
     xhttp.setRequestHeader("Content-type", "application/json");
     xhttp.send(JSON.stringify(guest));
 }
 
-
+/*
 function guest() {
     let firstName = document.getElementsByName("firstName")[0].value;
     let lastName = document.getElementsByName("lastName")[0].value;
