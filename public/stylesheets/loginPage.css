@@ -112,7 +112,7 @@ div#passwordInput{
     top: 150px;
 }
 
-button[type="submit"]{
+/* button[type="submit"]{
     width: 50%;
     height: 50px;
     background: #0596fc;
@@ -128,7 +128,7 @@ button[type="submit"]{
 button[type="submit"]:hover{
     background: blue;
     transition: 1s;
-}
+} */
 
 div.NoAccount{
     position: relative;
