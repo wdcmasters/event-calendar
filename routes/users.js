@@ -185,6 +185,7 @@ router.post('/getEvents', function(req, res, next) {
         res.sendStatus(500);
         return;
       }
+      console.log(rows);
       res.send(rows);
 
     });

@@ -15,8 +15,8 @@ var vueinst = new Vue({
             {
                 let response = xhttp.responseText;
                 vueinst.userID = response;
-                console.log(response);
-                console.log("UserID (getid function): "+vueinst.userID);
+                // console.log(response);
+                // console.log("UserID (getid function): "+vueinst.userID);
             }
         }
 
@@ -33,9 +33,9 @@ var vueinst = new Vue({
             document.getElementById("events").innerHTML = "";
             var xhttp = new XMLHttpRequest();
 
-            console.log("ID to send: "+vueinst.userID);
-            userId_object = { userID: vueinst.userID };
-            console.log(userId_object);
+            // console.log("ID to send: "+this.userID);
+            userId_object = { userID: this.userID };
+            // console.log(userId_object);
 
             /*Parse response into this.events */
             xhttp.onreadystatechange = function () {
@@ -43,7 +43,7 @@ var vueinst = new Vue({
                 //Putting into temp variable
                 if (xhttp.readyState == 4 && xhttp.status == 200)
                 {
-                    console.log(xhttp.responseText);
+                    // console.log(xhttp.responseText);
                     let receivedEvents = JSON.parse(xhttp.responseText);
 
                     for (i in receivedEvents)
@@ -61,11 +61,9 @@ var vueinst = new Vue({
                     let start_time = receivedEvents[i].start_time;
                     start_time = start_time.slice(0, 5); // Parsing time
 
-
-
                     let newEvent = { EVENTID: eventID, EVENTNAME: eventName, STREETNO: streetNo, STREET: street, SUBURB: suburb, COUNTRY: country, DATE: date, START_TIME: start_time};
 
-                    console.log(newEvent);
+                    // console.log(newEvent);
                     vueinst.events.push(newEvent);
                     }
                 }
