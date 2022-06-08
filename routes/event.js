@@ -28,10 +28,11 @@ router.post('/addevent', function(req, res, next) {
     }
 
 // do i need to check for this when opening connection?
-  if ('eventName' in req.body && 'street_no' in req.body){
-
+  if ('eventName' in req.body && 'street_no' in req.body)
+  {
     //Opening connection
-    req.pool.getConnection(function(error,connection) {
+    req.pool.getConnection(function(error,connection)
+    {
       if(error)
       {
         console.log(error);
@@ -47,19 +48,22 @@ router.post('/addevent', function(req, res, next) {
 
     // userID FROM users_events INNER JOIN users WHERE users.userID = users_events.userID
     // how to generate eventID?
-    req.session.user
+    // req.session.user
     let event_query = "INSERT INTO event (eventID, eventName, street_no, street, suburb, state, post_code, country, date, userID) VALUES (?,?,?,?,?,?,?,?,?,?);";
     connection.query(query,[req.body.eventName, req.body.street_no, req.body.street, req.body.city, req.body.state, req.body.post_code, req.body.country, req.body.date, req.body.start_time , req.body.fin_time], function(error, rows, fields)
     {
         //Running query
         connection.release(); // release connection
-        if (error) {
+        if (error)
+        {
           console.log(error);
           console.log("Could not alert");
           res.sendStatus(500);
           return;
+        }
 
-        req.pool.getConnection(function(error,connection) {
+        req.pool.getConnection(function(error,connection)
+        {
           if(error)
           {
             console.log(error);
@@ -67,11 +71,8 @@ router.post('/addevent', function(req, res, next) {
             return;
           }
 
-
-        let event_query = "INSERT INTO event (eventID, eventName, street_no, street, suburb, state, post_code, country, date, userID) VALUES (?,?,?,?,?,?,?,?,?,?);";
-        connection.query(query,[req.body.eventName, req.body.street_no, req.body.street, req.body.city, req.body.state, req.body.post_code, req.body.country, req.body.date, req.body.start_time , req.body.fin_time])
-
         });
+
       });
     }
   });
