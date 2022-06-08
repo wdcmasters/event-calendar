@@ -34,11 +34,12 @@
 }
 
 #name,#name1 {
-    border: 2px solid rgb(173, 173, 173);
+    border: 1px solid #95a5a6; /* Grey border */
     display: block;
     margin: auto;
     width: 30%;
     position: relative;
+    border-radius: 3px; /* rounded borders  */
     top: -2px;
 }
 
