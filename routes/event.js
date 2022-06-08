@@ -51,6 +51,7 @@ router.post('/addevent', function(req, res, next) {
           console.log("Could not alert");
           res.sendStatus(500);
           return;
+          
           //Associating session with user and redirecting them to dashboard
           res.session.authenticated = true;
           res.session.user = { email: req.body.email, password: req.body.password };
