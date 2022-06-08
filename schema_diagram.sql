@@ -8,7 +8,7 @@ CREATE TABLE users (
     first_name VARCHAR(30),
     last_name VARCHAR(30),
     email VARCHAR(50) UNIQUE,
-    password VARCHAR(50), -- if password field is null, then user has logged in with a gmail account
+    password VARCHAR(50),
     PRIMARY KEY (userID)
     );
 

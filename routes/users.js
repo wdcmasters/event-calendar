@@ -63,6 +63,7 @@ router.post('/logintest', function(req, res, next)
             if (rows.length > 0)
             {
               console.log('success');
+              req.session.gmail = true;
               req.session.user = rows[0].userID;
               // console.log("rows[0] = " + rows[0].userID);
               res.sendStatus(200);
@@ -89,7 +90,6 @@ router.post('/logintest', function(req, res, next)
                     return;
                   }
                   // establish session for user
-                  // CHANGE CODE HERE - NEED TO SET REQ.SESSION.USER TO USER ID
                   req.pool.getConnection(function(error, connection) {
                     if (error) {
                       console.log(error);
@@ -104,6 +104,7 @@ router.post('/logintest', function(req, res, next)
                         res.sendStatus(500);
                         return;
                       }
+                      req.session.gmail = true;
                       req.session.user = rows[0].userID;
                       res.sendStatus(200);
                     })

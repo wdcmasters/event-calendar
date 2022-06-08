@@ -7,10 +7,10 @@ function hidePopup() {
     }
 }
 
-// show new email pop up div
-function showEmailChange() {
-    document.getElementById("email-container").style.display = "block";
-}
+// // show new email pop up div
+// function showEmailChange() {
+//     document.getElementById("email-container").style.display = "block";
+// }
 
 // show new password pop up div
 function showPasswordChange() {
