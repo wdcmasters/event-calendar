@@ -162,9 +162,7 @@ router.get('/getID', function(req, res, next) {
         res.sendStatus(500);
         return;
       }
-
       res.send(rows);
-
     });
   });
 });
@@ -197,8 +195,7 @@ router.post('/getEvents', function(req, res, next) {
         res.sendStatus(500);
         return;
       }
-
-        res.send(rows);
+      res.send(rows);
 
     });
   });
