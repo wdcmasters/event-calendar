@@ -90,7 +90,6 @@ router.post('/addevent', function(req, res, next) {
                 return;
               }
           }
-
         });
       });
     }
