@@ -71,9 +71,9 @@ input[type="time"] {
 
 #submit-button{
     min-width:20%;
-    background-color: #007fff;
+    background-color: #ecf0f1;
     font-size: 1.2em;
-    color:white;
+    color:black;
     padding: 15px; /* adds space inside text field */
     border: none;
     border-radius: 5px; /*rounded borders  */
