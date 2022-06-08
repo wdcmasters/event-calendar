@@ -77,7 +77,7 @@ router.post('/addevent', function(req, res, next) {
     // get last inserted time id and insert all the event details + time id into the event table
 
     // userID FROM users_events INNER JOIN users WHERE users.userID = users_events.userID
-          let event_query = "INSERT INTO event_times (timeID, start_time, end_time, eventID) VALUES (?,?,?,?),
+          let event_query = "INSERT INTO event_times (timeID, start_time, end_time, eventID) VALUES (?,?,?,?);";
           connection.query(query,[req.start_time, req.end_time,], function(error, rows, fields){
               //Running query
               connection.release(); // release connection
