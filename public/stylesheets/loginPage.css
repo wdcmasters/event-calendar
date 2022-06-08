@@ -9,10 +9,9 @@
     text-decoration: none;
 }
 
-*{
+/* *{
     box-sizing: border-box;
     /* font-family: tahoma, arial, sans-serif; */
-}
 
 .LoginRectSection {
     /* border: 2px solid black; */
@@ -32,41 +31,10 @@ h1 {
 
 }
 
-/* .arrow1{
-    position: absolute;
-    top: 35px;
-    left: -140px;
-} */
-
-
-/* .fa-facebook-f {
-    position: relative;
-    transform: scale(2,2);
-    left: -40px;
-    top: 20px;
-    background: #3B5998;
-    color: white;
-    width: 38px;
-    height: 18px;
-    border-radius: 5px;
-}
-
-.fa-twitter {
-    position: relative;
-    transform: scale(2,2);
-    left: 40px;
-    background: #55ACEE;
-    color: white;
-    width: 38px;
-    height: 18px;
-    border-radius: 5px;
-} */
-
 .socialMedia{
     position: relative;
     top: 40px;
 }
-
 
 #name,#name1 {
     border-bottom: 2px solid rgb(173, 173, 173);
