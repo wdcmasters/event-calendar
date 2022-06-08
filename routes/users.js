@@ -63,7 +63,8 @@ router.post('/logintest', function(req, res, next)
             if (rows.length > 0)
             {
               console.log('success');
-              req.session.user = rows[0];
+              req.session.gmail = true;
+              req.session.user = rows[0].userID;
               // console.log("rows[0] = " + rows[0].userID);
               res.sendStatus(200);
             }
@@ -89,14 +90,13 @@ router.post('/logintest', function(req, res, next)
                     return;
                   }
                   // establish session for user
-                  // CHANGE CODE HERE - NEED TO SET REQ.SESSION.USER TO USER ID
                   req.pool.getConnection(function(error, connection) {
                     if (error) {
                       console.log(error);
                       res.sendStatus(500);
                       return;
                     }
-                    let query = "SELECT LAST_INSERT_ID() FROM users;";
+                    let query = "SELECT LAST_INSERT_ID() AS userID FROM users;";
                     connection.query(query, function(error, rows, fields){
                       connection.release();
                       if (error) {
@@ -104,7 +104,8 @@ router.post('/logintest', function(req, res, next)
                         res.sendStatus(500);
                         return;
                       }
-                      req.session.user = rows[0];
+                      req.session.gmail = true;
+                      req.session.user = rows[0].userID;
                       res.sendStatus(200);
                     })
                   })
@@ -126,6 +127,8 @@ router.post('/logintest', function(req, res, next)
   }
 });
 
+
+/*Sign out Route */
 router.post('/signout', function(req, res, next) {
   if('user' in req.session){
     delete req.session.user;
@@ -136,39 +139,27 @@ router.post('/signout', function(req, res, next) {
   res.end();
 });
 
-/* Retrieving the userID*/
+
+/*DASHBOARD ROUTES */
+//
+//
+
+// Getting userID from session
 router.get('/getID', function(req, res, next) {
 
-  //Getting the email
-  email = req.session.user.email;
+  if ('user' in req.session)
+  {
+    console.log("UserID (/getID): "+req.session.user);
+    res.send(""+req.session.user+""); //Had to make sure is being sent as a string, since thinks its a response code
+  }
+  else
+  {
+    res.sendStatus(401);
+  }
 
-  /*Getting userID with mySQL */
-  req.pool.getConnection(function(error,connection) { //Opening the connection
-    if(error)
-    {
-      console.log(error);
-      res.sendStatus(500);
-      return;
-    }
-
-    let query = "SELECT userID FROM users WHERE email = ?"; //Inserting user
-    connection.query(query,[email], function(error, rows, fields)
-    {
-      //Running query
-      connection.release();
-      if (error) {
-        console.log(error);
-        console.log("Could not alert");
-        res.sendStatus(500);
-        return;
-      }
-      res.send(rows);
-    });
-  });
 });
 
-
-/* DASHBOARD PAGE: Retrieving the event details based on a userID */
+// Getting events the user is in
 router.post('/getEvents', function(req, res, next) {
 
   //Storing userID for prepared statement
@@ -184,7 +175,7 @@ router.post('/getEvents', function(req, res, next) {
       return;
     }
 
-    let query = "SELECT event.eventName,event.suburb,event.country,event.date,event_times.start_time FROM event INNER JOIN event_times ON event.eventID = event_times.eventID INNER JOIN users_events ON users_events.eventID = event.eventID WHERE users_events.userID = ?"; //Inserting user
+    let query = "SELECT event.eventID,event.eventName,event.street_no,event.street,event.suburb,event.country,event.date,event_times.start_time FROM event INNER JOIN event_times ON event.eventID = event_times.eventID INNER JOIN users_events ON users_events.eventID = event.eventID WHERE users_events.userID = ?"; //Inserting user
     connection.query(query,[userID], function(error, rows, fields)
     {
       //Running query
@@ -195,11 +186,11 @@ router.post('/getEvents', function(req, res, next) {
         res.sendStatus(500);
         return;
       }
+      console.log(rows);
       res.send(rows);
 
     });
   });
 });
-
 
 module.exports = router;
