@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 
-router.post('/event/respond', (req, res) => {
+router.post('/event/respond', function(req, res, next) {
     if (req.body.first_name == "" || req.body.last_name == "")
     {
       console.log("Fill in the inputs");
@@ -27,7 +27,6 @@ router.post('/event/respond', (req, res) => {
             console.log(error);
             res.sendStatus(500);
             return;
-
             res.redirect("book_event.html");
           }
 

@@ -107,7 +107,7 @@ app.get('/event/respond', (req, res) => {
 });
 
 
-app.post('/event/respond', (req, res) => {
+/*app.post('/event/respond', (req, res) => {
   if (req.body.first_name == "" || req.body.last_name == "")
   {
     console.log("Fill in the inputs");
@@ -140,7 +140,7 @@ app.post('/event/respond', (req, res) => {
     });
   }
 });
-
+*/
 
 
 
