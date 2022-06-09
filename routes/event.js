@@ -178,6 +178,12 @@ router.get('/get_gmail', function(req, res, next) {
   }
 });
 
+router.get('/respond/guest', function(req,res,next) {
+  
+
+});
+
+
 // put guest information into database
 router.post('/respond/guest', function(req, res, next){
   if (req.body.first_name == "" || req.body.last_name == "")
