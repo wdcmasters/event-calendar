@@ -60,14 +60,14 @@ div.inputs input{
     /* top: 20px; */
 /* } */
 
-a:link.NoAccount{
+a:link.Account{
     color:grey;
 }
 
-a:visited.NoAccount {
+a:visited.Account {
     color: grey;
   }
-a:hover.NoAccount {
+a:hover.Account {
     color: #a9a9a9;
 }
 
