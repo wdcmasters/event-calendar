@@ -4,7 +4,8 @@
     color: white;
     background-color: blue;
 
-    width: 50px;
+    width: 150px;
+    /* Width was originally 50 */
     height: 50px;
 
     border: none;
