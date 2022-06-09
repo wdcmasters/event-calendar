@@ -37,7 +37,13 @@ router.get('/admin-dashboard.html', function(req, res, next) {
 //
 router.post('/signup', async function(req, res, next) {
 
-
+  var phash = null;
+  try {
+    phash = await argon2.hash(req.body.password);
+  } catch (err) {
+    res.sendStatus(500);
+    return;
+  }
 
 
   //Making sure all fields are filled
