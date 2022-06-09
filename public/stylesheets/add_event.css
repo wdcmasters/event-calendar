@@ -13,7 +13,7 @@ input:focus {
 input[type="password"]:focus{
     outline: none;
 }
-
+/* Main div */
 #content-div {
     padding: 50px;
     text-align: center;
@@ -34,6 +34,13 @@ input[type="password"]:focus{
     display: flex;
     justify-content: center;
 }
+
+/* Address div */
+#div-address {
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
 
 #event-name{
     margin-top: 15px;
@@ -93,21 +100,6 @@ input[type="time"] {
     cursor: pointer;
 }
 
-/* #cancel-button {
-    width: 20%;
-    background-color: white;
-    border-color: grey;
-    border-width: 0.5px;
-    font-size: 1.2em;
-    padding: 15px;
-    border-radius: 5px; /*rounded borders  */
-    /* cursor: pointer;
-    margin-left: 15px; */
-/* } */
-/*
-#cancel-button:hover {
-    background-color: #f5f5f5; */
-
 #purple-button{
     min-width:30%;
     background-color:#444dff;
@@ -125,10 +117,18 @@ input[type="time"] {
     cursor: pointer;
 }
 
-#div-address {
-    margin-top: 10px;
-    margin-bottom: 15px;
-}
-
-
+/* #cancel-button {
+    width: 20%;
+    background-color: white;
+    border-color: grey;
+    border-width: 0.5px;
+    font-size: 1.2em;
+    padding: 15px;
+    border-radius: 5px; /*rounded borders  */
+    /* cursor: pointer;
+    margin-left: 15px; */
+/* } */
+/*
+#cancel-button:hover {
+    background-color: #f5f5f5; */
 
