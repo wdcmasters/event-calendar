@@ -70,8 +70,8 @@ input[type="time"] {
 }
 
 #submit-button{
-    min-width:20%;
-    background-color: #007fff;
+    min-width:50%;
+    background-color: #444dff;
     font-size: 1.2em;
     color:white;
     padding: 15px; /* adds space inside text field */
@@ -81,11 +81,11 @@ input[type="time"] {
 }
 
 #submit-button:hover {
-    background-color: #444dff;
+    background-color: black;
     cursor: pointer;
 }
 
-#cancel-button {
+/* #cancel-button {
     width: 20%;
     background-color: white;
     border-color: grey;
@@ -93,13 +93,12 @@ input[type="time"] {
     font-size: 1.2em;
     padding: 15px;
     border-radius: 5px; /*rounded borders  */
-    cursor: pointer;
-    margin-left: 15px;
-}
-
+    /* cursor: pointer;
+    margin-left: 15px; */
+/* } */
+/*
 #cancel-button:hover {
-    background-color: #f5f5f5;
-}
+    background-color: #f5f5f5; */
 
 #login-button{
     min-width:30%;
