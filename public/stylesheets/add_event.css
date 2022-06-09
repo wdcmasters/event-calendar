@@ -103,9 +103,9 @@ input[type="time"] {
 
 #login-button{
     min-width:30%;
-    background-color:#ecf0f1;
+    background-color:#444dff;
     font-size: 1.2em;
-    color:black;
+    color:#ffffff;
     padding: 10px; /* adds space inside text field */
     border: none;
     border-radius: 5px; /*rounded borders  */
