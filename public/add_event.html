@@ -64,37 +64,39 @@
         <div id="div-address">
             <input id="street-no" type="text" placeholder="Street number"><br/>
             <input id="street" type="text" placeholder="Street name"><br/>
-            <input id="city" type="text" placeholder="City"><br/>
+            <input id="suburb" type="text" placeholder="Suburb"><br/>
             <input id="state" type="text" placeholder="State"><br/>
             <input id="post-code" type="text" placeholder="Post code"> <br/>
             <input id="country" type="text" placeholder="Country"><br/>
         </div>
+        <br />
 
         <!-- Enter date of event -->
-        <label for="date" id="label-date">Select a date and time:</label><br/>
+        <label for="date" id="label-date">Select a date and times:</label><br/>
         <div id="date-div">
-            <input id="date" type="date" ><br/>
+            <input id="date" type="date"><br/>
         </div>
-        <!-- Select time of event -->
-        <div class="time-div">
-            <div>
-                <label for="from-time"> From: </label>
-                <input type="time" id="from-time" value="09:00">
-            </div>
-            <div id="to-time-div">
-                <label for="to-time"> To: </label>
-                <input type="time" id="to-time" value="17:00">
+
+        <!-- Select times of event -->
+        <div id="time-container">
+            <div class="time-div">
+                <div>
+                    <label for="from-time"> From: </label>
+                    <input type="time" id="from-time" value="09:00" class="start-time">
+                </div>
+                <div id="to-time-div">
+                    <label for="to-time"> To: </label>
+                    <input type="time" id="to-time" value="17:00" class="end-time">
+                </div>
             </div>
         </div>
         <br>
-        <button>Add more times</button>
+        <button type="button" onclick="addMoreTimes()">Add more times</button>
 
         <br><br><br>
 
         <!-- Create event -->
-        <button onclick="addEvent()" id="submit-button"> Create event</button>
-        <!-- Cancel button -->
-        <button id="cancel-button"> Cancel </button>
+        <button type="button" onclick="addEvent()" id="submit-button"> Create event</button>
 
     </form>
 
@@ -102,5 +104,3 @@
 
 </body>
 </html>
-
-<!-- input field needs name attributed to be submitted -->

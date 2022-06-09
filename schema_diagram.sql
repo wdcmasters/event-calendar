@@ -50,8 +50,10 @@ CREATE TABLE event_times (
     start_time TIME,
     end_time TIME,
     eventID INT UNSIGNED NOT NULL,
+    userID INT UNSIGNED NOT NULL,
     PRIMARY KEY (timeID),
-    FOREIGN KEY (eventID) REFERENCES event(eventID) ON DELETE CASCADE
+    FOREIGN KEY (eventID) REFERENCES event(eventID) ON DELETE CASCADE,
+    FOREIGN KEY (userID) REFERENCES users(userID) ON DELETE CASCADE
 );
 
 CREATE TABLE users_events (

@@ -1,57 +1,87 @@
 var express = require('express');
 var router = express.Router();
 
-// router.post('/addevent', function(req, res, next) {
+/* adds event details (excluding times) from add_event.html */
+router.post('/add_event', function(req, res, next) {
 
-//     //Making sure all fields are filled
-//     if (req.body.eventName == "" || req.body.street_no == ""||req.body.street == "" || req.body.city == ""||req.body.state == "" || req.body.post_code == ""||req.body.country == "" || req.body.date == ""||req.body.start_time == "" || req.body.fin_time == "")
-//     {
-//       console.log("Fill in the inputs");
-//       res.sendStatus(404);
-//       return;
-//     }
+    //Making sure all fields are filled
+    if (req.body.eventName == "" || req.body.street_no == ""||req.body.street == "" || req.body.city == ""||req.body.state == "" || req.body.post_code == ""||req.body.country == "" || req.body.date == ""||req.body.start_time == "" || req.body.fin_time == "")
+    {
+      console.log("Fill in the inputs");
+      res.sendStatus(404);
+      return;
+    }
 
-// // do i need to check for this when opening connection?
-//   if ('eventName' in req.body && 'street_no' in req.body){
+    // connect to database
+    req.pool.getConnection(function(error,connection){
+      if(error){
+        console.log(error);
+        res.sendStatus(500);
+        return;
+      }
 
-//     //Opening connection
-//     req.pool.getConnection(function(error,connection) {
-//       if(error)
-//       {
-//         console.log(error);
-//         res.sendStatus(500);
-//         return;
-//       }
+      // insert event details
+      let query = "INSERT INTO event (eventName, street_no, street, suburb, state, post_code, country, date, userID) VALUES (?,?,?,?,?,?,?,?,?);";
+      connection.query(query,[req.body.eventName, req.body.street_no, req.body.street, req.body.suburb, req.body.state, req.body.post_code, req.body.country, req.body.date, req.session.user], function(error, rows, fields) {
+        connection.release(); // release connection
+        if (error) {
+          console.log(error);
+          res.sendStatus(500);
+          return;
+        }
+        res.sendStatus(200);
+      });
+    });
+});
 
-//     // get user id from session (assuming theyre logged in)
-//     // find where user id in the session matches w user id in the users table
-//     // in events time table, insert start time and end time, and the user id is the user id from session
-//     // when inserting the rest of the details into event table, may need to use inner join
-//     // get last inserted time id and insert all the event details + time id into the event table
+var last_insert_eventid;
 
+/* adds event times from add_event.html */
+router.post('/add_event/times', function(req, res, next) {
 
-//     // how to generate eventID?
-//     let query = "SELECT userID FROM users_events INNER JOIN users WHERE users.userID = users_events.userID INSERT INTO event (eventID, eventName, street_no, street, suburb, state, post_code, country, date, userID) VALUES (?,?,?,?,?,?,?,?,?,?);";
-//     connection.query(query,[req.body.eventName, req.body.street_no, req.body.street, req.body.city, req.body.state, req.body.post_code, req.body.country, req.body.date, req.body.start_time , req.body.fin_time], function(error, rows, fields)
-//     {
-//         //Running query
-//         connection.release(); // release connection
-//         if (error) {
-//           console.log(error);
-//           console.log("Could not alert");
-//           res.sendStatus(500);
-//           return;
+  // connect to database
+  req.pool.getConnection(function(error,connection){
+    if(error){
+      console.log(error);
+      res.sendStatus(500);
+      return;
+    }
 
-//         //Associating session with user and redirecting them to dashboard
-//           // req.session.authenticated = true;
-//           // req.session.user = { email: req.body.email, password: req.body.password };
-//           // res.redirect("Dashboard.html");
-//           // }
-//           res.end();
-//         });
-//       });
-//     }
-//   });
+    // get last inserted event id
+    let query = "SELECT MAX(eventID) AS last_id FROM event;";
+    connection.query(query, [req.body.start, req.body.end], function(error, rows, fields) {
+      connection.release(); // release connection
+      if (error) {
+        console.log(error);
+        res.sendStatus(500);
+        return;
+      }
+      last_insert_eventid = rows[0].last_id;
+      req.session.eventID = last_insert_eventid;
+
+      // connect to database to insert event times
+      req.pool.getConnection(function(error,connection){
+        if(error){
+          console.log(error);
+          res.sendStatus(500);
+          return;
+        }
+
+        // insert event times
+        let query = "INSERT INTO event_times (start_time, end_time, eventID, userID) VALUES (?,?,?,?);";
+        connection.query(query,[req.body.start, req.body.end, last_insert_eventid, req.session.user], function(error, rows, fields) {
+          connection.release(); // release connection
+          if (error) {
+            console.log(error);
+            res.sendStatus(500);
+            return;
+          }
+          res.sendStatus(200);
+        });
+      });
+    });
+  });
+});
 
 // sends a 200 response if event id input on dashboard matches an event id in the database
 router.post('/match_id', function(req, res, next) {
@@ -113,6 +143,35 @@ router.get('/get_details', function(req, res, next) {
   });
 });
 
+// get event id from search input
+router.get('/get_id', function(req, res, next) {
+
+  req.pool.getConnection(function(error,connection){
+    if(error){
+      console.log(error);
+      res.sendStatus(500);
+      return;
+    }
+
+    let query = "SELECT eventID FROM event WHERE eventID = ?;";
+    connection.query(query,[req.session.eventID], function(error, rows, fields) {
+      connection.release(); // release connection
+      if (error) {
+        console.log(error);
+        res.sendStatus(500);
+        return;
+      }
+      // if details exist, send the information
+      if (rows.length > 0) {
+        res.json(rows);
+      }
+      else {
+        res.sendStatus(404);
+      }
+    });
+  });
+});
+
 // get event details from database
 router.get('/get_host', function(req, res, next) {
 
@@ -142,8 +201,37 @@ router.get('/get_host', function(req, res, next) {
   });
 });
 
+// get event times from database
+router.get('/get_times', function(req, res, next) {
 
-// get event details from database
+  req.pool.getConnection(function(error,connection){
+    if(error){
+      console.log(error);
+      res.sendStatus(500);
+      return;
+    }
+
+    let query = "SELECT event_times.start_time, event_times.end_time, event.date FROM event_times INNER JOIN event ON event_times.eventID = event.eventID WHERE event_times.eventID = ?;";
+    connection.query(query,[req.session.eventID], function(error, rows, fields) { //req.session.eventID = id entered into search box
+      connection.release(); // release connection
+      if (error) {
+        console.log(error);
+        res.sendStatus(500);
+        return;
+      }
+      // if details exist, send the information
+      if (rows.length > 0) {
+        res.json(rows);
+      }
+      else {
+        res.sendStatus(404);
+      }
+    });
+  });
+});
+
+
+// get gmail, event date, min time and max time
 router.get('/get_gmail', function(req, res, next) {
 
   // only get gmail from database if user has session variable set to true
@@ -162,7 +250,7 @@ router.get('/get_gmail', function(req, res, next) {
           res.sendStatus(500);
           return;
         }
-        // if details exist, send the information
+        // if details exist, send info
         if (rows.length > 0) {
           res.json(rows);
         }
@@ -178,9 +266,30 @@ router.get('/get_gmail', function(req, res, next) {
   }
 });
 
-// put guest information into database
-router.post('/respond/guest', function(req, res, next){
+/* adds event times from add_event.html */
+router.post('/respond/add_times', function(req, res, next) {
 
+  // connect to database
+  req.pool.getConnection(function(error,connection){
+    if(error){
+      console.log(error);
+      res.sendStatus(500);
+      return;
+    }
+
+    // insert selected available times into database
+    let query = "INSERT INTO event_times (start_time, end_time, eventID, userID) VALUES (?,?,?,?);";
+    connection.query(query, [req.body.start, req.body.end, req.session.eventID, req.session.user], function(error, rows, fields) {
+      connection.release(); // release connection
+      if (error) {
+        console.log(error);
+        res.sendStatus(500);
+        return;
+      }
+      res.sendStatus(200);
+    });
+  });
 });
+
 
 module.exports = router;
