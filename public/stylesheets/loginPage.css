@@ -2,42 +2,32 @@
     text-align: center;
 }
 
-.LoginRectSection {
+.RectSection {
     /* border: 2px solid black; */
     margin-left: 400px;
     margin-right: 400px;
     margin:auto;
-    background: white;
     padding: 20px;
     height: 550px;
     border-radius: 3px;
     text-align: center;
 }
 
-#log-in{
-    font-weight: normal; 
-}
-/* h1 {
-    margin-left: 350px;
-    margin-right: 350px;
-
-} */
-
 .socialMedia{
     position: relative;
     /* top: 10px; */
 }
 
-#name,#name1 {
+.inputs {
     /* border: 1px solid #95a5a6; Grey border */
-    border: 1px solid black; /* Grey border */
-    padding: 20px; /* adds space inside text field */
+    border-bottom: 1px solid grey; /* Grey border */
+    padding: 10px; /* adds space inside text field */
     margin: auto;
     width: 30%;
     position: relative;
-    border-radius: 5px; /* rounded borders  */
+    border-radius: 9px; /* rounded borders  */
     box-sizing: border-box; /* padding and width are included in total width/height and stays in place */
-    top: -2px;
+    /* top: -2px; */
 }
 
 /* #name:focus {
@@ -55,34 +45,32 @@ div.inputs input{
     font-size: 16px;
 }
 
-div#emailInput{
-    position: relative;
-    top: -32px;
-}
-
-div#passwordInput{
-    position: relative;
-    top: -7px;
-}
-
-::placeholder{
-    font-size: 16px;
-}
-
 .UserDetails{
     position: relative;
-    margin-top: 75px;
+    margin-top: 30px;
 }
 
-div.NoAccount{
+/* div.NoAccount{
     position: relative;
-    top: 50px;
+    color: grey;
+    /* top: 20px; */
+/* } */
+
+a:link.Account{
+    color:grey;
+}
+
+a:visited.Account {
+    color: grey;
+  }
+a:hover.Account {
+    color: #a9a9a9;
 }
 
 span.or{
-    position: relative;
     top: -50px;
     font-size: 20px;
+    font-weight:bold;
 }
 
 .g-signin2 {

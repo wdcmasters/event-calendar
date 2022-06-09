@@ -1,4 +1,4 @@
-body {
+*{
     font-family: 'Open Sans', sans-serif;
 }
 
@@ -6,6 +6,14 @@ h1 {
     font-size: 2.5em;
 }
 
+input:focus {
+    outline: 2px solid #444dff;
+    /* outline-offset: 2px; */
+}
+input[type="password"]:focus{
+    outline: none;
+}
+/* Main div */
 #content-div {
     padding: 50px;
     text-align: center;
@@ -26,6 +34,13 @@ h1 {
     display: flex;
     justify-content: center;
 }
+
+/* Address div */
+#div-address {
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
 
 #event-name{
     margin-top: 15px;
@@ -70,8 +85,8 @@ input[type="time"] {
 }
 
 #submit-button{
-    min-width:20%;
-    background-color: #007fff;
+    min-width:50%;
+    background-color: #444dff;
     font-size: 1.2em;
     color:white;
     padding: 15px; /* adds space inside text field */
@@ -81,31 +96,15 @@ input[type="time"] {
 }
 
 #submit-button:hover {
-    background-color: #444dff;
+    background-color: black;
     cursor: pointer;
 }
 
-#cancel-button {
-    width: 20%;
-    background-color: white;
-    border-color: grey;
-    border-width: 0.5px;
+#purple-button{
+    min-width:30%;
+    background-color:#444dff;
     font-size: 1.2em;
-    padding: 15px;
-    border-radius: 5px; /*rounded borders  */
-    cursor: pointer;
-    margin-left: 15px;
-}
-
-#cancel-button:hover {
-    background-color: #f5f5f5;
-}
-
-#login-button{
-    min-width:20%;
-    background-color: #007fff;
-    font-size: 1.2em;
-    color:white;
+    color:#ffffff;
     padding: 10px; /* adds space inside text field */
     border: none;
     border-radius: 5px; /*rounded borders  */
@@ -113,17 +112,106 @@ input[type="time"] {
 }
 
 #login-button:hover {
-    background-color: #444dff;
+    background-color: #444;
+    color:#ffffff;
     cursor: pointer;
 }
 
-#div-address {
-    margin-top: 10px;
-    margin-bottom: 15px;
+.LoginToCont {
+    text-align: center;
 }
 
-*:focus {
-    outline: 2px solid #444dff;
-    outline-offset: 2px;
+.RectSection {
+    /* border: 2px solid black; */
+    margin-left: 400px;
+    margin-right: 400px;
+    margin:auto;
+    padding: 20px;
+    height: 550px;
+    border-radius: 3px;
+    text-align: center;
 }
+
+.socialMedia{
+    position: relative;
+    /* top: 10px; */
+}
+
+.inputs {
+    /* border: 1px solid #95a5a6; Grey border */
+    border-bottom: 1px solid grey; /* Grey border */
+    padding: 10px; /* adds space inside text field */
+    margin: auto;
+    width: 30%;
+    position: relative;
+    border-radius: 9px; /* rounded borders  */
+    box-sizing: border-box; /* padding and width are included in total width/height and stays in place */
+    /* top: -2px; */
+}
+
+/* #name:focus {
+    border-bottom: 2px solid blue;
+}
+
+#name1:focus {
+    border-bottom: 2px solid blue;
+} */
+
+div.inputs input{
+    width: 100%;
+    height: 30px;
+    border: none;
+    font-size: 16px;
+}
+
+.UserDetails{
+    position: relative;
+    margin-top: 30px;
+}
+
+/* div.NoAccount{
+    position: relative;
+    color: grey;
+    /* top: 20px; */
+/* } */
+
+a:link.Account{
+    color:grey;
+}
+
+a:visited.Account {
+    color: grey;
+  }
+a:hover.Account {
+    color: #a9a9a9;
+}
+
+span.or{
+    top: -50px;
+    font-size: 20px;
+    font-weight:bold;
+}
+
+.g-signin2 {
+    display: inline-block;
+}
+
+.googleBtn:hover{
+    background: #cc3300;
+}
+
+/* #cancel-button {
+    width: 20%;
+    background-color: white;
+    border-color: grey;
+    border-width: 0.5px;
+    font-size: 1.2em;
+    padding: 15px;
+    border-radius: 5px; /*rounded borders  */
+    /* cursor: pointer;
+    margin-left: 15px; */
+/* } */
+/*
+#cancel-button:hover {
+    background-color: #f5f5f5; */
 
