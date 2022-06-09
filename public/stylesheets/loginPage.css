@@ -73,6 +73,7 @@ div#passwordInput{
 
 div.NoAccount{
     position: relative;
+    color: grey;
     /* top: 20px; */
 }
 
