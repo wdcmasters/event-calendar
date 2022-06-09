@@ -269,7 +269,7 @@ router.get('/get_gmail', function(req, res, next) {
 
 
 // put guest information into database
-router.post("/respond/guest?eventID=1", function(req, res, next) {
+router.post("/show_event.html/event/respond/guest", function(req, res, next) {
   if (req.body.first_name == "" || req.body.last_name == "")
      {
        console.log("Fill in the inputs");
