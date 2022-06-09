@@ -83,6 +83,9 @@ CREATE TABLE `event` (
 LOCK TABLES `event` WRITE;
 /*!40000 ALTER TABLE `event` DISABLE KEYS */;
 INSERT INTO `event` VALUES (1,'Example bday','136','North tce','Adelaide','SA','5000','Australia','2022-06-10',1);
+INSERT INTO `users_events` VALUES (1,1);
+INSERT INTO `event_times` (start_time, end_time, eventID) VALUES ('08:00:00','10:00:00', 1);
+
 /*!40000 ALTER TABLE `event` ENABLE KEYS */;
 UNLOCK TABLES;
 
