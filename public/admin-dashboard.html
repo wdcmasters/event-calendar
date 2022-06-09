@@ -57,21 +57,32 @@
             <h1 v-if="showUsers"> Users </h1>
             <h1 v-if="showEvents"> Events </h1>
 
-            <div id="searchField">
+            <!-- <div id="searchField">
                 <i class="fa-solid fa-magnifying-glass"></i>
                 <input type="text" id="adminDashboardSearch" name="search" placeholder="Search... ">
-            </div>
+            </div> -->
 
         </div>
 
         <!-- Insert Into Section -->
         <template>
             <div class="insertSection" v-if="showUsers">
-                <button class="blue-btn"><i class="fa-solid fa-plus"></i> Add User</button>
-                <input type="text" name="first_name" placeholder="First Name"></input>
-                <input type="text" name="last_name" placeholder="Last Name"></input>
-                <input type="text" name="email" placeholder="Last Name"></input>
-                <input type="text" name="password" placeholder="Password"></input>
+                <button v-on:click="insertUser();" id="add" class="blue-btn"><i class="fa-solid fa-plus"></i> Add User</button>
+                <input type="text" name="firstName" placeholder="First Name"></input>
+                <input type="text" name="lastName" placeholder="Last Name"></input>
+                <input type="text" name="email" placeholder="Email"></input>
+                <input type="password" name="password" placeholder="Password"></input>
+            </div>
+            <div class="insertSection addEvents" v-if="showEvents">
+                <button class="blue-btn"><i class="fa-solid fa-plus"></i> Add Event</button>
+                <input type="text" name="eventName" placeholder="Event Name"></input>
+                <input type="text" name="StreetNumber" placeholder="Street Number"></input>
+                <input type="text" name="Street" placeholder="Street"></input>
+                <input type="text" name="Suburb" placeholder="Suburb"></input>
+                <input type="text" name="State" placeholder="State"></input>
+                <input type="text" name="Postcode" placeholder="Postcode"></input>
+                <input type="text" name="Country" placeholder="Country"></input>
+                <input type="text" name="CreatorID" placeholder="CreatorID"></input>
             </div>
         </template>
 

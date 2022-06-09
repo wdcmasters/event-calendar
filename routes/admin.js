@@ -34,38 +34,48 @@ router.get('/getUsers', function(req, res, next) {
 });
 
 /*MAKE USER */
-router.post('/addUser', function (req, res, next) {
-    //Storing info from post request
+router.post('/addUser', function(req, res, next) {
 
-    //Opening connection
-    req.pool.getConnection(function(error,connection) {
+    //Making sure all fields are filled
+    if (req.body.first_name == "" || req.body.last_name == "" || req.body.email == "" || req.body.password == "")
+    {
+      console.log("Fill in the inputs");
+      res.sendStatus(404);
+      return;
+    }
+
+    //Checking if all fields are present
+    if ('first_name' in req.body && 'last_name' in req.body && 'email' in req.body && 'password' in req.body) {
+
+      //Opening connection
+      req.pool.getConnection(function(error,connection) {
         if(error)
         {
-            console.log(error);
-            res.sendStatus(500);
-            return;
+          console.log(error);
+          res.sendStatus(500);
+          return;
         }
 
-    let query = "SELECT * FROM users;"; //Select all details about users
-        connection.query(query, function(error, rows, fields)
+        //Inserting user into database
+        let query = "INSERT INTO users (first_name,last_name,email,password) VALUES (?,?,?,?);"; //Inserting user
+        connection.query(query,[req.body.first_name, req.body.last_name, req.body.email, req.body.password], function(error, rows, fields)
         {
             //Running query
-            connection.release();
-            if (error) {
-                console.log(error);
-                console.log("Could not alert");
-                res.sendStatus(500);
-                return;
+            connection.release(); // release connection
+            if (error)
+            {
+            console.log(error);
+            console.log("Could not alert");
+            res.sendStatus(500);
+            return;
             }
 
-            // console.log(rows);
-            res.send(rows);
+            res.sendStatus(200);
 
         });
-    });
-
-
-});
+      });
+    }
+  });
 
 /*GET EVENTS*/
 router.get('/getEvents', function(req, res, next) {

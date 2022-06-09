@@ -132,10 +132,19 @@ table {
     align-items: center;
     justify-content: center;
     display: flex;
+    margin-left: 12%;
     gap: 2em;
     padding-bottom: 20px;
 }
 
 .insertSection input[type=text] {
-    width: 10%;
+    width: 140px;
+}
+
+.insertSection input[type=password] {
+    width: 190px;
+}
+
+.insertSection .addEvents {
+    padding-left: 100px;
 }
