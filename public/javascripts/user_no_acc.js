@@ -4,14 +4,14 @@ function guest() {
     let first_name = document.getElementsByName("firstName")[0].value;
     let last_name = document.getElementsByName("lastName")[0].value;
     let guest =   { first_name: first_name, last_name: last_name };
-    
+
 
     //AJAX
     let xhttp = new XMLHttpRequest();
 
     xhttp.onreadystatechange = function () {
         if(this.readyState == 4 && this.status == 200) {
-            window.location.href = "book_event.html";
+            window.location.href = "/book_event.html";
         } else if (this.readyState == 4 && this.status >=400){
             alert("Could not create guest");
         }
