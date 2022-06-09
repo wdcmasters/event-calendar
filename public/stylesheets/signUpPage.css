@@ -15,16 +15,14 @@
 }
 
 
-.SignUpRectSection {
+.RectSection {
     margin-left: 400px;
     margin-right: 400px;
+    margin:auto;
     padding: 20px;
-    /* height:610px; */
-    border-radius: 20px;
-    border-bottom-left-radius: 0px;
-    border-top-left-radius: 0px;
+    height: 550px;
+    border-radius: 3px;
     text-align: center;
-    border-left: none;
 }
 
 h1 {
