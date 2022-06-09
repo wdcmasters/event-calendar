@@ -161,7 +161,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'Flindy','Ly','flyrosera@gmail.com',NULL);
+INSERT INTO `users` VALUES (1,'Flindy','Ly','flyrosera@gmail.com','123');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 
