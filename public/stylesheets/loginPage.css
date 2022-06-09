@@ -14,9 +14,6 @@
     text-align: center;
 }
 
-#log-in{
-    /* font-weight: normal;  */
-}
 /* h1 {
     margin-left: 350px;
     margin-right: 350px;
@@ -76,11 +73,11 @@ div#passwordInput{
 
 div.NoAccount{
     position: relative;
-    top: 50px;
+    /* top: 20px; */
 }
 
 span.or{
-    position: relative;
+    /* position: relative; */
     top: -50px;
     font-size: 20px;
     font-weight:bold;
