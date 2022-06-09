@@ -18,7 +18,7 @@ function guest() {
     };
 
     //Open the request
-    xhttp.open("POST", "/show_event.html/event/respond/guest");
+    xhttp.open("POST", "/event/respond/guest");
     xhttp.setRequestHeader("Content-type", "application/json");
     xhttp.send(JSON.stringify(guest));
 }
