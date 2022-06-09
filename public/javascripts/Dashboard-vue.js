@@ -49,7 +49,7 @@ var vueinst = new Vue({
 
             // console.log("ID to send: "+this.userID);
             userId_object = { userID: this.userID };
-            // console.log(userId_object);
+            console.log(userId_object);
 
             /*Parse response into this.events */
             xhttp.onreadystatechange = function () {
@@ -57,7 +57,7 @@ var vueinst = new Vue({
                 //Putting into temp variable
                 if (xhttp.readyState == 4 && xhttp.status == 200)
                 {
-                    // console.log(xhttp.responseText);
+                    console.log(xhttp.responseText);
                     let receivedEvents = JSON.parse(xhttp.responseText);
 
                     document.getElementById("events").innerHTML = "";
