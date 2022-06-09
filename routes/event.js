@@ -143,36 +143,12 @@ router.get('/get_details', function(req, res, next) {
   });
 });
 
-// get event id from search input
+// get event id from session after creating event
 router.get('/get_id', function(req, res, next) {
-
-  req.pool.getConnection(function(error,connection){
-    if(error){
-      console.log(error);
-      res.sendStatus(500);
-      return;
-    }
-
-    let query = "SELECT eventID FROM event WHERE eventID = ?;";
-    connection.query(query,[req.session.eventID], function(error, rows, fields) {
-      connection.release(); // release connection
-      if (error) {
-        console.log(error);
-        res.sendStatus(500);
-        return;
-      }
-      // if details exist, send the information
-      if (rows.length > 0) {
-        res.json(rows);
-      }
-      else {
-        res.sendStatus(404);
-      }
-    });
-  });
+  res.json(req.session.eventID);
 });
 
-// get event details from database
+// // get event details from database
 router.get('/get_host', function(req, res, next) {
 
   req.pool.getConnection(function(error,connection){

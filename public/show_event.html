@@ -7,7 +7,7 @@
     <title>Event Details</title>
 
     <link rel="stylesheet" href="stylesheets/book_event.css">
-    <link rel="stylesheet" href="stylesheets/add_event.css">
+    <!--<link rel="stylesheet" href="stylesheets/add_event.css">-->
     <link rel="stylesheet" href="stylesheets/settings.css"> <!--link to get specific elements for settings pages-->
     <link rel="stylesheet" href="stylesheets/header.css"> <!--link to get header format-->
     <link rel="stylesheet" href="stylesheets/buttons.css"> <!--link to get buttons format-->
@@ -15,6 +15,7 @@
     <script src="https://kit.fontawesome.com/2385786b33.js" crossorigin="anonymous"></script>
     <script src="javascripts/book_event.js"></script>
     <script src="javascripts/add_event.js"></script>
+    <script src="javascripts/show_event.js"></script>
 
     <script async defer src="https://apis.google.com/js/api.js" onload="gapiLoaded()"></script>
     <script async defer src="https://accounts.google.com/gsi/client" onload="gisLoaded()"></script>
@@ -75,16 +76,21 @@
     <h3>Invitees' Times</h3>
     <p class="p" id="event-invitees"></p><br/>
 
+    <!-- Link generation -->
+    <h3>Link for non-account holders</h3>
+    <button type="button" onclick="generateLink()">Generate a unique link</button>
+    <p class="p" id="no-account-link"></p><br/>
+
     <!-- Finalise event time -->
     <h3>Confirm/Finalise Event Time</h3>
     <div class="time-div">
         <div>
             <label for="from-time"> From: </label>
-            <input type="time" id="from-time" value="09:00" class="start-time">
+            <input type="time" id="from-time" name="appt" value="09:00">
         </div>
         <div id="to-time-div">
             <label for="to-time"> To: </label>
-            <input type="time" id="to-time" value="17:00" class="end-time">
+            <input type="time" id="to-time" name="appt" value="17:00">
         </div>
     </div>
     <button id="submit-button">Finalise Time</button>
