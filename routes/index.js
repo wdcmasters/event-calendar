@@ -13,12 +13,12 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
-router.get('/show_details.html', function(req, res, next) {
-  console.log("SHOW DETAILS LOGGED");
-  req.session.eventID = req.query.eventCode;
-  res.send("/show_details.html");
+/* Going to an event on the dashboard */
+router.post('/navigateEvent', function(req, res, next) {
+  console.log(req.body.selectedEvent);
 
-
+  req.session.eventID = req.body.selectedEvent;
+  res.sendStatus(200);
 });
 
 /* Go to admin page */
