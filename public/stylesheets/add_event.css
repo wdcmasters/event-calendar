@@ -191,12 +191,12 @@ i{
 }
 
 #add-times {
-    /* width: 20%; */
+    width: 20%;
     background-color: #ecf0f1;
-    border: none;
+    border:none;
     font-size: 1em;
     padding: 0.8em;
-    border-radius: 30px; /*rounded borders  */
+    border-radius: 10px; /*rounded borders  */
     cursor: pointer;
 }
 
