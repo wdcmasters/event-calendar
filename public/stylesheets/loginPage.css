@@ -65,10 +65,21 @@ div#passwordInput{
     margin-top: 30px;
 }
 
-div.NoAccount{
+/* div.NoAccount{
     position: relative;
     color: grey;
     /* top: 20px; */
+/* } */
+
+a:link.NoAccount{
+    color:grey;
+}
+
+a:visited.NoAccount {
+    color: grey;
+  }
+a:hover.NoAccount {
+    color: #a9a9a9;
 }
 
 span.or{
