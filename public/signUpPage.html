@@ -4,8 +4,19 @@
     <head>
 
         <meta charset="UTF-8">
+        <meta name="google-signin-client_id" content="395070286663-89a13j9p6bnq3ipd91072dfpjk2d61fj.apps.googleusercontent.com">
+        <meta name="google-signin-plugin_name" content="eventcal">
         <title>Sign Up Page</title>
+        <!-- Stylesheets -->
         <link rel="stylesheet" type="text/css" href="stylesheets/signUpPage.css">
+        <link rel="stylesheet" type="text/css" href="/stylesheets/loginPage.css">
+        <link rel="stylesheet" href="stylesheets/settings.css"> <!--link to get specific elements for settings pages-->
+        <link rel="stylesheet" href="stylesheets/header.css"> <!--link to get header format-->
+        <link rel="stylesheet" href="stylesheets/buttons.css"> <!--link to get buttons format-->
+
+        <!--for google authentication-->
+        <script src="https://apis.google.com/js/platform.js" async defer></script>
+
         <script src="https://kit.fontawesome.com/a2e31acb7a.js" crossorigin="anonymous"></script>
         <script src="javascripts/page.js"></script>
 
@@ -30,7 +41,7 @@
                         </div>
                     </div>
                     <div class="UserDetails">
-                        <span class="or">OR PLEASE FILL IN THE FOLLOWING DETAILS:</span>
+                        <span class="or">Or fill in your details:</span>
                             <div id="fnInput" class="inputs">
                                 <input id="name" name="firstName" type="text" placeholder="First Name" required>
                             </div>
