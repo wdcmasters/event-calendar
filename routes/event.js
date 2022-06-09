@@ -83,6 +83,30 @@ router.post('/add_event/times', function(req, res, next) {
   });
 });
 
+
+/*Updating the users_events table */
+router.get('/add_event/users_events', function(req, res, next) {
+  req.pool.getConnection(function(error,connection){
+    if(error){
+      console.log(error);
+      res.sendStatus(500);
+      return;
+    }
+
+    // insert event details
+    let query = "INSERT INTO users_events (userID, eventID) VALUES (?,?);";
+    connection.query(query,[req.session.user, last_insert_eventid], function(error, rows, fields) {
+      connection.release(); // release connection
+      if (error) {
+        console.log(error);
+        res.sendStatus(500);
+        return;
+      }
+      res.sendStatus(200);
+    });
+  });
+});
+
 // sends a 200 response if event id input on dashboard matches an event id in the database
 router.post('/match_id', function(req, res, next) {
 

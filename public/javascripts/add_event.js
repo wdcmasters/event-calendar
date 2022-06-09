@@ -53,6 +53,25 @@ function addEvent(){
     xhttp.send(JSON.stringify(event_details));
 }
 
+function updateUsersEvents()
+{
+  // //AJAX
+  let xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function () {
+    if(this.readyState == 4 && this.status == 200) {
+      console.log("Updated users_events succesfully");
+      window.location.href = '/show_event.html';
+    }
+    else if (this.readyState == 4 && this.status >=400) {
+      console.log("Couldn't update users_events");
+    }
+  };
+
+  //Open the request
+  xhttp.open("GET", "/event/add_event/users_events");
+  xhttp.send();
+}
+
 /* Adds proposed times to database */
 function addEventTimes() {
 
@@ -64,14 +83,14 @@ function addEventTimes() {
       start: start_time,
       end: end_time
     };
-    
+
     // //AJAX
     let xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
       if(this.readyState == 4 && this.status == 200) {
         num_times = 1;
         console.log("Input times into database successfully");
-        window.location.href = '/show_event.html';
+        updateUsersEvents();
       }
       else if (this.readyState == 4 && this.status >=400){
         console.log("couldn't place data in database");
