@@ -4,71 +4,95 @@
     <head>
 
         <meta charset="UTF-8">
+        <meta name="google-signin-client_id" content="395070286663-89a13j9p6bnq3ipd91072dfpjk2d61fj.apps.googleusercontent.com">
+        <meta name="google-signin-plugin_name" content="eventcal">
         <title>Sign Up Page</title>
-        <link rel="stylesheet" type="text/css" href="stylesheets/signUpPage.css">
+        <!-- Stylesheets -->
+        <link rel="stylesheet" type="text/css" href="/stylesheets/add_event.css">
+        <link rel="stylesheet" href="stylesheets/settings.css"> <!--link to get specific elements for settings pages-->
+        <link rel="stylesheet" href="stylesheets/header.css"> <!--link to get header format-->
+        <link rel="stylesheet" href="stylesheets/buttons.css"> <!--link to get buttons format-->
+
+        <!--for google authentication-->
+        <script src="https://apis.google.com/js/platform.js" async defer></script>
+
         <script src="https://kit.fontawesome.com/a2e31acb7a.js" crossorigin="anonymous"></script>
         <script src="javascripts/page.js"></script>
 
     </head>
+<body>
+    <!--Header contains logo on top left, link to user dashboard and profile picture on top right-->
+    <header>
 
-    <body>
-        <a href="index.html" id="home-btn" class="link-black" title="Home">EventCal</a>
+    <!--Logo/website name-->
+        <div>
+            <a href="index.html" id="home-btn" class="link-black" title="Home">EventCal</a>
+        </div>
 
-        <h1 class="signUp">Sign up to create an account</h1>
-
-        <div class="rectangles">
-            <div class="sections">
-                <div class="picture1"></div>
+        <!--container for links to Home and Profile settings-->
+        <div class="top-right-menu">
+            <div class="menu-div">
+                <a href="#user-dashboard" class="link-black menu-btn">Home</a>
             </div>
-            <div class="sections">
-                <div class="SignUpRectSection">
-            <span class="socMed">Sign up</span>
-            <!-- <span class="arrow1"> &#x2193;</span> -->
-                <!-- <form> -->
-                    <div class="socialMedia">
-                        <div>
-                            <a href='https://accounts.google.com/signin/v2/identifier?flowName=GlifWebSignIn&flowEntry=ServiceLogin' class="googleBtn">
-                            <i class="fa-brands fa-google"></i> Login With Google
-                            </a>
-                        </div>
-                        <!-- <div>
-                            <a href='https://www.facebook.com/login.php/' class="fb btn">
-                            <i class="fa-brands fa-facebook-f"></i>
-                            </a>
-                        </div>
-                        <div>
-                            <a href='https://twitter.com/i/flow/login' class="tw btn">
-                            <i class="fa-brands fa-twitter"></i>
-                            </a>
-                        </div> -->
+            <div class="settings-dropdown">
+                <button type="button" class="blue-btn">Profile
+                    <i class="fa fa-caret-down"></i> <!-- shows dropdown icon -->
+                </button>
+
+                <!-- settings to be shown from dropdown menu -->
+                <div class="settings">
+                    <a href="user-account.html" class="link-black">Account Settings</a>
+                    <a href="email-settings.html" class="link-black">Email Settings</a>
+                </div>
+
+            </div>
+        </div>
+
+    </header>
+    <hr/>
+
+    <div class="rectangles">
+        <!-- <div class="sections">
+            <div class="picture1"></div>
+        </div> -->
+        <div class="sections">
+            <div class="RectSection">
+                <h1>Sign up</h1>
+            <!-- <form> -->
+                <div class="socialMedia">
+                    <div id="google">
+                        <div class="g-signin2" data-onsuccess="onSignIn" data-longtitle="true" data-width="220" data-height="50">
                     </div>
-                    <div class="UserDetails">
-                        <span class="or">OR PLEASE FILL IN THE FOLLOWING DETAILS:</span>
-                            <div id="fnInput" class="inputs">
-                                <input id="name" name="firstName" type="text" placeholder="First Name" required>
-                            </div>
-                            <div id="lnInput" class="inputs">
-                                <input id="name1" name="lastName" type="text" placeholder="Last Name" required>
-                            </div>
-                            <div class="inputfields2">
-                                <div id="emailInput" class="inputs">
-                                    <input id="name2" name="email" type="text" placeholder="Email" required>
-                                </div>
-                                <div id="passwordInput" class="inputs">
-                                    <input id="name3" name="password" type="password" placeholder="Password" required>
-                                </div>
-                                <div class="CreateAccount">
-                                    <button type="submit" onclick="signup()">Create Account</button>
-                                </div>
-                                <div class="AlreadyAccount">
-                                    Already have an account? <a href="loginPage.html">Sign in!</a>
-                                </div>
-                            </div>
+                </div>
+                <div class="UserDetails">
+                    <span class="or"> Create an account:</span>
+                        <div id="fnInput" class="inputs">
+                            <input id="name" name="firstName" type="text" placeholder="First Name" required>
                         </div>
-                <!-- </form> -->
-        </div>
+                        <div id="lnInput" class="inputs">
+                            <input id="name1" name="lastName" type="text" placeholder="Last Name" required>
+                        </div>
+                        <div id="emailInput" class="inputs">
+                            <input id="name2" name="email" type="text" placeholder="Email" required>
+                        </div>
+                        <div id="passwordInput" class="inputs">
+                            <input id="name3" name="password" type="password" placeholder="Password" required>
+                        </div>
+                        <br>
+                        <div class="login">
+                            <button id="purple-button" type="submit" onclick="signup()">Sign up</button>
+                        </div>
+                        <br>
+                        <div>
+                            <a class="Account" href="loginPage.html">Already have an account? Sign in!</a>
+                        </div>
+                        </div>
+                    </div>
+            <!-- </form> -->
             </div>
         </div>
+    </div>
+    <br>
 
 
     </body>

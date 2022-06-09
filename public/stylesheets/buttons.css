@@ -1,10 +1,11 @@
 .blue-btn {
     font-size: 18px;
-    font-family: "Tahoma", sans-serif;
+    font-family: 'Open Sans', sans-serif;
     color: white;
     background-color: blue;
 
-    width: 50px;
+    width: 150px;
+    /* Width was originally 50 */
     height: 50px;
 
     border: none;
@@ -20,11 +21,11 @@
 .small-blue-btn {
     border-radius: 12px;
     border: none;
-    background-color: blue;
+    background-color: #444dff;
     color: white;
     padding: 10px;
     font-size: 15px;
-    font-family: "Tahoma", sans-serif;
+    font-family: 'Open Sans', sans-serif;
 
 }
 
@@ -42,7 +43,7 @@
     border-radius: 12px;
     padding: 10px;
     font-size: 15px;
-    font-family: "Tahoma", sans-serif;
+    font-family: 'Open Sans', sans-serif;
     width: 100px;
 }
 .event-white-btn {
@@ -53,7 +54,7 @@
     border-radius: 12px;
     padding: 10px;
     font-size: 15px;
-    font-family: "Tahoma", sans-serif;
+    font-family: 'Open Sans', sans-serif;
     width: 100px;
 }
 

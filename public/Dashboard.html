@@ -15,9 +15,10 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
     <script src="javascripts/Dashboard-vue.js" defer></script>
 </head>
-<body>
+<header>
+
             <!--Logo/website name-->
-            <div>
+        <div>
                 <a href="index.html" id="home-btn" class="link-black" title="Home">EventCal</a>
             </div>
 
@@ -41,17 +42,17 @@
 
                 </div>
             </div>
-
         </header>
         <hr />
-
+<body>
         <!-- Page content -->
 <div class="content" id="vueBody">
     <h1> Dashboard </h1>
+    
     <!-- Create & Join Event Buttons -->
     <div class="buttons">
-        <button type="button" onclick="window.location.href='/add_event.html'"><i class="fa-solid fa-plus"></i> Create Event </button>
-        <button type="button" onclick="showEventSearch()"><i class="fa-solid fa-link"></i> Join Event </button>
+        <button type="button" id="GreyButton" type="button" onclick="window.location.href='/add_event.html'"><i class="fa-solid fa-plus"></i> Create Event </button>
+        <button type="button" id="GreyButton" type="button" onclick="showEventSearch()"><i class="fa-solid fa-link"></i> Join Event </button>
     </div>
 
     <!--The popup join event container-->
@@ -82,16 +83,25 @@
 
         <!-- Events container -->
         <div id="eventsSection">
+
             <div id="searchField">
-                <i class="fa-solid fa-magnifying-glass" onclick=""></i>
+                <i class="fa-solid fa-magnifying-glass"></i>
                 <input type="text" id="dashboardSearch" name="search" placeholder="Find an event">
-                <i class="fa-solid fa-filter"></i>
+                <i class="fa-solid fa-filter" v-on:click="showFilter = !showFilter"></i>
             </div>
+
+            <!-- Expandable filter section -->
+            <template>
+                <div v-if="showFilter" id="filterSection">
+                    <button id="GreyButton">By Date </button>
+                    <button id="GreyButton">By Name </button>
+                </div>
+            </template>
             <br><br>
             <!-- Individual Events -->
             <div id="events">
                 <template>
-                    {{ initialPopulate() }}
+                    {{ populateCaller() }}
                     <div class="event" v-for="item in events">
                         <div class="dateTime">
                             <p class="date"><i class="fa-solid fa-calendar"></i> {{ item.DATE }} </p>

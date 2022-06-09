@@ -20,7 +20,7 @@ body {
 #sidebar {
     background-color: #363636;
     height: 100%;
-    width: 25%;
+    width: 15%;
     position: fixed;
     padding-top: 10px;
 }
@@ -44,8 +44,8 @@ body {
     padding-top: 5px;
     padding-bottom: 5px;
     font-size: medium;
-    margin-left: 30%;
-    margin-right: 30%;
+    margin-left: 10%;
+    margin-right: 10%;
     color: white;
     background-color: #363636;
     border: none;
@@ -65,7 +65,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-left: 25%;
+    margin-left: 15%;
     padding-left: 40px;
 }
 
@@ -115,7 +115,36 @@ body {
 }
 
 table {
-    margin-left: 35%;
+    margin-left: 25%;
     border-spacing: 100px 25px;
     text-align: center;
+}
+
+.eventsTable {
+    margin-left: 11%;
+    text-align: center;
+    border-spacing: 100px 25px;
+}
+
+
+/* Insert Section */
+.insertSection {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    margin-left: 12%;
+    gap: 2em;
+    padding-bottom: 20px;
+}
+
+.insertSection input[type=text] {
+    width: 140px;
+}
+
+.insertSection input[type=password] {
+    width: 190px;
+}
+
+.insertSection .addEvents {
+    padding-left: 100px;
 }

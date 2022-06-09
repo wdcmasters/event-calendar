@@ -149,7 +149,7 @@ router.get('/getID', function(req, res, next) {
 
   if ('user' in req.session)
   {
-    console.log("UserID (/getID): "+req.session.user);
+    // console.log("UserID (/getID): "+req.session.user);
     res.send(""+req.session.user+""); //Had to make sure is being sent as a string, since thinks its a response code
   }
   else
@@ -164,7 +164,7 @@ router.post('/getEvents', function(req, res, next) {
 
   //Storing userID for prepared statement
   let userID = req.body.userID;
-  console.log("Received user id is "+userID);
+  // console.log("Received user id is "+userID);
 
   //Opening connection
   req.pool.getConnection(function(error,connection) {
@@ -186,7 +186,7 @@ router.post('/getEvents', function(req, res, next) {
         res.sendStatus(500);
         return;
       }
-      console.log(rows);
+      // console.log(rows);
       res.send(rows);
 
     });

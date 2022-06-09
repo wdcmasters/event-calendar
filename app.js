@@ -9,6 +9,7 @@ var mysql = require('mysql');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var eventRouter = require('./routes/event');
+var adminRouter = require('./routes/admin');
 
 var app = express();
 
@@ -57,6 +58,7 @@ app.get('/event/respond/guest', function(req, res) {
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/event', eventRouter);
+app.use('/admin', adminRouter);
 
 // // catch 404 and forward to error handler
 // app.use(function(req, res, next) {
