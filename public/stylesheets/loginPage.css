@@ -46,16 +46,6 @@ div.inputs input{
     font-size: 16px;
 }
 
-div#emailInput{
-    position: relative;
-    top: -20px;
-}
-
-div#passwordInput{
-    position: relative;
-    top: -7px;
-}
-
 ::placeholder{
     font-size: 16px;
 }
