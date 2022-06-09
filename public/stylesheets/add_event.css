@@ -200,7 +200,7 @@ span.or{
     background: #cc3300;
 }
 
-/* #cancel-button {
+#add-times {
     width: 20%;
     background-color: white;
     border-color: grey;
@@ -208,10 +208,9 @@ span.or{
     font-size: 1.2em;
     padding: 15px;
     border-radius: 5px; /*rounded borders  */
-    /* cursor: pointer;
-    margin-left: 15px; */
-/* } */
-/*
-#cancel-button:hover {
-    background-color: #f5f5f5; */
+}
 
+#add-times:hover {
+    background-color: #f5f5f5;
+
+}
