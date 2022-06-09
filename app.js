@@ -46,12 +46,8 @@ app.use(session({
 app.use(express.static(path.join(__dirname, 'public')));
 
 // non-account holders get redirected to new page for first name and last name
-app.get('/event/respond/guest', function(req, res) {
-  if (!('eventID' in req.session)) {
-    req.session.eventID = req.query.eventID;
-  }
-  //req.session.eventID = req.query.eventID;
-  console.log(req.session.eventID);
+app.get('/show_event.html/event/respond/guest', function(req, res) {
+  req.session.eventID = req.query.eventID;
   res.redirect('/pop_up_guest.html');
 });
 
