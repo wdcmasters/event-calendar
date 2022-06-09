@@ -27,6 +27,7 @@
     position: relative;
     border-radius: 9px; /* rounded borders  */
     box-sizing: border-box; /* padding and width are included in total width/height and stays in place */
+    /* top: -2px; */
 }
 
 /* #name:focus {
