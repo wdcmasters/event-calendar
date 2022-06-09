@@ -1,4 +1,4 @@
-// user without account clicks link
+// user without account clicks submit
 
 function guest() {
     let first_name = document.getElementsByName("firstName")[0].value;
