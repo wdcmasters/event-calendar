@@ -50,8 +50,8 @@
     <h1> Dashboard </h1>
     <!-- Create & Join Event Buttons -->
     <div class="buttons">
-        <button type="button" onclick="window.location.href='/add_event.html'"><i class="fa-solid fa-plus"></i> Create Event </button>
-        <button type="button" onclick="showEventSearch()"><i class="fa-solid fa-link"></i> Join Event </button>
+        <button id="GreyButton" type="button" onclick="window.location.href='/add_event.html'"><i class="fa-solid fa-plus"></i> Create Event </button>
+        <button id="GreyButton" type="button" onclick="showEventSearch()"><i class="fa-solid fa-link"></i> Join Event </button>
         <!--The popup email container-->
 
     </div>
@@ -94,8 +94,8 @@
             <!-- Expandable filter section -->
             <template>
                 <div v-if="showFilter" id="filterSection">
-                    <button>By Date </button>
-                    <button>By Name </button>
+                    <button id="GreyButton">By Date </button>
+                    <button id="GreyButton">By Name </button>
                 </div>
             </template>
             <br><br>
