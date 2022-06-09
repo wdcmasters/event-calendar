@@ -102,7 +102,7 @@ input[type="time"] {
 }
 
 #login-button{
-    min-width:20%;
+    min-width:30%;
     background-color: #007fff;
     font-size: 1.2em;
     color:white;
