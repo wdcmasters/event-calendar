@@ -7,6 +7,8 @@ var vueinst = new Vue({
         search: 'Search your events',
         populatedOnce: false,
         events: [],
+        isAdmin: false,
+        checkedAdmin: false,
         showFilter: false
     },
 
@@ -26,10 +28,40 @@ var vueinst = new Vue({
         xhttp.send();
     },
 
-    mounted () {
+    mounted () { /*Checking if the user is an admin */
     },
 
     methods: {
+
+        checkAdminHelper: function (event) {
+            if (this.checkedAdmin == false)
+            {
+                setTimeout(this.checkAdmin, 500);
+            }
+
+        },
+
+        checkAdmin: function (event) {
+            var xhttp = new XMLHttpRequest();
+
+            // console.log("ID to send: "+this.userID);
+            let userId_object = { userID: this.userID };
+            console.log(userId_object);
+
+            /*Parse response into this.events */
+            xhttp.onreadystatechange = function () {
+                if (xhttp.readyState == 4 && xhttp.status == 200)
+                {
+                    vueinst.isAdmin = true;
+                }
+            }
+
+
+            xhttp.open("POST", "/users/isAdmin");
+            xhttp.setRequestHeader("Content-type", "application/json");
+            xhttp.send(JSON.stringify(userId_object));
+
+        },
 
         populateCaller: function(event) {
             if (this.populatedOnce == false)
@@ -48,7 +80,7 @@ var vueinst = new Vue({
 
 
             // console.log("ID to send: "+this.userID);
-            userId_object = { userID: this.userID };
+            let userId_object = { userID: this.userID };
             console.log(userId_object);
 
             /*Parse response into this.events */

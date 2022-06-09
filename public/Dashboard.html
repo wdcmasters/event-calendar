@@ -47,8 +47,13 @@
 <body>
         <!-- Page content -->
 <div class="content" id="vueBody">
+    <!-- ADMIN DASHBOARD LINK (only shows if loggined in user is an admin ) -->
+    <template>
+        {{ checkAdminHelper() }}
+        <a href="admin-dashboard.html" v-if="isAdmin"> Go to Admin Dashboard </a>
+    </template>
     <h1> Dashboard </h1>
-    
+
     <!-- Create & Join Event Buttons -->
     <div class="buttons">
         <button type="button" id="GreyButton" type="button" onclick="window.location.href='/add_event.html'"><i class="fa-solid fa-plus"></i> Create Event </button>
@@ -68,7 +73,7 @@
 
             <!--container for cancel and save buttons-->
             <div class="cancel-save">
-                <!--<button type="button" class="white-btn" onclick="hidePopup()">Cancel</button><br><br>-->
+                <button type="button" class="white-btn" onclick="hidePopup()">Cancel</button><br><br>
                 <button type="button" class="small-blue-btn" onclick="getEvent();">Search event<br><br>
             </div>
         </form>

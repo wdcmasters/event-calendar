@@ -193,4 +193,46 @@ router.post('/getEvents', function(req, res, next) {
   });
 });
 
+//  Checking that the user is an admin
+router.post('/isAdmin', function(req, res, next) {
+
+  //Storing userID for prepared statement
+  let userID = req.body.userID;
+
+  console.log("Admin route user ID: "+userID);
+  //Opening connection
+  req.pool.getConnection(function(error,connection) {
+    if(error)
+    {
+      console.log(error);
+      res.sendStatus(500);
+      return;
+    }
+
+    let query = "SELECT userID FROM roles WHERE userID = ?"; //Inserting user
+    connection.query(query,[userID], function(error, rows, fields)
+    {
+      //Running query
+      connection.release();
+      if (error) {
+        console.log(error);
+        res.sendStatus(500);
+        return;
+      }
+
+      //Positive response
+      if (rows.length > 0)
+      {
+        req.session.admin = true;
+        res.sendStatus(200);
+        return;
+      }
+
+      res.sendStatus(403);
+    });
+  });
+});
+
+// Checking that users can go to the admin page
+
 module.exports = router;
