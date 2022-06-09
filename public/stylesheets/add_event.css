@@ -113,7 +113,7 @@ input[type="time"] {
 }
 
 #login-button:hover {
-    background-color: #444dff;
+    background-color: #444;
     color:#ffffff;
     cursor: pointer;
 }
