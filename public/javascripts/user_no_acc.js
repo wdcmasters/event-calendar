@@ -4,6 +4,7 @@ function guest() {
     let first_name = document.getElementsByName("firstName")[0].value;
     let last_name = document.getElementsByName("lastName")[0].value;
     let guest =   { first_name: first_name, last_name: last_name };
+    
 
     //AJAX
     let xhttp = new XMLHttpRequest();
