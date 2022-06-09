@@ -30,13 +30,13 @@
     /* top: -2px; */
 }
 
-/* #name:focus {
+#name:focus {
     border-bottom: 2px solid blue;
 }
 
 #name1:focus {
     border-bottom: 2px solid blue;
-} */
+}
 
 div.inputs input{
     width: 100%;
