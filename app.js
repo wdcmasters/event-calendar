@@ -51,7 +51,7 @@ app.get('/event/respond/guest', function(req, res) {
   }
   //req.session.eventID = req.query.eventID;
   console.log(req.session.eventID);
-  res.redirect('/pop_up_guest.html');
+  res.redirect('pop_up_guest.html');
 });
 
 app.use('/', indexRouter);
