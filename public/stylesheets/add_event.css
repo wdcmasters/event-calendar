@@ -202,12 +202,13 @@ span.or{
 
 #add-times {
     width: 20%;
-    background-color: white;
+    background-color: #ecf0f1;
     border-color: grey;
     border-width: 0.5px;
     font-size: 1.2em;
     padding: 15px;
     border-radius: 5px; /*rounded borders  */
+    font-family: Tahoma;
 }
 
 #add-times:hover {
