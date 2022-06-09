@@ -1,12 +1,9 @@
 /*Header elements*/
 
-* {
-    box-sizing: border-box;
-}
-
 body {
-    margin:0;
+    /* margin:0; */
     font-family: 'Open Sans', sans-serif;
+    box-sizing: border-box;
 }
 
 /* Content element */
@@ -36,7 +33,7 @@ body {
     justify-content: center;
 }
 
-#BlueButton, button {
+#BlueButton, #GreyButton {
     padding: 1em 3em;
     color: black;
     font-size:1.5vw;
