@@ -1,6 +1,8 @@
 var express = require('express');
 var router = express.Router();
 
+var argon2 = require('argon2');
+
 /* Index page redirects to dashboard if logged in */
 router.get('/', function(req, res, next) {
   if ('user' in res.session)
@@ -33,7 +35,10 @@ router.get('/admin-dashboard.html', function(req, res, next) {
 /*SIGN UP */
 //
 //
-router.post('/signup', function(req, res, next) {
+router.post('/signup', async function(req, res, next) {
+
+
+
 
   //Making sure all fields are filled
   if (req.body.first_name == "" || req.body.last_name == "" || req.body.email == "" || req.body.password == "")
