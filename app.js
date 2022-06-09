@@ -11,8 +11,6 @@ var usersRouter = require('./routes/users');
 var eventRouter = require('./routes/event');
 var adminRouter = require('./routes/admin');
 
-var argon2 = require('argon2');
-
 var app = express();
 
 var dbConnectionPool = mysql.createPool({
