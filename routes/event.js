@@ -179,7 +179,9 @@ router.get('/get_gmail', function(req, res, next) {
 });
 
 router.get('/respond/guest', function(req,res,next) {
-  
+
+  res.sendStatus(200);
+  res.redirect('pop_up_guest.html');
 
 });
 
