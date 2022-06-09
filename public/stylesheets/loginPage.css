@@ -18,10 +18,10 @@
     /* top: 10px; */
 }
 
-#name,#name1 {
+.inputs {
     /* border: 1px solid #95a5a6; Grey border */
     border-bottom: 1px solid grey; /* Grey border */
-    padding: 20px; /* adds space inside text field */
+    padding: 15px; /* adds space inside text field */
     margin: auto;
     width: 30%;
     position: relative;
