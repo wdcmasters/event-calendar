@@ -6,6 +6,11 @@ h1 {
     font-size: 2.5em;
 }
 
+input:focus {
+    outline: 2px solid #444dff;
+    /* outline-offset: 2px; */
+}
+
 #content-div {
     padding: 50px;
     text-align: center;
@@ -122,8 +127,5 @@ input[type="time"] {
     margin-bottom: 15px;
 }
 
-*:focus {
-    outline: 2px solid #444dff;
-    outline-offset: 2px;
-}
+
 
