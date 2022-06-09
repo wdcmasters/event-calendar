@@ -206,6 +206,7 @@ router.post('/respond/guest', function(req, res, next){
              return;
 
              res.sendStatus(200);
+             res.redirect("book_event.html");
            }
 
          });
