@@ -10,9 +10,10 @@
     <link rel="stylesheet" href="stylesheets/settings.css"> <!--link to get specific elements for settings pages-->
     <link rel="stylesheet" href="stylesheets/header.css"> <!--link to get header format-->
     <link rel="stylesheet" href="stylesheets/buttons.css"> <!--link to get buttons format-->
-    <script src="/javascripts/settings.js"></script>
+    <script src="/javascripts/dashboard.js"></script>
     <script src="/javascripts/login.js"></script>
-    <script src="/javascripts/events.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <script src="javascripts/Dashboard-vue.js" defer></script>
 </head>
 <body>
             <!--Logo/website name-->
@@ -22,9 +23,11 @@
 
             <!--container for links to Home and Profile settings-->
             <div class="top-right-menu">
-                <div class="menu-div">
-                    <a href="#user-dashboard" class="link-black menu-btn">Home</a>
+                <!-- sign out link -->
+                <div class="menu-div" >
+                    <a onclick="signOut();" class="link-black menu-btn">Sign out</a>
                 </div>
+
                 <div class="settings-dropdown">
                     <button type="button" class="blue-btn">Profile
                         <i class="fa fa-caret-down"></i> <!-- shows dropdown icon -->
@@ -44,7 +47,7 @@
 
         <!-- Page content -->
 <div class="content" id="vueBody">
-    <h1 v-on:click="getEvents()"> Dashboard </h1>
+    <h1> Dashboard </h1>
     <!-- Create & Join Event Buttons -->
     <div class="buttons">
         <button type="button" onclick="window.location.href='/add_event.html'"><i class="fa-solid fa-plus"></i> Create Event </button>
@@ -81,24 +84,36 @@
 
         <!-- Events container -->
         <div id="eventsSection">
+
             <div id="searchField">
-                <i class="fa-solid fa-magnifying-glass" onclick=""></i>
+                <i class="fa-solid fa-magnifying-glass"></i>
                 <input type="text" id="dashboardSearch" name="search" placeholder="Find an event">
-                <i class="fa-solid fa-filter"></i>
+                <i class="fa-solid fa-filter" v-on:click="showFilter = !showFilter"></i>
             </div>
+
+            <!-- Expandable filter section -->
+            <template>
+                <div v-if="showFilter" id="filterSection">
+                    <button>By Date </button>
+                    <button>By Name </button>
+                </div>
+            </template>
             <br><br>
             <!-- Individual Events -->
             <div id="events">
-                <div class="event" v-for="item in events">
-                    <div class="dateTime">
-                        <p class="date"><i class="fa-solid fa-calendar"></i> {{ item.DATE }} </p>
-                        <p class="time"><i class="fa-solid fa-clock"></i> {{ item.START_TIME }} </p>
+                <template>
+                    {{ populateCaller() }}
+                    <div class="event" v-for="item in events">
+                        <div class="dateTime">
+                            <p class="date"><i class="fa-solid fa-calendar"></i> {{ item.DATE }} </p>
+                            <p class="time"><i class="fa-solid fa-clock"></i> {{ item.START_TIME }} </p>
+                        </div>
+                        <div class="nameLocale">
+                            <h3 class="eventName"><a href="Dashboard.html"> {{ item.EVENTNAME }} </a></h3>
+                            <p class="eventLocation"> <i class="fa-solid fa-location-pin"></i> {{item.STREETNO}} {{item.STREET}}, {{ item.SUBURB }} </p>
+                        </div>
                     </div>
-                    <div class="nameLocale">
-                        <h3 class="eventName"><a href="Dashboard.html"> {{ item.EVENTNAME }} </a></h3>
-                        <p class="eventLocation"> <i class="fa-solid fa-location-pin"></i> {{item.STREETNO}} {{item.STREET}}, {{ item.SUBURB }} </p>
-                    </div>
-                </div>
+                </template>
             </div>
 
             <!-- View More Button -->

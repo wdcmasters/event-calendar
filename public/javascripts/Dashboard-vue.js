@@ -1,39 +1,55 @@
-// SUPER GLOBAL STUFF
-
 // VUE
 var vueinst = new Vue({
     el: "#vueBody",
     data: {
         userID: 99,
-        events: []
+        eventsPopulated: false,
+        search: 'Search your events',
+        populatedOnce: false,
+        events: [],
+        showFilter: false
     },
 
-    mounted() {
-
+    created () { /*Getting the ID of the user*/
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
             if (xhttp.readyState == 4 && xhttp.status == 200)
             {
-                let response = JSON.parse(xhttp.responseText);
-                vueinst.userID = response[0].userID;
-                console.log("UserID (getid function): "+vueinst.userID);
+                let response = xhttp.responseText;
+                vueinst.userID = response;
+                // console.log(response);
+                // console.log("UserID (getid function): "+vueinst.userID);
             }
         }
 
         xhttp.open("GET", "/users/getID", true);
         xhttp.send();
+    },
 
+    mounted () {
     },
 
     methods: {
 
-        getEvents: function (event) {
-            document.getElementById("events").innerHTML = "";
+        populateCaller: function(event) {
+            if (this.populatedOnce == false)
+            {
+                this.populatedOnce = true;
+                setTimeout(this.initialPopulate, 500);
+            }
+            else
+            {
+                setTimeout(this.initialPopulate, 10000);
+            }
+        },
+
+        initialPopulate: function (event) {
             var xhttp = new XMLHttpRequest();
 
-            console.log("ID to send: "+vueinst.userID);
-            userId_object = { userID: vueinst.userID };
-            console.log(userId_object);
+
+            // console.log("ID to send: "+this.userID);
+            userId_object = { userID: this.userID };
+            // console.log(userId_object);
 
             /*Parse response into this.events */
             xhttp.onreadystatechange = function () {
@@ -41,8 +57,10 @@ var vueinst = new Vue({
                 //Putting into temp variable
                 if (xhttp.readyState == 4 && xhttp.status == 200)
                 {
-                    console.log(xhttp.responseText);
+                    // console.log(xhttp.responseText);
                     let receivedEvents = JSON.parse(xhttp.responseText);
+
+                    document.getElementById("events").innerHTML = "";
 
                     for (i in receivedEvents)
                     {
@@ -59,11 +77,9 @@ var vueinst = new Vue({
                     let start_time = receivedEvents[i].start_time;
                     start_time = start_time.slice(0, 5); // Parsing time
 
-
-
                     let newEvent = { EVENTID: eventID, EVENTNAME: eventName, STREETNO: streetNo, STREET: street, SUBURB: suburb, COUNTRY: country, DATE: date, START_TIME: start_time};
 
-                    console.log(newEvent);
+                    // console.log(newEvent);
                     vueinst.events.push(newEvent);
                     }
                 }
@@ -75,7 +91,7 @@ var vueinst = new Vue({
             xhttp.send(JSON.stringify(userId_object));
 
         }
-
     }
+
 });
 
