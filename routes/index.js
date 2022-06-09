@@ -11,13 +11,12 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
-router.get('/index.html', function(req, res, next) {
-  if ('user' in res.session)
-  {
-    res.redirect("/Dashboard.html");
-    return;
-  }
-  res.render('index', { title: 'Express' });
+router.get('/show_details.html', function(req, res, next) {
+  console.log("SHOW DETAILS LOGGED");
+  req.session.eventID = req.query.eventCode;
+  res.send("/show_details.html");
+
+
 });
 
 /* Go to admin page */
@@ -30,8 +29,6 @@ router.get('/admin-dashboard.html', function(req, res, next) {
   }
   res.sendStatus(403);
 });
-
-
 
 /*SIGN UP */
 //

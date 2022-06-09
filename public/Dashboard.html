@@ -113,7 +113,7 @@
                             <p class="time"><i class="fa-solid fa-clock"></i> {{ item.START_TIME }} </p>
                         </div>
                         <div class="nameLocale">
-                            <h3 class="eventName"><a href="Dashboard.html"> {{ item.EVENTNAME }} </a></h3>
+                            <h3 class="eventName"><a style="color: black;" :href="'show_event.html?eventCode='+item.EVENTID"> {{ item.EVENTNAME }} </a></h3>
                             <p class="eventLocation"> <i class="fa-solid fa-location-pin"></i> {{item.STREETNO}} {{item.STREET}}, {{ item.SUBURB }} </p>
                         </div>
                     </div>
