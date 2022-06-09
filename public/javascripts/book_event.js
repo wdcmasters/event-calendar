@@ -294,7 +294,8 @@ function submitAvailability(){
   xhttp.onreadystatechange = function () {
     if(this.readyState == 4 && this.status == 200) {
       console.log("Input responded times into database successfully");
-
+      alert("Sent availability.");
+      window.location.href = '/Dashboard.html';
     }
     else if (this.readyState == 4 && this.status >=400){
       console.log("couldn't place responded times in database");
