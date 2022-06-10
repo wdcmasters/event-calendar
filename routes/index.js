@@ -1,16 +1,52 @@
 var express = require('express');
 var router = express.Router();
 
-/* GET home page. */
+var argon2 = require('argon2');
+
+/* Index page redirects to dashboard if logged in */
 router.get('/', function(req, res, next) {
+  if ('user' in res.session)
+  {
+    res.redirect("/Dashboard.html");
+    return;
+  }
   res.render('index', { title: 'Express' });
 });
 
+/* Going to an event on the dashboard */
+router.post('/navigateEvent', function(req, res, next) {
+  console.log(req.body.selectedEvent);
+
+  req.session.eventID = req.body.selectedEvent;
+  res.sendStatus(200);
+});
+
+/* Go to admin page */
+router.get('/admin-dashboard.html', function(req, res, next) {
+  if ('admin' in req.session)
+  {
+    console.log("admin is in req.session");
+    res.redirect("/admin-dashboard.html");
+    return;
+  }
+  res.sendStatus(403);
+});
 
 /*SIGN UP */
 //
 //
-router.post('/signup', function(req, res, next) {
+router.post('/signup', async function(req, res, next) {
+
+// hash and salt the password
+  var phash = null;
+  try {
+    phash = await argon2.hash(req.body.password);
+  } catch (err) {
+    res.sendStatus(500);
+    return;
+  }
+  console.log(phash);
+
 
   //Making sure all fields are filled
   if (req.body.first_name == "" || req.body.last_name == "" || req.body.email == "" || req.body.password == "")
@@ -142,6 +178,11 @@ router.get('/logout', function (req,res,next) {
     if ('user' in req.session)
     {
       delete req.session.user;
+    }
+
+    if ('admin' in req.session)
+    {
+      delete req.session.admin;
     }
 
     res.redirect("/index.html");

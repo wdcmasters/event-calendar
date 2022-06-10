@@ -7,7 +7,11 @@ var vueinst = new Vue({
         search: 'Search your events',
         populatedOnce: false,
         events: [],
+        isAdmin: false,
+        checkedAdmin: false,
+        cachedEvent: -1,
         showFilter: false
+
     },
 
     created () { /*Getting the ID of the user*/
@@ -26,10 +30,62 @@ var vueinst = new Vue({
         xhttp.send();
     },
 
-    mounted () {
+    mounted () { /*Checking if the user is an admin */
     },
 
     methods: {
+
+        goToEvent: function ( eventID ) { //Stores eventID in session and redirects to it
+            var xhttp = new XMLHttpRequest();
+            console.log(eventID);
+
+            let eventObject = { selectedEvent : eventID };
+
+
+            /*Parse response into this.events */
+            xhttp.onreadystatechange = function () {
+                if (xhttp.readyState == 4 && xhttp.status == 200)
+                {
+                    window.location.href = '/show_event.html';
+                }
+            }
+
+
+            xhttp.open("POST", "/navigateEvent", true);
+            xhttp.setRequestHeader("Content-type", "application/json");
+            xhttp.send(JSON.stringify(eventObject));
+
+        },
+
+        checkAdminHelper: function (event) {
+            if (this.checkedAdmin == false)
+            {
+                setTimeout(this.checkAdmin, 500);
+            }
+
+        },
+
+        checkAdmin: function (event) {
+            var xhttp = new XMLHttpRequest();
+
+            // console.log("ID to send: "+this.userID);
+            let userId_object = { userID: this.userID };
+            console.log(userId_object);
+
+            /*Parse response into this.events */
+            xhttp.onreadystatechange = function () {
+                if (xhttp.readyState == 4 && xhttp.status == 200)
+                {
+                    vueinst.isAdmin = true;
+                }
+            }
+
+
+            xhttp.open("POST", "/users/isAdmin");
+            xhttp.setRequestHeader("Content-type", "application/json");
+            xhttp.send(JSON.stringify(userId_object));
+
+        },
 
         populateCaller: function(event) {
             if (this.populatedOnce == false)
@@ -48,7 +104,7 @@ var vueinst = new Vue({
 
 
             // console.log("ID to send: "+this.userID);
-            userId_object = { userID: this.userID };
+            let userId_object = { userID: this.userID };
             console.log(userId_object);
 
             /*Parse response into this.events */
