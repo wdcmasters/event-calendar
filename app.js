@@ -25,7 +25,6 @@ app.use(function(req,res,next){
 });
 
 
-
 // view engine setup
 // app.set('views', path.join(__dirname, 'views'));
 // app.set('view engine', 'jade');
@@ -49,15 +48,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.get('/show_event.html/event/respond/guest', function(req, res) {
   req.session.eventID = req.query.eventID;
   res.redirect('/pop_up_guest.html');
-});
-
-// if they cancel/submit booking, guests get redirected to home page
-app.get('/Dashboard.html', function(req, res) {
-  if (req.session.guest == true) {
-    res.redirect('/');
-  } else {
-    res.redirect('/Dashboard.html');
-  }
 });
 
 app.use('/', indexRouter);

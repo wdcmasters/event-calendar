@@ -19,7 +19,7 @@ router.get('/get_name', function(req, res, next) {
       return;
     }
 
-    let query = "SELECT first_name FROM users WHERE userID = ?"; //Inserting user
+    let query = "SELECT first_name FROM users WHERE userID = ?;";
     connection.query(query,[req.session.user], function(error, rows, fields)
     {
       //Running query
@@ -36,7 +36,7 @@ router.get('/get_name', function(req, res, next) {
 
 // need to merge with actual login route done by luke/ajeendra
 // this also contains checking for google token
-router.post('/logintest', function(req, res, next)
+router.post('/google_login', function(req, res, next)
 {
    if ('token' in req.body)
    {
@@ -199,7 +199,7 @@ router.post('/getEvents', function(req, res, next) {
       return;
     }
 
-    let query = "SELECT event.eventID,event.eventName,event.street_no,event.street,event.suburb,event.country,event.date,event_times.start_time FROM event INNER JOIN event_times ON event.eventID = event_times.eventID INNER JOIN users_events ON users_events.eventID = event.eventID WHERE users_events.userID = ?"; //Inserting user
+    let query = "SELECT event.eventID,event.eventName,event.street_no,event.street,event.suburb,event.country,event.date,event_times.start_time FROM event INNER JOIN event_times ON event.eventID = event_times.eventID INNER JOIN users_events ON users_events.eventID = event.eventID WHERE users_events.userID = ?;"; //Inserting user
     connection.query(query,[userID], function(error, rows, fields)
     {
       //Running query
@@ -244,7 +244,7 @@ router.post('/isAdmin', function(req, res, next) {
       return;
     }
 
-    let query = "SELECT userID FROM roles WHERE userID = ?"; //Inserting user
+    let query = "SELECT userID FROM roles WHERE userID = ?;"; //Inserting user
     connection.query(query,[userID], function(error, rows, fields)
     {
       //Running query
@@ -279,7 +279,7 @@ router.get('/get_user_details', function(req, res, next){
       return;
     }
 
-    let query = "SELECT first_name, last_name, email FROM users WHERE userID = ?"; //Inserting user
+    let query = "SELECT first_name, last_name, email FROM users WHERE userID = ?;";
     connection.query(query,[req.session.user], function(error, rows, fields)
     {
       connection.release();

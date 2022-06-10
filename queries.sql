@@ -1,26 +1,48 @@
+-- Sign up
 INSERT INTO users (first_name,last_name,email,password) VALUES (?,?,?,?);
+SELECT LAST_INSERT_ID() AS lastID FROM users;
 
-SELECT email FROM users WHERE email = ?;
+-- Log in
+SELECT userID FROM users WHERE email = ? AND password = ?;
+SELECT userID FROM users WHERE email = ?; -- check if user already in database for google login
+SELECT LAST_INSERT_ID() AS userID FROM users;
+INSERT INTO users (first_name, last_name, email) VALUES(?, ?, ?);
 
---inserting event details
---NOTE: last ? refers to req.session.user - would store this in a variable in routes
+-- Getting/Modifying user account details
+SELECT first_name FROM users WHERE userID = ?;
+SELECT first_name, last_name, email FROM users WHERE userID = ?;
+SELECT password FROM users WHERE userID = ?;
+INSERT INTO users (first_name, last_name) VALUES (?,?) WHERE userID = ?;
+INSERT INTO users (email) VALUES (?) WHERE userID = ?;
+INSERT INTO users (password) VALUES (?) WHERE userID = ?;
+
+-- Event specific queries
+SELECT event.eventID,event.eventName,event.street_no,event.street,event.suburb,event.country,event.date,event_times.start_time FROM event INNER JOIN event_times ON event.eventID = event_times.eventID INNER JOIN users_events ON users_events.eventID = event.eventID WHERE users_events.userID = ?;
+SELECT MAX(eventID) AS last_id FROM event; --last insert id did not work
+SELECT eventID FROM event WHERE eventID = ?;
+SELECT eventName, street_no, street, suburb, state, post_code, country, date FROM event WHERE eventID = ?;
+SELECT users.first_name,users.last_name FROM users INNER JOIN event ON users.userID = event.userID WHERE eventID = ?;
+SELECT event_times.start_time, event_times.end_time, event.date FROM event_times INNER JOIN event ON event_times.eventID = event.eventID WHERE event_times.eventID = ?;
+SELECT users.email FROM users WHERE userID = ?;
+SELECT MAX(userID) AS user_id FROM users;
+
 INSERT INTO event (eventName, street_no, street, suburb, state, post_code, country, date, userID) VALUES (?,?,?,?,?,?,?,?,?);
+INSERT INTO event_times (start_time, end_time, eventID, userID) VALUES (?,?,?,?);
+INSERT INTO users_events (userID, eventID) VALUES (?,?);
+INSERT INTO event_times (start_time, end_time, eventID, userID) VALUES (?,?,?,?);
+INSERT INTO users (first_name, last_name) VALUES (?,?);
 
---start_time and end_time are received from user input, last ? refers to the last inserted ID of the event table
---since connection to db will be made immediately after inserting event details
--- to get last inserted ID of event table, do SELECT LAST_INSERT_ID() FROM event;
-INSERT INTO event_times (start_time, end_time, eventID) VALUES (?,?,?);
+-- Admin queries
+SELECT userID FROM roles WHERE userID = ?;
+SELECT * FROM users;
+INSERT INTO users (first_name,last_name,email,password) VALUES (?,?,?,?);
+SELECT * FROM event;
 
---testing getting details using inner join
-SELECT users.first_name,users.last_name FROM users INNER JOIN event ON users.userID = event.userID WHERE eventID = 1;
+
+/* Testing Queries */
 
 --inserting data to event table for testing retrieval of information
 INSERT INTO event (eventName, street_no, street, suburb, state, post_code, country, date, userID) VALUES ("Example bday", "136", "North tce", "Adelaide", "SA", "5000", "Australia", "2022-06-10", 1);
-
-
-/* Queries for dashboard */
-
--- Select statements
 
 -- Events for ID of 1
 INSERT INTO event (eventName, street_no, street, suburb, state, post_code, country, date, userID) VALUES ("Birthday dinner", 15, "Truffle", "Bursburry", "South Australia", 5031, "Australia", CURDATE(), 1);
@@ -33,6 +55,3 @@ INSERT INTO users_events VALUES (1, 2);
 
 -- Getting an event and required details for a user
 SELECT event.eventID,event.eventName,event.street_no,event.street,event.suburb,event.country,event.date,event_times.start_time FROM event INNER JOIN event_times ON event.eventID = event_times.eventID INNER JOIN users_events ON users_events.eventID = event.eventID WHERE users_events.userID = ?;
-
-
-/* Admin dashboard queries */
