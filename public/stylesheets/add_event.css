@@ -2,7 +2,7 @@
     font-family: 'Open Sans', sans-serif;
 }
 
-.header-image{
+div.header-image{
     background-image: url('Picture2.png');
     /* width: 100px; */
     /* display:block; */
