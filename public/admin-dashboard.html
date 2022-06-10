@@ -55,6 +55,8 @@
             <div id="dashboardCatagories">
                 <button v-on:click="toggleUsers()"><i class="fa-solid fa-user"></i>Users</button>
                 <button v-on:click="toggleEvents()"><i class="fa-solid fa-flag"></i>Events</button>
+                <button v-on:click="toggleUsersEvents()"><i class="fa-solid fa-users"></i>Users-Events</button>
+                <button v-on:click="toggleRoles()"><i class="fa-solid fa-clipboard"></i>Roles</button>
             </div>
         </div>
 
@@ -62,16 +64,13 @@
         <div id="adminSection">
             <h1 v-if="showUsers"> Users </h1>
             <h1 v-if="showEvents"> Events </h1>
-
-            <!-- <div id="searchField">
-                <i class="fa-solid fa-magnifying-glass"></i>
-                <input type="text" id="adminDashboardSearch" name="search" placeholder="Search... ">
-            </div> -->
-
+            <h1 v-if="showUsersEvents"> Users-Events </h1>
+            <h1 v-if="showRoles"> Roles </h1>
         </div>
 
         <!-- Insert Into Section -->
         <template>
+            <!-- Insert User -->
             <div class="insertSection" v-if="showUsers">
                 <button v-on:click="insertUser();" id="add" class="blue-btn"><i class="fa-solid fa-plus"></i> Add User</button>
                 <input type="text" name="firstName" placeholder="First Name"></input>
@@ -79,17 +78,13 @@
                 <input type="text" name="email" placeholder="Email"></input>
                 <input type="password" name="password" placeholder="Password"></input>
             </div>
-            <div class="insertSection addEvents" v-if="showEvents">
-                <button class="blue-btn"><i class="fa-solid fa-plus"></i> Add Event</button>
-                <input type="text" name="eventName" placeholder="Event Name"></input>
-                <input type="text" name="StreetNumber" placeholder="Street Number"></input>
-                <input type="text" name="Street" placeholder="Street"></input>
-                <input type="text" name="Suburb" placeholder="Suburb"></input>
-                <input type="text" name="State" placeholder="State"></input>
-                <input type="text" name="Postcode" placeholder="Postcode"></input>
-                <input type="text" name="Country" placeholder="Country"></input>
-                <input type="text" name="CreatorID" placeholder="CreatorID"></input>
+            <!-- Insert Role -->
+            <div class="insertSection" v-if="showRoles">
+                <button v-on:click="insertRole();" id="add" class="blue-btn"><i class="fa-solid fa-plus"></i> Add Role</button>
+                <input type="text" name="userID" placeholder="userID"></input>
+                <input type="text" name="role" placeholder="role "></input>
             </div>
+            <p v-if="showRoles" class="Role"> Give a userID a role of "admin" to make them an admin. </p>
         </template>
 
         <hr />
@@ -97,6 +92,7 @@
         <!-- Table containing Data  -->
         <table :class="{ eventsTable : showEvents }">
             <template> <!-- Users/Events Top Row -->
+            <!-- users -->
             <tr v-if="showUsers">
                 <th> userID </th>
                 <th> First Name </th>
@@ -104,6 +100,7 @@
                 <th> Email </th>
                 <th> Password </th>
             </tr>
+            <!-- events -->
             <tr v-if="showEvents">
                 <th> eventID </th>
                 <th> eventName </th>
@@ -115,6 +112,16 @@
                 <th> Post Code </th>
                 <th> Country </th>
                 <th> Creator </th>
+            </tr>
+            <!-- users_events -->
+            <tr v-if="showUsersEvents">
+                <th> userID </th>
+                <th> eventID </th>
+            </tr>
+            <!-- roles -->
+            <tr v-if="showRoles">
+                <th> userID </th>
+                <th> Role</th>
             </tr>
             </template>
             <template> <!-- Filling out table depending on whether users, events -->
@@ -139,8 +146,17 @@
                         <td> {{ event.COUNTRY }} </td>
                         <td> {{ event.USERID }} </td>
                     </tr>
+                    <!-- Users_events Table Data -->
+                    <tr v-for="item in users_events" v-if="showUsersEvents">
+                        <td> {{ item.USERID }} </td>
+                        <td> {{ item.EVENTID }} </td>
+                    </tr>
+                    <!-- Roles Table Data -->
+                    <tr v-for="user in roles" v-if="showRoles">
+                        <td> {{ user.USERID }} </td>
+                        <td> {{ user.ROLE }} </td>
+                    </tr>
             </template>
-
         </table>
 
     </div> <!-- VUE BODY DIV -->
