@@ -52,13 +52,13 @@ input[type="checkbox"] {
   }
 
 #authorize_button {
-    padding: 1em 3em;
-    font-size:1.1em;
+    padding: 1em 2em;
+    font-size:1em;
     color: white;
     background-color: #444dff;
     border:none;
     border-radius: 5px;
-    width: 28%;
+    width: 22%;
 }
 
 #authorize_button:hover {
