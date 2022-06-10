@@ -115,7 +115,7 @@ body {
 }
 
 table {
-    margin-left: 25%;
+    margin-left: 14%;
     border-spacing: 100px 25px;
     text-align: center;
 }
@@ -129,10 +129,10 @@ table {
 
 /* Insert Section */
 .insertSection {
-    align-items: center;
-    justify-content: center;
+    /* align-items: center;
+    justify-content: center; */
     display: flex;
-    margin-left: 12%;
+    margin-left: 17%;
     gap: 2em;
     padding-bottom: 20px;
 }
@@ -147,4 +147,8 @@ table {
 
 .insertSection .addEvents {
     padding-left: 100px;
+}
+
+.Role {
+    margin-left: 17%;
 }

@@ -67,7 +67,6 @@ function onSignIn(googleUser) {
   }));
 }
 
-
 /* Signing out */
 function signOut() {
   let xhttp = new XMLHttpRequest();
