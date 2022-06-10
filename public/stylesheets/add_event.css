@@ -94,7 +94,7 @@ input[type="time"] {
     margin: 10px;
 }
 
-/* #submit-button{
+#submit-button{
     min-width:50%;
     background-color: #444dff;
     font-size: 1.2em;
@@ -108,9 +108,9 @@ input[type="time"] {
 #submit-button:hover {
     background-color: black;
     cursor: pointer;
-} */
+}
 
-#purple-button{
+.purple-button{
     min-width:30%;
     background-color:#444dff;
     font-size: 1.2em;
@@ -121,7 +121,7 @@ input[type="time"] {
     cursor: pointer;
 }
 
-#purple-button:hover {
+.purple-button:hover {
     background-color: #444;
     color:#ffffff;
     cursor: pointer;
