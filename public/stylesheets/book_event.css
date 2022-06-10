@@ -22,18 +22,6 @@ h1 {
     font-size: 20px;
 }
 
-#checkbox {
-    font-size: 1.1em;
-}
-
-#times{
-    width:41.5%;
-    height:100px;
-    /* border:1px solid black;  */
-    letter-spacing: 0.1em;
-    border-radius: 5px; /*rounded borders  */
- }
-
 .time-div{
     display: flex;
     /* justify-content: center; */
