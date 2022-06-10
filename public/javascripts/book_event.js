@@ -276,7 +276,7 @@ function checkAvailability() {
                     document.getElementById("free-busy").appendChild(freebusy_time);
                 }
             }
-            document.getElementById("authorize_button").style.visibility = 'hidden';
+            document.getElementById("authorize_button").style.display = 'none';
         }
 
       } else if (this.readyState == 4 && this.status ==401){

@@ -29,7 +29,11 @@ function getAccountDetails() {
             }
             else {
                 console.log("password detected");
-                password_field.innerText = account_details.password;
+                let pwd = "";
+                for (let i=0; i<(account_details.password).length; i++) {
+                    pwd += "*";
+                }
+                password_field.innerText = pwd;
             }
 
         } else if (this.readyState == 4 && this.status >=400){
