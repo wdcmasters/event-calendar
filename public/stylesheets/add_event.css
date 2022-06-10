@@ -3,13 +3,14 @@
 }
 
 .header-image{
-    background-image: url('./stylesheets/Picture2.png');
+    background-image: url('Picture2.png');
     /* width: 100px; */
-    display:block;
+    /* display:block; */
     background-position: left;
-    /* background-repeat: no-repeat; */
+    background-repeat: no-repeat;
+    border-radius: 20px;
     /* position: relative; */
-    /* background-size: cover;  */
+    background-size: cover;
 }
 
 h1 {
