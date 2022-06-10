@@ -52,17 +52,18 @@ input[type="checkbox"] {
   }
 
 #submit-button{
-    min-width: 25%;
+    min-width:20%;
+    background-color: #444dff;
     font-size: 1.2em;
-    background-color: #007fff;
-    border: none;
-    padding: 15px; /* adds space inside text field */
     color:white;
+    padding: 15px; /* adds space inside text field */
+    border: none;
     border-radius: 5px; /*rounded borders  */
+    cursor: pointer;
 }
 
 #submit-button:hover {
-    background-color: #444dff;
+    background-color: black;
     cursor: pointer;
 }
 
