@@ -279,7 +279,7 @@ router.get('/get_user_details', function(req, res, next){
       return;
     }
 
-    let query = "SELECT first_name, last_name, email FROM users WHERE userID = ?;";
+    let query = "SELECT first_name, last_name, email, password FROM users WHERE userID = ?;";
     connection.query(query,[req.session.user], function(error, rows, fields)
     {
       connection.release();
@@ -302,7 +302,7 @@ router.post('/change_name', function(req, res, next) {
       return;
     }
 
-    let query = "INSERT INTO users (first_name, last_name) VALUES (?,?) WHERE userID = ?;"; //Inserting user
+    let query = "UPDATE users SET first_name = ?, last_name = ? WHERE userID = ?;"; //Inserting user
     connection.query(query,[req.body.first_name, req.body.last_name, req.session.user], function(error, rows, fields)
     {
       connection.release();
@@ -316,6 +316,7 @@ router.post('/change_name', function(req, res, next) {
   });
 });
 
+/* update user's email */
 router.post('/change_email', function(req, res, next) {
   req.pool.getConnection(function(error,connection) {
     if(error)
@@ -343,7 +344,7 @@ router.post('/change_email', function(req, res, next) {
             return;
           }
 
-          let query = "INSERT INTO users (email) VALUES (?) WHERE userID = ?;";
+          let query = "UPDATE users SET email = ? WHERE userID = ?;";
           connection.query(query,[req.body.new_email, req.session.user], function(error, rows, fields)
           {
             connection.release();
@@ -364,6 +365,7 @@ router.post('/change_email', function(req, res, next) {
   });
 });
 
+/* update user's password */
 router.post('/change_pwd', function(req, res, next) {
   req.pool.getConnection(function(error,connection) {
     if(error)
@@ -373,7 +375,7 @@ router.post('/change_pwd', function(req, res, next) {
       return;
     }
 
-    let query = "INSERT INTO users (password) VALUES (?) WHERE userID = ?;";
+    let query = "UPDATE users SET password = ? WHERE userID = ?;";
     connection.query(query,[req.body.new_pwd, req.session.user], function(error, rows, fields)
     {
       connection.release();

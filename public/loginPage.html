@@ -23,39 +23,38 @@
     </head>
 
     <body>
-<!--Header contains logo on top left, link to user dashboard and profile picture on top right-->
-<header>
-
-    <!--Logo/website name-->
-    <div>
-        <a href="index.html" id="home-btn" class="link-black" title="Home">EventCal</a>
-    </div>
-
-</header>
-<hr />
-
-        <!-- <a href="index.html" id="home-btn" class="link-black" title="Home">EventCal</a> -->
-<div class="RectSection">
-    <h1>Log in to continue</h1>
-        <div class="socialMedia">
-            <div id="google">
-                <div class="g-signin2" onload="googleSignOut()"  data-onsuccess="onSignIn" data-longtitle="true" data-width="220" data-height="50">
+        <!--Header contains logo on top left, link to user dashboard and profile picture on top right-->
+        <header>
+            <!--Logo/website name-->
+            <div>
+                <a href="index.html" id="home-btn" class="link-black" title="Home">EventCal</a>
             </div>
-        </div>
+        </header>
+        <hr />
 
-    <!-- <span class="or">OR</span> -->
+        <div class="RectSection">
+            <h1>Log in to continue</h1>
+            <div class="socialMedia">
+                <!-- Google Sign In button -->
+                <div id="google">
+                    <div class="g-signin2" onload="googleSignOut()"  data-onsuccess="onSignIn" data-longtitle="true" data-width="220" data-height="50"></div>
+                </div>
+            </div>
 
-    <div class="UserDetails">
-        <span class="or"> Sign in with your account:</span>
-        <div id="emailInput" class="inputs">
-            <input id="name" type="text" placeholder="Email" required>
-        </div>
+            <!-- <span class="or">OR</span> -->
 
-        <div id="passwordInput" class="inputs">
-            <input id="name1" type="password" placeholder="Password" required>
-        </div>
-        <br>
+            <div class="UserDetails">
+                <span class="or"> Sign in with your account:</span>
+                <div id="emailInput" class="inputs">
+                    <input id="name" type="text" placeholder="Email" required>
+                </div>
 
+                <div id="passwordInput" class="inputs">
+                    <input id="name1" type="password" placeholder="Password" required>
+                </div>
+                <br>
+
+<<<<<<< HEAD
         <div class="login">
             <button class="purple-button" type="submit" onclick="login()">Login</button>
         </div>
@@ -69,17 +68,19 @@
             <a href='https://www.facebook.com/login.php/' class="fb btn">
             <i class="fa-brands fa-facebook-f"></i>
             </a>
+=======
+                <div class="login">
+                    <button id="purple-button" type="submit" onclick="login()">Login</button>
+                </div>
+            </div>
+            <br>
+            <div>
+                <a class="Account" href="signUpPage.html">Don't have an account? Sign up here!</a>
+            </div>
+            <br>
+>>>>>>> ba234a00f5fe8473acf2da35c06f2b97ff26d94a
         </div>
-        <div>
-            <a href='https://twitter.com/i/flow/login' class="tw btn">
-            <i class="fa-brands fa-twitter"></i>
-            </a>
-        </div> -->
-
-                <!-- </form> -->
-</div>
-</body>
-
+    </body>
 </html>
 
 

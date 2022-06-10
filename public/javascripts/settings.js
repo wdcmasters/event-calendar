@@ -1,5 +1,14 @@
+// When the user clicks on <span> (x), close the modal
+function closePopUp() {
+    let pop_ups = document.getElementsByClassName("popup");
+    for (let i=0; i<pop_ups.length; i++) {
+        pop_ups[i].style.display = "none";
+    }
+}
+
+/* updates account details on page */
 function getAccountDetails() {
-    getProfile();
+    getProfile(); // defined in login.js
     let name_field = document.getElementById("user-name");
     let email_field = document.getElementById("email");
     let password_field = document.getElementById("password");
@@ -9,10 +18,11 @@ function getAccountDetails() {
     xhttp.onreadystatechange = function () {
         if(this.readyState == 4 && this.status == 200) {
             let account_details = JSON.parse(this.responseText)[0];
+            console.log(account_details);
             name_field.innerText = account_details.first_name + " " + account_details.last_name;
             email_field.innerText = account_details.email;
 
-            if (!('password' in account_details)) {
+            if (account_details.password == null) {
                 console.log("no password");
                 document.getElementById("pwd-container").style.display = 'none';
                 document.getElementById("change-email-btn").style.display = 'none';

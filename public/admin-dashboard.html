@@ -73,11 +73,21 @@
             <!-- Insert User -->
             <div class="insertSection" v-if="showUsers">
                 <button v-on:click="insertUser();" id="add" class="blue-btn"><i class="fa-solid fa-plus"></i> Add User</button>
-                <input type="text" name="firstName" placeholder="First Name"></input>
-                <input type="text" name="lastName" placeholder="Last Name"></input>
-                <input type="text" name="email" placeholder="Email"></input>
-                <input type="password" name="password" placeholder="Password"></input>
+                <input type="text" name="firstName" placeholder="First Name">
+                <input type="text" name="lastName" placeholder="Last Name">
+                <input type="text" name="email" placeholder="Email">
+                <input type="password" name="password" placeholder="Password">
             </div>
+            <div class="insertSection addEvents" v-if="showEvents">
+                <button class="blue-btn"><i class="fa-solid fa-plus"></i> Add Event</button>
+                <input type="text" name="eventName" placeholder="Event Name">
+                <input type="text" name="StreetNumber" placeholder="Street Number">
+                <input type="text" name="Street" placeholder="Street">
+                <input type="text" name="Suburb" placeholder="Suburb">
+                <input type="text" name="State" placeholder="State">
+                <input type="text" name="Postcode" placeholder="Postcode">
+                <input type="text" name="Country" placeholder="Country">
+                <input type="text" name="CreatorID" placeholder="CreatorID">
             <!-- Insert Role -->
             <div class="insertSection" v-if="showRoles">
                 <button v-on:click="insertRole();" id="add" class="blue-btn"><i class="fa-solid fa-plus"></i> Add Role</button>

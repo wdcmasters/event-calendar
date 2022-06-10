@@ -14,6 +14,7 @@
 
     <script src="/javascripts/dashboard.js"></script>
     <script src="/javascripts/login.js"></script>
+    <script src="/javascripts/settings.js"></script>
 
     <!-- For vue -->
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
@@ -69,19 +70,22 @@
     <div class="popup" id="event-container">
 
         <!--popup content-->
-        <form class="popup-content">
+        <div class="popup-content">
+            <!--close button-->
+            <span class="close" onclick="closePopUp()">&times;</span>
+        <form>
 
             <!--ask user to enter event ID-->
             <h3>Join an Event</h3>
-            <label for="join-event">Enter Event ID</label><br />
+            <label for="eventID">Enter Event ID</label><br />
             <input type="text" id="eventID" name="eventID"><br><br>
 
             <!--container for cancel and save buttons-->
             <div class="cancel-save">
-                <button type="button" class="white-btn" onclick="hidePopup()">Cancel</button><br><br>
-                <button type="button" class="small-blue-btn" onclick="getEvent()">Search event<br><br>
+                <button type="button" class="small-blue-btn" onclick="getEvent()">Search event</button><br><br>
             </div>
         </form>
+        </div>
 
     </div>
 
@@ -131,14 +135,4 @@
     </div>
 </div>
 </body>
-
-    <script>
-        // close pop up event container whenever user clicks outside it
-        var container = document.getElementById("event-container");
-        window.onclick = function(event) {
-            if (event.target == container) {
-                container.style.display = "none";
-            }
-        };
-    </script>
 </html>

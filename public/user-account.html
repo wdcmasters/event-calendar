@@ -80,6 +80,8 @@
                     <div class="popup" id="email-container">
                         <!--popup content-->
                         <form class="popup-content">
+                            <!--close button-->
+                            <span class="close" onclick="closePopUp()">&times;</span>
 
                             <!--ask user to enter new email address-->
                             <h3>Change Email</h3>
@@ -92,7 +94,7 @@
 
                             <!--container for cancel and save buttons-->
                             <div class="cancel-save">
-                                <button type="button" class="white-btn" onclick="hidePopup()">Cancel</button><br><br>
+                                <!--<button type="button" class="white-btn" onclick="hidePopup()">Cancel</button><br><br>-->
                                 <button type="button" class="small-blue-btn" onclick="changeEmail()">Save<br><br>
                             </div>
                         </form>
@@ -110,6 +112,8 @@
                     <div class="popup" id="password-container">
                         <!--popup content-->
                         <form class="popup-content">
+                            <!--close button-->
+                            <span class="close">&times;</span>
 
                             <!--ask user to enter current password-->
                             <h3>Change Password</h3>
@@ -125,7 +129,7 @@
                             <input type="password" id="new-pwd-again" name="new-pwd-again"><br><br>
 
                             <div class="cancel-save">
-                                <button type="button" class="white-btn" onclick="hidePopup()">Cancel</button><br><br>
+                                <!--<button type="button" class="white-btn" onclick="hidePopup()">Cancel</button><br><br>-->
                                 <button type="button" class="small-blue-btn" onclick="changePassword()">Save<br><br>
                             </div>
                         </form>
