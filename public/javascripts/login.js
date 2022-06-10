@@ -1,3 +1,20 @@
+/* Get name of user to display in profile on top right */
+function getProfile() {
+  //AJAX
+  let xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function () {
+    if(this.readyState == 4 && this.status == 200) {
+     document.getElementById("profile-name").innerText = JSON.parse(this.responseText)[0].first_name;
+    } else if (this.readyState == 4 && this.status >=400){
+      console.log("Cannot retrieve user name");
+    }
+  };
+
+  //Open the request
+  xhttp.open("GET", "/users/get_name");
+  xhttp.send();
+}
+
 /*LOGIN*/
 function login()
 {
@@ -29,20 +46,19 @@ function login()
 
 /* Google sign in */
 function onSignIn(googleUser) {
-
+  googleSignOut();
   var token = googleUser.getAuthResponse().id_token;
 
   // once login is successful, send id token to server
   let xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if(this.readyState == 4 && this.status == 200) {
-      //alert("Login successful");
       window.location.href = '/Dashboard.html';
       console.log("Google login successful.");
     } else if (this.readyState == 4 && this.status >=400){
       alert("Login failed. Try again.");
     }
-};
+  };
 
   xhttp.open('POST', '/users/logintest');
   xhttp.setRequestHeader('Content-Type', 'application/json');
@@ -50,6 +66,7 @@ function onSignIn(googleUser) {
     token: googleUser.getAuthResponse().id_token
   }));
 }
+
 
 /* Signing out */
 function signOut() {
@@ -65,4 +82,13 @@ function signOut() {
 
   xhttp.open("POST", "/users/signout");
   xhttp.send();
+}
+
+/* sign out google user from app every time button loads on either sign up or login page */
+function googleSignOut() {
+  var auth2 = gapi.auth2.getAuthInstance();
+  auth2.signOut().then(function () {
+    console.log('User signed out.');
+  });
+  auth2.disconnect();
 }

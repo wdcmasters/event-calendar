@@ -1,5 +1,6 @@
 // get event details from database based on event id stored in session
 function getEventDetails() {
+  getProfile();
     //AJAX
     let xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
@@ -49,7 +50,7 @@ function getEventHost() {
         let host_name = host_details[0].first_name + " " + host_details[0].last_name;
         document.getElementById("event-host").innerText = host_name;
 
-        checkGoogleUser();
+        getProposedTimes();
 
       } else if (this.readyState == 4 && this.status >=400){
         console.log("failed to get host details");
@@ -69,11 +70,11 @@ function checkGoogleUser() {
   xhttp.onreadystatechange = function () {
     if(this.readyState == 4 && this.status == 200) {
       console.log("req.session.gmail returns " + this.responseText);
-      if (!(this.responseText == true)) {
+      if (!(this.responseText == "true")) {
         document.getElementById("authorize_button").style.visibility = 'hidden';
       }
 
-      getProposedTimes();
+      //getProposedTimes();
 
     } else if (this.readyState == 4 && this.status >=400){
       console.log("failed to get host details");
@@ -130,6 +131,8 @@ function getProposedTimes() {
 
      google_timeMax = yr + "-" + month + "-" + day + "T" + max_time + "+09:30";
      console.log("google timeMax:" + google_timeMax);
+
+     checkGoogleUser();
 
     } else if (this.readyState == 4 && this.status >=400){
       console.log("failed to get times");

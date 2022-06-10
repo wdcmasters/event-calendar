@@ -5,12 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/2dc2f1fbdb.js" crossorigin="anonymous"></script>
+
     <link rel="stylesheet" type="text/css" href="stylesheets/admin-dashboard.css" />
     <link rel="stylesheet" href="stylesheets/settings.css"> <!--link to get specific elements for settings pages-->
     <link rel="stylesheet" href="stylesheets/header.css"> <!--link to get header format-->
     <link rel="stylesheet" href="stylesheets/buttons.css"> <!--link to get buttons format-->
+
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
     <script src="javascripts/admin-dashboard-vue.js" defer></script>
+
+    <script src="/javascripts/login.js"></script> <!--for signing out-->
+
     <title>Admin Dashboard</title>
 </head>
 <body>
@@ -26,7 +31,7 @@
                     <a href="/Dashboard.html" class="link-black menu-btn">Home</a>
                 </div>
                 <div class="settings-dropdown">
-                    <button type="button" class="blue-btn">Profile
+                    <button type="button" class="blue-btn" id="profile-name">Profile
                         <i class="fa fa-caret-down"></i> <!-- shows dropdown icon -->
                     </button>
 
@@ -34,6 +39,7 @@
                     <div class="settings">
                         <a href="user-account.html" class="link-black">Account Settings</a>
                         <a href="email-settings.html" class="link-black">Email Settings</a>
+                        <a href="index.html" class="link-black" onclick="signOut()">Sign Out</a>
                     </div>
                 </div>
             </div>

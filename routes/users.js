@@ -10,6 +10,30 @@ router.get('/', function(req, res, next) {
   res.send('respond with a resource');
 });
 
+router.get('/get_name', function(req, res, next) {
+  req.pool.getConnection(function(error,connection) {
+    if(error)
+    {
+      console.log(error);
+      res.sendStatus(500);
+      return;
+    }
+
+    let query = "SELECT first_name FROM users WHERE userID = ?"; //Inserting user
+    connection.query(query,[req.session.user], function(error, rows, fields)
+    {
+      //Running query
+      connection.release();
+      if (error) {
+        console.log(error);
+        res.sendStatus(500);
+        return;
+      }
+      res.json(rows);
+    });
+  });
+});
+
 // need to merge with actual login route done by luke/ajeendra
 // this also contains checking for google token
 router.post('/logintest', function(req, res, next)
@@ -244,6 +268,123 @@ router.post('/isAdmin', function(req, res, next) {
   });
 });
 
-// Checking that users can go to the admin page
+/* Send account details to be displayed on user-account.html */
+router.get('/get_user_details', function(req, res, next){
+  //Opening connection
+  req.pool.getConnection(function(error,connection) {
+    if(error)
+    {
+      console.log(error);
+      res.sendStatus(500);
+      return;
+    }
+
+    let query = "SELECT first_name, last_name, email FROM users WHERE userID = ?"; //Inserting user
+    connection.query(query,[req.session.user], function(error, rows, fields)
+    {
+      connection.release();
+      if (error) {
+        console.log(error);
+        res.sendStatus(500);
+        return;
+      }
+      res.json(rows);
+    });
+  });
+});
+
+router.post('/change_name', function(req, res, next) {
+  req.pool.getConnection(function(error,connection) {
+    if(error)
+    {
+      console.log(error);
+      res.sendStatus(500);
+      return;
+    }
+
+    let query = "INSERT INTO users (first_name, last_name) VALUES (?,?) WHERE userID = ?;"; //Inserting user
+    connection.query(query,[req.body.first_name, req.body.last_name, req.session.user], function(error, rows, fields)
+    {
+      connection.release();
+      if (error) {
+        console.log(error);
+        res.sendStatus(500);
+        return;
+      }
+      res.sendStatus(200);
+    });
+  });
+});
+
+router.post('/change_email', function(req, res, next) {
+  req.pool.getConnection(function(error,connection) {
+    if(error)
+    {
+      console.log(error);
+      res.sendStatus(500);
+      return;
+    }
+
+    let query = "SELECT password FROM users WHERE userID = ?;";
+    connection.query(query,[req.session.user], function(error, rows, fields)
+    {
+      connection.release();
+      if (error) {
+        console.log(error);
+        res.sendStatus(500);
+        return;
+      }
+      if (rows[0].password == req.body.current_pwd) {
+        req.pool.getConnection(function(error,connection) {
+          if(error)
+          {
+            console.log(error);
+            res.sendStatus(500);
+            return;
+          }
+
+          let query = "INSERT INTO users (email) VALUES (?) WHERE userID = ?;";
+          connection.query(query,[req.body.new_email, req.session.user], function(error, rows, fields)
+          {
+            connection.release();
+            if (error) {
+              console.log(error);
+              res.sendStatus(500);
+              return;
+            }
+            res.sendStatus(200);
+          });
+        });
+      }
+      else {
+        console.log("passwords do not match");
+        res.sendStatus(401);
+      }
+    });
+  });
+});
+
+router.post('/change_pwd', function(req, res, next) {
+  req.pool.getConnection(function(error,connection) {
+    if(error)
+    {
+      console.log(error);
+      res.sendStatus(500);
+      return;
+    }
+
+    let query = "INSERT INTO users (password) VALUES (?) WHERE userID = ?;";
+    connection.query(query,[req.body.new_pwd, req.session.user], function(error, rows, fields)
+    {
+      connection.release();
+      if (error) {
+        console.log(error);
+        res.sendStatus(500);
+        return;
+      }
+      res.sendStatus(200);
+    });
+  });
+});
 
 module.exports = router;

@@ -18,6 +18,7 @@
 
         <script src="https://kit.fontawesome.com/a2e31acb7a.js" crossorigin="anonymous"></script>
         <script src="javascripts/page.js"></script>
+        <script src="javascripts/login.js"></script>
 
     </head>
 <body>
@@ -27,25 +28,6 @@
     <!--Logo/website name-->
         <div>
             <a href="index.html" id="home-btn" class="link-black" title="Home">EventCal</a>
-        </div>
-
-        <!--container for links to Home and Profile settings-->
-        <div class="top-right-menu">
-            <div class="menu-div">
-                <a href="#user-dashboard" class="link-black menu-btn">Home</a>
-            </div>
-            <div class="settings-dropdown">
-                <button type="button" class="blue-btn">Profile
-                    <i class="fa fa-caret-down"></i> <!-- shows dropdown icon -->
-                </button>
-
-                <!-- settings to be shown from dropdown menu -->
-                <div class="settings">
-                    <a href="user-account.html" class="link-black">Account Settings</a>
-                    <a href="email-settings.html" class="link-black">Email Settings</a>
-                </div>
-
-            </div>
         </div>
 
     </header>
@@ -61,7 +43,7 @@
             <!-- <form> -->
                 <div class="socialMedia">
                     <div id="google">
-                        <div class="g-signin2" data-onsuccess="onSignIn" data-longtitle="true" data-width="220" data-height="50">
+                        <div class="g-signin2" onload="googleSignOut()" data-onsuccess="onSignIn" data-longtitle="true" data-width="220" data-height="50">
                     </div>
                 </div>
                 <div class="UserDetails">

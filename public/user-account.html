@@ -11,7 +11,7 @@
         <script src="/javascripts/login.js"></script>
 
     </head>
-    <body>
+    <body onload="getAccountDetails()">
         <!--Header contains logo on top left, link to user dashboard and profile picture on top right-->
         <header>
 
@@ -22,7 +22,7 @@
 
             <!-- sign out link -->
             <div class="menu-div" >
-                <a onclick="signOut();" class="link-black menu-btn">Sign out</a>
+                <a href="Dashboard.html" class="link-black menu-btn">Home</a>
             </div>
 
             <!--container for links to Home and Profile settings-->
@@ -31,7 +31,7 @@
                     <a href="/Dashboard.html" class="link-black menu-btn">Home</a>
                 </div> -->
                 <div class="settings-dropdown">
-                    <button type="button" class="blue-btn">Profile
+                    <button type="button" class="blue-btn" id="profile-name">Profile
                         <i class="fa fa-caret-down"></i> <!-- shows dropdown icon -->
                     </button>
 
@@ -39,9 +39,8 @@
                     <div class="settings">
                         <a href="user-account.html" class="link-black">Account Settings</a>
                         <a href="email-settings.html" class="link-black">Email Settings</a>
+                        <a href="index.html" class="link-black" onclick="signOut()">Sign Out</a>
                     </div>
-
-
                 </div>
             </div>
 
@@ -63,17 +62,18 @@
 
                     <!-- USER DETAILS -->
                     <h3>User Details</h3>
+                    <h4 id="user-name"></h4>
                     <form>
                         <label for="firstname">First Name</label><br />
                         <input type="text" id="firstname" name="firstname"><br><br>
                         <label for="lastname">Surname</label><br />
                         <input type="text" id="lastname" name="lastname"><br><br>
-                        <input type="submit" value="Save" class="small-blue-btn"><br><br>
+                        <button type="button" class="small-blue-btn" onclick="changeName()">Change Details</button><br><br>
                     </form>
 
                     <!--EMAIL-->
                     <h3>Email</h3>
-                    <p>janedoe@gmail.com</p>
+                    <p id="email"></p>
                     <button type="button" class="small-blue-btn" id="change-email-btn" onclick="showEmailChange()">Change email address</button><br><br>
 
                     <!--The popup email container-->
@@ -93,16 +93,18 @@
                             <!--container for cancel and save buttons-->
                             <div class="cancel-save">
                                 <button type="button" class="white-btn" onclick="hidePopup()">Cancel</button><br><br>
-                                <input type="submit" value="Save" class="small-blue-btn"><br><br>
+                                <button type="button" class="small-blue-btn" onclick="changeEmail()">Save<br><br>
                             </div>
                         </form>
 
                     </div>
 
                     <!--PASSWORD-->
-                    <h3>Password</h3>
-                    <p>*************</p>
-                    <button type="button" class="small-blue-btn" id="change-password-btn" onclick="showPasswordChange()">Change password</button><br><br>
+                    <div id="pwd-container">
+                        <h3>Password</h3>
+                        <p id="password"></p>
+                        <button type="button" class="small-blue-btn" id="change-password-btn" onclick="showPasswordChange()">Change password</button><br><br>
+                    </div>
 
                     <!--The popup password container-->
                     <div class="popup" id="password-container">
@@ -124,7 +126,7 @@
 
                             <div class="cancel-save">
                                 <button type="button" class="white-btn" onclick="hidePopup()">Cancel</button><br><br>
-                                <input type="submit" value="Save" class="small-blue-btn"><br><br>
+                                <button type="button" class="small-blue-btn" onclick="changePassword()">Save<br><br>
                             </div>
                         </form>
 
@@ -134,8 +136,5 @@
 
             </div>
         </div>
-
-
-
     </body>
 </html>
