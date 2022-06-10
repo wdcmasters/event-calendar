@@ -121,7 +121,7 @@ input[type="time"] {
     cursor: pointer;
 }
 
-#login-button:hover {
+#purple-button:hover {
     background-color: #444;
     color:#ffffff;
     cursor: pointer;
