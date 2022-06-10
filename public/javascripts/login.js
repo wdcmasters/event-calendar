@@ -67,17 +67,6 @@ function onSignIn(googleUser) {
   }));
 }
 
-var pass1nput = document.getElementById('passInput');
-if(pass1nput.value.length > 8)
-{
-    message.innerText = "Password ok";
-}
-else
-{
-    message.innerText = " Please make your password at least 8 characters"
-    return;
-}
-
 /* Signing out */
 function signOut() {
   let xhttp = new XMLHttpRequest();
