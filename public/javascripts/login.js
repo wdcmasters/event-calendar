@@ -67,6 +67,11 @@ function onSignIn(googleUser) {
   }));
 }
 
+var pass1nput = document.getElementById('passInput');
+if(pass1nput.value.length > 5)
+{
+    message.innerText = "character number ok!";
+}
 
 /* Signing out */
 function signOut() {
