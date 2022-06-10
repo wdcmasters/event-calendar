@@ -60,7 +60,7 @@ function onSignIn(googleUser) {
     }
   };
 
-  xhttp.open('POST', '/users/logintest');
+  xhttp.open('POST', '/users/google_login');
   xhttp.setRequestHeader('Content-Type', 'application/json');
   xhttp.send(JSON.stringify({
     token: googleUser.getAuthResponse().id_token
