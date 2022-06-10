@@ -3,11 +3,12 @@
 }
 
 .header-image{
-    background-image: url(Picture2.png”);
-    background-position: left;
+    background: url('.stylesheets/Picture2.png');
+    /* width: 100px; */
+    /* background-position: left;
     background-repeat: no-repeat;
     position: relative;
-    background-size: cover;
+    background-size: cover; */
 }
 
 h1 {
