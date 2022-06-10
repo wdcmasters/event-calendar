@@ -122,3 +122,18 @@ input[type=text], input[type=password] {
 #email-container .blue-btn {
     width: 100px;
 }
+
+/* close button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 30px;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.close:hover{
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}

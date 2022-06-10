@@ -12,9 +12,10 @@ INSERT INTO users (first_name, last_name, email) VALUES(?, ?, ?);
 SELECT first_name FROM users WHERE userID = ?;
 SELECT first_name, last_name, email FROM users WHERE userID = ?;
 SELECT password FROM users WHERE userID = ?;
-INSERT INTO users (first_name, last_name) VALUES (?,?) WHERE userID = ?;
-INSERT INTO users (email) VALUES (?) WHERE userID = ?;
-INSERT INTO users (password) VALUES (?) WHERE userID = ?;
+UPDATE users SET first_name = ?, last_name = ? WHERE userID = ?;
+UPDATE users SET email = ? WHERE userID = ?;
+UPDATE users SET password = ? WHERE userID = ?;
+
 
 -- Event specific queries
 SELECT event.eventID,event.eventName,event.street_no,event.street,event.suburb,event.country,event.date,event_times.start_time FROM event INNER JOIN event_times ON event.eventID = event_times.eventID INNER JOIN users_events ON users_events.eventID = event.eventID WHERE users_events.userID = ?;
