@@ -4,11 +4,15 @@ var vueinst = new Vue({
     data: {
         users: [],
         events: [],
+        users_events: [],
+        roles: [],
+        showUsersEvents: false,
+        showRoles: false,
         showUsers: true,
         showEvents: false
     },
 
-    created () { /*Getting all users */
+    created () { /*Getting all users when the page is being created */
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
             if (xhttp.readyState == 4 && xhttp.status == 200)
@@ -40,16 +44,38 @@ var vueinst = new Vue({
     },
 
     methods: {
+        /* TOGGLES FOR DIFFERENT SECTION */
+        toggleRoles: function (event) {
+            this.showRoles = true;
+            this.showUsersEvents = false;
+            this.showUsers = false;
+            this.showEvents = false;
+            //Call function
+            this.getRoles();
+        },
+
+        toggleUsersEvents: function (event) {
+            this.showUsersEvents = true;
+            this.showRoles = false;
+            this.showUsers = false;
+            this.showEvents = false;
+            // Call function
+            this.getUsersEvents();
+        },
 
         toggleUsers: function (event) {
             this.showUsers = true;
+            this.showRoles = false;
+            this.showUsersEvents = false;
             this.showEvents = false;
         },
 
         toggleEvents: function (event) {
+            this.showEvents = true;
+            this.showRoles = false;
+            this.showUsersEvents = false;
             this.showUsers = false;
             this.getEvents();
-            this.showEvents = true;
         },
 
         insertUser: function (event) {
@@ -110,6 +136,81 @@ var vueinst = new Vue({
 
             xhttp.open("GET", "/admin/getEvents", true);
             xhttp.send();
+        },
+
+        getRoles: function (event) {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (xhttp.readyState == 4 && xhttp.status == 200)
+                {
+                    let response = JSON.parse(xhttp.responseText);
+
+                    vueinst.roles = [];
+
+                    for ( i in response)
+                    {
+                        let userID = response[i].userID;
+                        let role = response[i].role;
+
+                        newRole = { USERID: userID, ROLE: role };
+
+                        vueinst.roles.push(newRole);
+                    }
+                }
+            }
+
+            xhttp.open("GET", "/admin/getRoles", true);
+            xhttp.send();
+
+        },
+
+        getUsersEvents: function (event) {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (xhttp.readyState == 4 && xhttp.status == 200)
+                {
+                    let response = JSON.parse(xhttp.responseText);
+
+                    vueinst.users_events = [];
+
+                    for ( i in response)
+                    {
+                        let userID = response[i].userID;
+                        let eventID = response[i].eventID;
+
+                        newUserEvent = { USERID: userID, EVENTID: eventID };
+
+                        vueinst.users_events.push(newUserEvent);
+                    }
+                }
+            }
+
+            xhttp.open("GET", "/admin/getUserEvents", true);
+            xhttp.send();
+        },
+
+        insertRole: function (event) {
+            //Store values in variables
+            let userID = document.getElementsByName("userID")[0].value;
+            let role = document.getElementsByName("role")[0].value;
+
+            //Make the sign up object
+            let newRole =   { userID: userID, role: role };
+
+            //AJAX
+            let xhttp = new XMLHttpRequest();
+
+            xhttp.onreadystatechange = function () {
+                if(this.readyState == 4 && this.status == 200) {
+                    alert("Added "+role+"to "+userID);
+                    window.location.href = '/admin-dashboard.html';
+                }
+            };
+
+            //Open the request
+            xhttp.open("POST", "/admin/addRole");
+            xhttp.setRequestHeader("Content-type", "application/json");
+            xhttp.send(JSON.stringify(newRole));
         }
     }
 
