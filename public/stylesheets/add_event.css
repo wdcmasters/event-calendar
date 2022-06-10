@@ -5,6 +5,7 @@
 .header-image{
     background-image: url('./stylesheets/Picture2.png');
     /* width: 100px; */
+    display:block;
     background-position: left;
     /* background-repeat: no-repeat; */
     /* position: relative; */
