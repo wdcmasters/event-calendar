@@ -51,8 +51,8 @@ input[type="checkbox"] {
     margin-right: 10px;
   }
 
-#authorize_button {
-    padding: 1em 2em;
+#generate_button, #authorize_button {
+    padding: 1em 1.5em;
     font-size:1em;
     color: white;
     background-color: #444dff;
@@ -61,11 +61,16 @@ input[type="checkbox"] {
     width: 22%;
 }
 
-#authorize_button:hover {
+#generate_button:hover, #authorize_button:hover {
     background-color: black;
     color:#ffffff;
     cursor: pointer;
 }
+
+#generate_button{
+    width: 18%;
+}
+
 #submit-button{
     min-width:20%;
     background-color: #444dff;
