@@ -81,8 +81,8 @@
             <!-- Insert Role -->
             <div class="insertSection" v-if="showRoles">
                 <button v-on:click="insertRole();" id="add" class="blue-btn"><i class="fa-solid fa-plus"></i> Add Role</button>
-                <input type="text" name="userID" placeholder="userID"></input>
-                <input type="text" name="role" placeholder="role "></input>
+                <input type="text" name="userID" placeholder="userID">
+                <input type="text" name="role" placeholder="role ">
             </div>
             <p v-if="showRoles" class="Role"> Give a userID a role of "admin" to make them an admin. </p>
         </template>
