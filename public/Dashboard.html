@@ -6,48 +6,53 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/2dc2f1fbdb.js" crossorigin="anonymous"></script>
+
     <link rel="stylesheet" type="text/css" href="stylesheets/Dashboard.css" />
     <link rel="stylesheet" href="stylesheets/settings.css"> <!--link to get specific elements for settings pages-->
     <link rel="stylesheet" href="stylesheets/header.css"> <!--link to get header format-->
     <link rel="stylesheet" href="stylesheets/buttons.css"> <!--link to get buttons format-->
+
     <script src="/javascripts/dashboard.js"></script>
     <script src="/javascripts/login.js"></script>
+
+    <!-- For vue -->
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
     <script src="javascripts/Dashboard-vue.js" defer></script>
+
 </head>
-<header>
-
-            <!--Logo/website name-->
-        <div>
-                <a href="index.html" id="home-btn" class="link-black" title="Home">EventCal</a>
-            </div>
-
-            <!--container for links to Home and Profile settings-->
-            <div class="top-right-menu">
-                <!-- sign out link -->
-                <div class="menu-div" >
-                    <a onclick="signOut();" class="link-black menu-btn">Sign out</a>
+<body onload="getProfile()">
+    <header>
+                <!--Logo/website name-->
+            <div>
+                    <a href="index.html" id="home-btn" class="link-black" title="Home">EventCal</a>
                 </div>
 
-                <div class="settings-dropdown">
-                    <button type="button" class="blue-btn">Profile
-                        <i class="fa fa-caret-down"></i> <!-- shows dropdown icon -->
-                    </button>
-
-                    <!-- settings to be shown from dropdown menu -->
-                    <div class="settings">
-                        <a href="user-account.html" class="link-black">Account Settings</a>
-                        <a href="email-settings.html" class="link-black">Email Settings</a>
+                <!--container for links to Home and Profile settings-->
+                <div class="top-right-menu">
+                    <div class="menu-div" >
+                        <a href="Dashboard.html" class="link-black menu-btn">Home</a>
                     </div>
 
+                    <div class="settings-dropdown">
+                        <button type="button" class="blue-btn" id="profile-name">Profile
+                            <i class="fa fa-caret-down"></i> <!-- shows dropdown icon -->
+                        </button>
+
+                        <!-- settings to be shown from dropdown menu -->
+                        <div class="settings">
+                            <a href="user-account.html" class="link-black">Account Settings</a>
+                            <a href="email-settings.html" class="link-black">Email Settings</a>
+                            <a href="index.html" class="link-black" onclick="signOut()">Sign Out</a>
+                        </div>
+
+                    </div>
                 </div>
-            </div>
-        </header>
-        <hr />
-<body>
+    </header>
+    <hr />
+
         <!-- Page content -->
 <div class="content" id="vueBody">
-    <!-- ADMIN DASHBOARD LINK (only shows if loggined in user is an admin ) -->
+    <!-- ADMIN DASHBOARD LINK (only shows if logged in user is an admin ) -->
     <template>
         {{ checkAdminHelper() }}
         <a href="admin-dashboard.html" v-if="isAdmin"> Go to Admin Dashboard </a>
@@ -74,7 +79,7 @@
             <!--container for cancel and save buttons-->
             <div class="cancel-save">
                 <button type="button" class="white-btn" onclick="hidePopup()">Cancel</button><br><br>
-                <button type="button" class="small-blue-btn" onclick="getEvent();">Search event<br><br>
+                <button type="button" class="small-blue-btn" onclick="getEvent()">Search event<br><br>
             </div>
         </form>
 
