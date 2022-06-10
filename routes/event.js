@@ -231,7 +231,7 @@ router.get('/get_times', function(req, res, next) {
 });
 
 
-// get gmail, event date, min time and max time
+// get gmail
 router.get('/get_gmail', function(req, res, next) {
 
   // only get gmail from database if user has session variable set to true
@@ -265,41 +265,6 @@ router.get('/get_gmail', function(req, res, next) {
     res.sendStatus(401);
   }
 });
-
-
-
-// // put guest information into database
-// router.post("/event/respond/guest", function(req, res, next) {
-//   if (req.body.first_name == "" || req.body.last_name == "")
-//      {
-//        console.log("Fill in the inputs");
-//        res.sendStatus(404);
-//        return;
-//      }
-//      if ('first_name' in req.body && 'last_name' in req.body) {
-//        //Opening connection
-//        req.pool.getConnection(function(error,connection) {
-//          if(error) {
-//            console.log(error);
-//            res.sendStatus(500);
-//            return;
-//          }
-
-//          let query = "INSERT INTO users (first_name,last_name) VALUES (?,?);"; //Inserting guest into db
-//          connection.query(query,[req.body.first_name, req.body.last_name], function(error, rows, fields)
-//          {
-//            //Running query
-//            connection.release(); // release connection
-//            if (error) {
-//              console.log(error);
-//              res.sendStatus(500);
-//              return;
-//            }
-
-//          });
-//        });
-//       }
-//       });
 
 /* adds event times from add_event.html */
 router.post('/respond/add_times', function(req, res, next) {
