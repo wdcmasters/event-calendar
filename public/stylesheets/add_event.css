@@ -4,8 +4,6 @@
 
 div.header-image{
     background-image: url('Picture2.png');
-    /* width: 100px; */
-    /* display:block; */
     background-position: left;
     background-repeat: no-repeat;
     border-radius: 20px;
