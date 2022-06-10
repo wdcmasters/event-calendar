@@ -33,7 +33,7 @@ body {
     justify-content: center;
 }
 
-#BlueButton, #GreyButton {
+#BlueButton, .GreyButton {
     padding: 1em 3em;
     color: black;
     font-size:1.5vw;
@@ -44,7 +44,7 @@ body {
     font-family: Tahoma;
 }
 
-.buttons #GreyButton:hover {
+.buttons .GreyButton:hover {
     background-color: #444dff;
     color:#ffffff;
     cursor: pointer;
