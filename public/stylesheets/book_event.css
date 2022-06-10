@@ -97,8 +97,6 @@ input[type="checkbox"] {
     border-radius: 5px; /*rounded borders  */
     cursor: pointer;
     margin: 15px 0px 30px 15px; /* top right bottom left */
-    /* margin-top: 10px;
-    margin-left: 15px; */
 }
 
 #cancel-button:hover {
