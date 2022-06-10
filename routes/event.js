@@ -267,5 +267,49 @@ router.post('/respond/add_times', function(req, res, next) {
   });
 });
 
+/* store guest details in database */
+router.post('/respond/guest/details', function(req, res, next){
+
+  // connect to database
+  req.pool.getConnection(function(error,connection){
+    if(error){
+      console.log(error);
+      res.sendStatus(500);
+      return;
+    }
+
+    // insert first and last name into database
+    let query = "INSERT INTO users (first_name, last_name) VALUES (?,?);";
+    connection.query(query, [req.body.first_name, req.body.last_name], function(error, rows, fields) {
+      connection.release(); // release connection
+      if (error) {
+        console.log(error);
+        res.sendStatus(500);
+        return;
+      }
+      // get the last inserted user id to store in guest's session
+      req.pool.getConnection(function(error,connection){
+        if(error){
+          console.log(error);
+          res.sendStatus(500);
+          return;
+        }
+        let query = "SELECT MAX(userID) AS user_id FROM users;";
+        connection.query(query, function(error, rows, fields) {
+          connection.release(); // release connection
+          if (error) {
+            console.log(error);
+            res.sendStatus(500);
+            return;
+          }
+          req.session.user = rows[0].user_id;
+          req.session.guest = true;
+          res.sendStatus(200);
+        });
+      });
+    });
+  });
+});
+
 
 module.exports = router;

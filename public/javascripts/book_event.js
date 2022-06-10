@@ -1,12 +1,5 @@
-// global variables to store current event booking details
-var user_email; // stores gmail for use as calendar ID
-
-
 // get event details from database based on event id stored in session
 function getEventDetails() {
-    // object to store details (given as an object) from database
-    //let details = [];
-
     //AJAX
     let xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
@@ -56,7 +49,7 @@ function getEventHost() {
         let host_name = host_details[0].first_name + " " + host_details[0].last_name;
         document.getElementById("event-host").innerText = host_name;
 
-        getProposedTimes();
+        checkGoogleUser();
 
       } else if (this.readyState == 4 && this.status >=400){
         console.log("failed to get host details");
@@ -66,6 +59,30 @@ function getEventHost() {
     //Open the request
     xhttp.open("GET", "/event/get_host");
     xhttp.send();
+}
+
+/* hides google calendar button if user does not have gmail account
+Note that a user has a gmail account if req.session.gmail = true */
+function checkGoogleUser() {
+  //AJAX
+  let xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function () {
+    if(this.readyState == 4 && this.status == 200) {
+      console.log("req.session.gmail returns " + this.responseText);
+      if (!(this.responseText == true)) {
+        document.getElementById("authorize_button").style.visibility = 'hidden';
+      }
+
+      getProposedTimes();
+
+    } else if (this.readyState == 4 && this.status >=400){
+      console.log("failed to get host details");
+    }
+  };
+
+  //Open the request
+  xhttp.open("GET", "/users/check_google_user");
+  xhttp.send();
 }
 
 
@@ -171,6 +188,8 @@ function gisLoaded() {
     });
     gisInited = true;
 }
+
+var user_email; // stores gmail for use as calendar ID
 
 // get email
 function checkAvailability() {
@@ -295,7 +314,7 @@ function submitAvailability(){
     if(this.readyState == 4 && this.status == 200) {
       console.log("Input responded times into database successfully");
       alert("Sent availability.");
-      window.location.href = '/Dashboard.html';
+      checkGuest();
     }
     else if (this.readyState == 4 && this.status >=400){
       console.log("couldn't place responded times in database");
@@ -306,4 +325,27 @@ function submitAvailability(){
   xhttp.open("POST", "/event/respond/add_times"); // post: sending info to server
   xhttp.setRequestHeader("Content-type", "application/json");
   xhttp.send(JSON.stringify(responded_times));
+}
+
+function checkGuest() {
+  //AJAX
+  let xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function () {
+    if(this.readyState == 4 && this.status == 200) {
+      console.log(this.responseText);
+      if (this.responseText == "true") {
+        window.location.href = '/index.html';
+      }
+      else {
+        window.location.href = '/Dashboard.html';
+      }
+    }
+    else if (this.readyState == 4 && this.status >=400){
+      console.log("couldn't check user type");
+    }
+  };
+
+  // //Open the request
+  xhttp.open("GET", "/users/check_guest");
+  xhttp.send();
 }

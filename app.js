@@ -51,6 +51,15 @@ app.get('/show_event.html/event/respond/guest', function(req, res) {
   res.redirect('/pop_up_guest.html');
 });
 
+// if they cancel/submit booking, guests get redirected to home page
+app.get('/Dashboard.html', function(req, res) {
+  if (req.session.guest == true) {
+    res.redirect('/');
+  } else {
+    res.redirect('/Dashboard.html');
+  }
+});
+
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/event', eventRouter);

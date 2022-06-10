@@ -193,4 +193,15 @@ router.post('/getEvents', function(req, res, next) {
   });
 });
 
+/* returns whether a user has logged in with a gmail account or not - used to hide gcal api button on book_event */
+router.get('/check_google_user', function(req, res, next){
+  res.json(req.session.gmail);
+});
+
+/* returns whether a user is a guest or not - used for redirecting to appropriate page once availability submitted */
+router.get('/check_guest', function(req, res, next){
+  console.log("guest: " + req.session.guest);
+  res.json(req.session.guest);
+});
+
 module.exports = router;

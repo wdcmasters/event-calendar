@@ -70,9 +70,9 @@
     <p class="p" id="event-times"></p><br/>
 
     <!-- Select availability -->
-    <h3> Specify your availability for the event: </h3>
+    <h3> Specify your availability for the event </h3>
     <button id="authorize_button" onclick="checkAvailability()">Fetch Availability from GCal</button>
-    <div id="free-busy"></div><br/>
+    <div id="free-busy"></div>
 
     <h4> Select a suitable time: </h4>
     <div class="time-div">
@@ -90,7 +90,7 @@
     <!-- Submit availability -->
     <button type="button" id="submit-button" onclick="submitAvailability()"> Submit availability</button>
     <!-- Cancel button -->
-    <button type="button" id="cancel-button" onclick="window.location.href='/Dashboard.html'"> Cancel </button>
+    <button type="button" id="cancel-button" onclick="checkGuest()"> Cancel </button>
 </div>
 
 </body>
