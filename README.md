@@ -7,7 +7,7 @@ An event scheduling web application that allows users to plan events and compare
 
 Demo of the application:
 
-<img src="https://user-images.githubusercontent.com/83646358/206388565-1a497087-c975-4d75-90e9-08c646bd6760.mp4" width="200">
+https://user-images.githubusercontent.com/83646358/206388565-1a497087-c975-4d75-90e9-08c646bd6760.mp4
 
 
 ## Features
